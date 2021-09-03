@@ -1,0 +1,3356 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width" , initial-scale="1.0">
+
+
+  <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+
+
+  <!--===== CSS =====-->
+  <link rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <link rel="shortcut icon" type="image" href="/home/salvador/Pictures/SSP-logo.png">
+  <style>
+    /*===== GOOGLE FONTS =====*/
+    @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+    /*===== VARIABLES CSS =====*/
+    :root {
+      /*===== Colores =====*/
+      --first-color: #000000;
+      --input-color: #80868B;
+      --border-color: #DADCE0;
+
+      /*===== Fuente y tipografia =====*/
+      --body-font: 'Roboto', sans-serif;
+      --normal-font-size: 1rem;
+      --small-font-size: .75rem;
+    }
+
+    /*===== BASE =====*/
+    *,
+    ::before,
+    ::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--body-font);
+      font-size: var(--normal-font-size);
+      width: 100%;
+      height: 100%;
+      background-color: white;
+    }
+
+    h1 {
+      margin: 10px;
+    }
+
+    /*===== FORM =====*/
+
+    form {
+      width: 100%;
+      height: 100%;
+      padding: 4rem 2rem;
+      border-radius: 1rem;
+      display: inline-block;
+
+    }
+
+    .form__title {
+      font-weight: 400;
+      margin-bottom: 3rem;
+    }
+
+    .form__div {
+
+      position: relative;
+      height: 48px;
+      margin-bottom: 1.5rem;
+    }
+
+    /*input styles*/
+
+    .form__input {
+
+      position: absolute;
+      display: inline-block;
+      top: 0;
+      left: 0;
+      width: 25%;
+      height: 100%;
+      font-size: var(--normal-font-size);
+      border: 1px solid var(--border-color);
+      border-radius: .5rem;
+      outline: none;
+      padding: 1rem;
+      background: none;
+      z-index: 1;
+    }
+
+    /*label styles*/
+
+    .form__label {
+      /*position label elements*/
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      padding: 0 .25rem;
+      background-color: #fff;
+      color: var(--input-color);
+      font-size: var(--normal-font-size);
+      transition: .3s;
+    }
+
+    /*button styles*/
+
+    .form__button {
+      display: block;
+      margin-left: auto;
+      padding: .75rem 2rem;
+      outline: none;
+      border: none;
+      background-color: var(--first-color);
+      color: #fff;
+      font-size: var(--normal-font-size);
+      border-radius: .5rem;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    .form__button:hover {
+      box-shadow: 0 10px 36px rgba(0, 0, 0, .15);
+    }
+
+    /*Input focus move up label*/
+    .form__input:focus+.form__label {
+      top: -.5rem;
+      left: .8rem;
+      color: var(--first-color);
+      font-size: var(--small-font-size);
+      font-weight: 500;
+      z-index: 10;
+    }
+
+    /*Input focus sticky top label*/
+    .form__input:not(:placeholder-shown).form__input:not(:focus)+.form__label {
+      top: -.5rem;
+      left: .8rem;
+      font-size: var(--small-font-size);
+      font-weight: 500;
+      z-index: 10;
+    }
+
+    /*Input focus*/
+    .form__input:focus {
+      border: 1.5px solid var(--first-color);
+    }
+
+    /*=====CONTAINER=====*/
+    /*poner los elementos dentro de contairner*/
+    .container {
+
+      border-radius: 4px;
+      background-image: linear-gradient(white, #53316d);
+      /*background-color: transparent !important;*/
+      opacity: .75;
+      /*tambien transparenta elementos dentro del container*/
+      padding: 20px;
+      width: 100%;
+      height: 100%;
+    }
+
+    /*====HEADER====*/
+    .header {
+      width: 100%;
+      height: 150px;
+      padding: 60px 0;
+      border-bottom: solid 1px rgba(16, 16, 16, 0.1);
+      text-align: center;
+      background-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(0, 0, 0));
+      background-blend-mode: multiply;
+      color: rgb(255, 255, 255);
+    }
+
+    header .inner {
+      width: 100%;
+      /* This is the inner width of the content inside of your header (80%, etc) */
+      height: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+
+    header .logo {
+      display: table;
+      height: 100%;
+      float: left;
+    }
+
+    header .logo div {
+      height: 100%;
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    header .logo img {
+      height: 100px;
+      margin-top: 5px;
+      /* Optical alignment of the logo */
+    }
+
+    header nav {
+      float: center;
+      height: 100%;
+    }
+
+    header nav li {
+      display: table;
+      height: 100%;
+      float: left;
+      margin-right: 30px;
+    }
+
+    header nav li:last-of-type {
+      margin-right: 0;
+    }
+
+    header nav span {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    header nav a {
+      color: #101010;
+    }
+
+    header nav .button {
+      background-color: #000000;
+      /* This HEX is the color of the button */
+      color: #FFF;
+      padding: 10px 20px;
+      border-radius: 4px;
+    }
+
+    header nav .button:hover {
+      filter: brightness(1.05);
+    }
+
+
+
+    /*input styles*/
+
+    /*input {
+      border: 1px solid black;
+      border-radius: 3px;
+    }*/
+
+    /*Label styles*/
+    label {
+      cursor: pointer;
+    }
+
+    textarea {
+      resize: both;
+    }
+
+    /*checkbox styles*/
+    input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      height: 20px;
+      width: 20px;
+      background-color: #d5d5d5;
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      outline: none;
+    }
+
+    input[type="checkbox"]::after {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      content: "\f00d";
+      /*content: "\f00c";*/
+      color: white;
+      size: 50px;
+      display: none;
+    }
+
+    input[type="checkbox"]:hover {
+      background-color: #a5a5a5;
+    }
+
+    input[type="checkbox"]:checked {
+      background-color: black;
+    }
+
+    input[type="checkbox"]:checked::after {
+      display: block;
+    }
+
+    /*====Time====*/
+
+    /* A few custom styles for time inputs */
+
+    input[type="time"] {
+      appearance: none;
+      -webkit-appearance: none;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      color: #95a5a6;
+      font-size: 15px;
+      border: 1px solid #ecf0f1;
+      background: #ecf0f1;
+      padding: 5px;
+      display: inline-block !important;
+      visibility: visible !important;
+    }
+
+    input[type="time"],
+    focus {
+      color: #95a5a6;
+      box-shadow: none;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+    }
+
+    /*====DATE====*/
+
+    /* Removes the clear button from date inputs */
+    input[type="date"]::-webkit-clear-button {
+      display: none;
+    }
+
+    /* Removes the spin button */
+    input[type="date"]::-webkit-inner-spin-button {
+      display: none;
+    }
+
+    /* Always display the drop down caret */
+    input[type="date"]::-webkit-calendar-picker-indicator {
+      color: #2c3e50;
+    }
+
+    /* A few custom styles for date inputs */
+    input[type="date"] {
+      appearance: none;
+      -webkit-appearance: none;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      color: #95a5a6;
+      font-size: 15px;
+      border: 1px solid #ecf0f1;
+      background: #ecf0f1;
+      padding: 5px;
+      display: inline-block !important;
+      visibility: visible !important;
+    }
+
+    input[type="date"],
+    focus {
+      color: #95a5a6;
+      box-shadow: none;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+    }
+
+    /*=====TABLE=====*/
+
+    .content-table {
+      border-collapse: collapse;
+      margin: 1px 0;
+      font-size: 0.9em;
+      min-width: 300px;
+      border-radius: 5px 5px 0 0;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .content-table thead tr {
+      background-color: #009879;
+      color: #ffffff;
+      text-align: left;
+      font-weight: bold;
+    }
+
+    .content-table th,
+    .content-table td {
+      padding: 1px 5px;
+      overflow-x:auto;
+    }
+
+    .content-table tbody tr {
+      border-bottom: 1px solid #dddddd;
+    }
+
+    .content-table tbody tr:nth-of-type(even) {
+      background-color: #f3f3f3;
+    }
+
+    .content-table tbody tr:last-of-type {
+      border-bottom: 2px solid #009879;
+    }
+
+    .content-table tbody tr.active-row {
+      font-weight: bold;
+      color: #009879;
+    }
+  </style>
+
+
+
+  <title>IPH</title>
+</head>
+
+<!--header w titles-->
+<section class="header">
+  <h1 style="font-family: 'Bebas Neue', cursive;">INFORME POLICIAL HOMOLOGADO (IPH)</h1>
+  <pre style="font-family: 'Bebas Neue', cursive;">HECHO PROBABLEMENTE DELICTIVO.</pre>
+</section>
+
+<body>
+
+  <header>
+    <div class="inner">
+      <div class="logo">
+        <div>
+          <!-- The below line can be an image or a h1, either will work -->
+          <img src="./PCE.png" alt="PCE logo">
+
+        </div>
+      </div>
+
+      <!--nav section, I dont need it for the momment-->
+
+      <!-- Each of the below lines look complicated. There is a reason for this markup though!
+                <li> tag will be the container for the table.
+                <span> will be the part that centers the content inside it
+                <a> is the actual clickable part -->
+      <!--<nav>
+        <li><span><a href="">About</a></span></li>
+        <li><span><a href="">Work</a></span></li>
+        <li><span><a href="">History</a></span></li>
+        <li><span><a href="" class="button">Contact</a></span></li>-->
+      <!-- On the line above, remove the class="button" if you don't want the final
+                  element to be a button
+      </nav>-->
+
+    </div>
+  </header>
+
+  <div class="container" align="left">
+    <form action="generarPDF.php" class="form" method="POST">
+      <div class="" align="right">
+        <a href="buscador.html">Buscar</a>
+      </div>
+
+      <!--<h1 align="center">INFORME POLICIAL HOMOLOGADO (IPH)</h1>
+      <h2 align="center"><mark>HECHO PROBABLEMENTE DELICTIVO</mark></h2>-->
+
+      <!--Insertar campos de formulario-->
+      <h3 align="center">SECCIÓN 1 - PUESTA A DISPOSICIÓN</h3>
+      <h5>Apartado 1.1 Fecha y hora de la puesta a disposicion</h5>
+
+      <div class="form__div">
+        <input type="text" class="form__input" name="linea3" id="3" placeholder=" " maxlength="15">
+        <label for="linea3" class="form__label">No. Expediente</label>
+      </div>
+
+      <table class="content-table">
+        <th></th>
+
+        <tr>
+          <th>
+          <td><label for="">Fecha</label></td>
+          <td><input type="date" name="linea1" id="linea1"></td>
+          <td><label for="">Hr</label></td>
+          <td><input type="time" name="linea2" id="linea2"></td>
+          <td>
+            <pre style="font-style: italic; font-size: xx-small;">formato 24 horas</pre>
+          </td>
+          </th>
+        </tr>
+      </table><br>
+
+      <pre style="font-style: italic; font-size: xx-small;"><mark>señale con una "x" el o los Anexos entregados e indique la cantidad
+      de cada uno de ellos (solo entrege los Anexos utilizados.)</mark></pre>
+
+      <!-- anexos check box -->
+      <!--check box averiuar despuescomo acomodarlos al igual que el formato-->
+      <table>
+        <th></th>
+
+        <tr>
+          <th>
+          <td align="center"><label class="form-check-label" for="anexoIPH">Incluir IPH</label></td>
+          <td><input type="checkbox" name="anexoIPH" id="anexoIPH" class="form-check-input" onchange="seleccion(0);"></td>
+          </th>
+        </tr>
+
+        <tr>
+          <th>
+          <td align="center"><label class="form-check-label" for="anexoA">Incluir anexo A</label></td>
+          <td><input type="checkbox" name="anexoA" id="anexoA" onchange="seleccion(1);"></td>
+          <td align="center"><label class="form-check-label" for="anexoB">Incluir anexo B</label></td>
+          <td><input type="checkbox" name="anexoB" id="anexoB" onchange="seleccion(2);"></td>
+          <td align="center"><label class="form-check-label" for="anexoC">Incluir anexo C</label></td>
+          <td><input type="checkbox" name="anexoC" id="anexoC" onchange="seleccion(3);"></td>
+          <td align="center"><label class="form-check-label" for="anexoD">Incluir anexo D</label></td>
+          <td><input type="checkbox" name="anexoD" id="anexoD" onchange="seleccion(4);"></td>
+          </th>
+        </tr>
+
+        <tr>
+          <th>
+          <td align="center"><label class="form-check-label" for="anexoE">Incluir anexo E</label></td>
+          <td><input type="checkbox" name="anexoE" id="anexoE" onchange="seleccion(5);"></td>
+          <td align="center"><label class="form-check-label" for="anexoF">Incluir anexo F</label></td>
+          <td><input type="checkbox" name="anexoF" id="anexoF" onchange="seleccion(6);"></td>
+          <td align="center"><label class="form-check-label" for="anexoG">Incluir anexo G</label></td>
+          <td><input type="checkbox" name="anexoG" id="anexoG" onchange="seleccion(7);"></td>
+          </th>
+        </tr>
+
+      </table><br>
+
+      <table>
+        <th></th>
+
+        <tr>
+          <th>
+          <td align="center"><label class="form-check-label" for="anexoH">Anexar Documentacion</label></td>
+          <td><input type="checkbox" name="anexoH" id="anexoH" onchange="seleccion(8);"></td>
+          </th>
+        </tr>
+      </table><br>
+
+      <!--Campos de Textos-->
+      <!-- datos de quien realiza la puesta a dispocición linea-->
+
+      <h5>Datos de quien realiza la puesta a disposicion </h5>
+
+
+      <div class="form__div">
+        <input type="text" name="linea6" id="linea6" class="form__input" placeholder=" ">
+        <label for="linea6" class="form__label">Nombre</label><br>
+      </div>
+
+      <div class="form__div">
+        <input type="text" name="linea4" id="linea4" class="form__input" placeholder=" ">
+        <label for="linea4" class="form__label">Apellido Paterno</label>
+      </div>
+
+      <div class="form__div">
+        <input type="text" name="linea5" id="linea5" class="form__input" placeholder=" ">
+        <label for="linea5" class="form__label">Apellido Materno</label>
+      </div>
+
+      <div class="form__div">
+        <input type="text" name="linea7" id="linea7" class="form__input" placeholder=" ">
+        <label for="linea7" class="form__label">Adscripción</label>
+      </div>
+
+      <div class="form__div">
+        <input type="text" name="linea8" id="linea8" class="form__input" placeholder=" ">
+        <label for="linea8" class="form__label">Grado/Cargo</label>
+      </div>
+
+      <!-- Fiscal autoridad que recibe la puesta a dispocición -->
+      <h6>Fiscal/Autoridad que recibe la puesta a disposicion</h6>
+
+      <div class="form__div">
+        <input type="text" name="linea11" id="linea11" class="form__input" placeholder=" ">
+        <label for="linea11" class="form__label">Nombre</label><br>
+      </div>
+
+      <div class="form__div">
+        <input type="text" name="linea9" id="linea9" class="form__input" placeholder=" ">
+        <label for="linea9" class="form__label">Apellido Paterno</label>
+      </div>
+
+      <div class="form__div">
+        <input type="text" name="linea10" id="linea10" class="form__input" placeholder=" ">
+        <label for="linea10" class="form__label">Apellido Materno</label>
+      </div>
+
+      <div class="form__div">
+        <input type="text" name="linea13" id="linea13" class="form__input" placeholder=" ">
+        <label for="linea13" class="form__label">Adscripción</label>
+      </div>
+
+      <div class="form__div">
+        <input type="text" name="linea14" id="linea14" class="form__input" placeholder=" ">
+        <label for="linea14" class="form__label">Grado/Cargo</label>
+      </div>
+      <br>
+
+      <!--hide Doc and sections 2-5-->
+
+      <div id="anexo0">
+
+
+
+        <div class="" id="anexo8">
+          <h5 align="center">DOCUMENTACION</h5>
+
+          <pre style="font-style: italic; font-size: xx-small;"><mark>Señale con una "x" el tipo de documentacion</mark></pre>
+
+          <table style="width:100%">
+            <th></th>
+
+            <tr>
+              <th>
+              <td><label class="form-check-label" for="anexoFO">Fotografias</label></td>
+              <td><input type="checkbox" name="anexoFO" id="anexoFO" value="1"></td>
+              <td><label class="form-check-label" for="anexoAU">Audio</label></td>
+              <td><input type="checkbox" name="anexoAU" id="anexoAU" value="2"></td>
+              <td><label class="form-check-label" for="anexoVI">Videos</label></td>
+              <td><input type="checkbox" name="anexoVI" id="anexoVI" value="3"></td>
+              <td><label class="form-check-label" for="anexoCM">Certificado Medico</label></td>
+              <td><input type="checkbox" name="anexoCM" id="anexoCM" value="4"></td>
+              </th>
+            </tr>
+
+            <tr>
+              <th>
+              <td><label class="form-check-label" for="anexoH">Otros</label></td>
+              <td><input type="checkbox" name="anexoH" id="anexoH" value="5"></td>
+              </th>
+            </tr>
+          </table><br>
+
+          <div class="form__div">
+            <input type="text" class="form__input" name="linea22" id="linea22" maxlength="20" placeholder=" ">
+            <label for="linea22" class="form__label">¿Cuál?</label>
+          </div>
+
+          <!--closes docu div-->
+        </div><br>
+
+        <p class="divided">
+          <span class="divider"></span>
+        </p>
+
+        <h3 style="font-family: Helvetica;" align="center">SECCIÓN 2 - PRIMER RESPONDIENTE </h3>
+        <h5 align="center">Apartado 2.1 - Datos de identificación</h5>
+
+        <!--datos de identificacion in table tag-->
+        <div class="form__div">
+          <input type="text" name="linea25" id="linea6" class="form__input" placeholder=" ">
+          <label for="linea25" class="form__label">Nombre</label><br>
+        </div>
+
+        <div class="form__div">
+          <input type="text" name="linea23" id="linea4" class="form__input" placeholder=" ">
+          <label for="linea23" class="form__label">Apellido Paterno</label>
+        </div>
+
+        <div class="form__div">
+          <input type="text" name="linea24" id="linea5" class="form__input" placeholder=" ">
+          <label for="linea24" class="form__label">Apellido Materno</label>
+        </div>
+
+        <!--Segunda sección del apartado 2.1
+                        chekck box apartado 2.1-->
+
+        <p class="divided">
+          <span class="divider"></span>
+        </p>
+
+        <h6 style="font-size: xx-small;"><mark>seleccione con una "x" la institución a la que pertenece, así como la
+            entidad federativa o municipio de adscripcion</mark></h6>
+
+        <!--meter campos dentro de una tabla, para que actue responsivamente junto a la pagina
+      acomodar los campos lo mas parecido al formato-->
+
+        <table style="width:100%">
+          <tr>
+            <th>INSTITUCIÓN</th>
+            <th></th>
+            <th></th>
+            <th align="right">INSTITUCIÓN</th>
+            <th></th>
+            <th align="left">ENTIDAD/MUNICIPIO</th>
+          </tr>
+          <tr>
+            <td align="center"><label class="form-check-label" for="anexoGN">Guardia Nacional</label></td>
+            <td><input type="checkbox" name="anexoGN" id="anexoGN" value="1" onchange="seleccion(9);"></td>
+
+
+            <td colspan="2" align="right"><label class="form-check-label" for="anexoPM">Policia Ministerial</label></td>
+            <td><input type="checkbox" name="anexoPM" id="anexoPM" value="3" onchange="seleccion(11);"></td>
+            <td><input type="text" name="linea25" id="linea25" maxlength="50"></td>
+
+          </tr>
+          <tr>
+            <td align="center"><label class="form-check-label" for="anexoPFM">Policía Federal Ministerial</label></td>
+            <td><input type="checkbox" name="anexoPFM" id="anexoPFM" value="2" onchange="seleccion(10);"></td>
+
+
+            <td colspan="2" align="right"><label class="form-check-label" for="anexoPMU">Mando Único</label></td>
+            <td><input type="checkbox" name="anexoPMU" id="anexoPMU" value="4" onchange="seleccion(12);"></td>
+            <td><input type="text" name="linea27" id="linea27" maxlength="50"></td>
+
+          </tr>
+
+          <tr>
+            <th colspan="3">
+            <td align="right"><label class="form-check-label" for="anexoPE">Mando Estatal</label></td>
+            <td><input type="checkbox" name="anexoPE" id="anexoPE" onchange="seleccion(13);"></td>
+            <td><input type="text" name="linea28" id="linea28" maxlength="50"></td>
+            </th>
+          </tr>
+
+          <tr>
+            <th colspan="3">
+            <td align="right"><label class="form-check-label" for="anexoPMUN">Policia Municipal</label></td>
+            <td><input type="checkbox" name="anexoPMUN" id="anexoPMUN" onchange="seleccion(14);"></td>
+            <td><input type="text" name="linea29" id="linea29" maxlength="50"></td>
+            </th>
+          </tr>
+
+          <tr>
+            <th colspan="3">
+            <td align="right"><label for="linea32">Otra Autoridad</label></td>
+            <td><input type="checkbox" hidden></td>
+            <td><input type="text" name="linea32" id="linea32"></td>
+            </th>
+          </tr>
+
+        </table>
+
+        <p class="divided">
+          <span class="divider"></span>
+        </p>
+
+        <!--3era seccion del la seccion 2.1-->
+
+        <table>
+          <th></th>
+
+          <tr>
+            <th>
+            <td><label class="form-check-label" for="linea30">¿Cuál es su grado o cargo?</label></td>
+            <td><input type="text" name="linea30" id="linea30" maxlength="59" size="20"></td>
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+            <td><label class="form-check-label" for="linea31">En que unidad..?</label></td>
+            <td><input type="text" name="linea31" id="linea31" maxlength="59" size="20"></td>
+            <td><label align="center" class="text" for="anexoNA" style="font-size: small;">No Aplica</label></td>
+            <td><input type="checkbox" name="anexoNA" id="anexoNA" value="12" onchange="seleccion(16);"></td>
+            </th>
+          </tr>
+        </table>
+
+        <!--si, se marca el text box con la opcion de sí, se despliegan más elementos a llenar-->
+
+        <table>
+          <th></th>
+
+          <tr>
+            <th>
+            <td><label class="form-check-label" for="anexoI">¿Arribó mas de un elemento al lugar de la
+                intervencion?</label></td>
+            <td align="center"><label class="text" for="anexoI" style="font-size: small;">SI</label></td>
+            <td><input type="checkbox" name="anexoI" id="anexoI" onchange="seleccion(15);"></td>
+            <td align="center"><label class="text" for="cb_No" style="font-size: small;">No</label></td>
+            <td><input type="checkbox" name="cb_No" id="cb_No" value="10"></td>
+            </th>
+          </tr>
+        </table>
+
+
+        <div id="anexo15">
+          <div class="form__div">
+            <input type="number" class="form__input" name="linea33" id="linea33" size="3" maxlength="3" placeholder=" ">
+            <label for="linea33" class="form__label">¿Cuántos?</label>
+          </div>
+          <!--<pre style="font-style: italic; font-size: xx-small;">(001,002,...,010,...)</pre>-->
+        </div>
+
+        <!--3era sección-->
+        <p class="divided">
+          <span class="divider"></span>
+        </p>
+
+        <h3 align="center">SECCIÓN 3 - CONOCIMIENTO DEL HECHO Y SEGUIMIENTO DE LA ACTUACIÓN DE LA AUTORIDAD</h3>
+        <h5 align="center">Apartado 3.1 Conocimiento del hecho por el primer respondiente</h5>
+        <h6 style="font-size: small; font-family: Arial;"><mark>Cómo se enteró del hecho?</mark></h6>
+
+        <!--check box apartado 3.1-->
+
+        <table style="width:100%">
+          <th></th>
+
+          <tr>
+            <th>
+            <td><label class="text" for="den">Denuncia</label></td>
+            <td><input type="checkbox" name="den" id="den" onchange="seleccion(16);"></td>
+            <td><label class="text" for="flaG">Flagrancia</label></td>
+            <td><input type="checkbox" name="flaG" id="flaG" onchange="seleccion(17);"></td>
+            <td><label class="text" for="loc">Localización</label></td>
+            <td><input type="checkbox" name="loc" id="loc" onchange="seleccion(18);"></td>
+            <td><label class="text" for="manJ">Mandamiento Judicial</label></td>
+            <td><input type="checkbox" name="manJ" id="manJ" onchange="seleccion(19);"></td>
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+            <td><label class="text" for="LlamadaEM">Llamada de Emergencia</label> </td>
+            <td><input type="checkbox" name="LlamadaEM" id="LlamadaEM" onchange="seleccion(20);"></td>
+            <td><label class="text" for="des">Descubrimiento</label></td>
+            <td><input type="checkbox" name="des" id="des" onchange="seleccion(21);"></td>
+            <td><label class="text" for="apo">Aportación</label></td>
+            <td><input type="checkbox" name="apo" id="apo" onchange="seleccion(22);"></td>
+            </th>
+          </tr>
+
+        </table><br>
+
+        <div class="form__div">
+          <input type="number" class="form__input" name="linea34" id="linea34" maxlength="23" size="23" placeholder=" ">
+          <label class="form__label" for="linea34">No. 911</label>
+          <!--<pre style="font-style: italic; font-size: xx-small;">Solo en caso de contar con el</pre>-->
+        </div>
+
+
+
+        <!--Apartado seccion 3.2-->
+        <p class="divided">
+          <span class="divider"></span>
+        </p>
+
+        <h5 align="center">Apartado 3.2 Seguimiento de la actación de la autoridad</h5>
+        <p style="font-size: xx-small;"><mark>Indique la fecha y hora en cada recuadro</mark></p>
+
+
+        <!---->
+        <table class="content-table">
+
+          <th>Conocimiento del hecho</th>
+
+          <tr>
+            <th>
+            <td><label for="linea37">Fecha</label></td>
+            <td><input type="date" name="linea37" id="linea37"></td>
+            <td><label for="linea38">Hr</label></td>
+            <td><input type="time" name="linea38" id="linea38"></td>
+            <td>
+              <pre style="font-style: italic; font-size: xx-small;">(24 horas)</pre>
+            </td>
+            </th>
+          </tr>
+        </table>
+
+        <table class="content-table">
+          <th>Arribo del Lugar</th>
+
+          <tr>
+            <th>
+            <td><label for="linea37">Fecha</label></td>
+            <td><input type="date" name="linea37" id="linea37"></td>
+            <td><label for="linea38">Hr</label></td>
+            <td><input type="time" name="linea38" id="linea38"></td>
+            <td>
+              <pre style="font-style: italic; font-size: xx-small;">(24 horas)</pre>
+            </td>
+            </th>
+          </tr>
+        </table>
+
+
+        <!---->
+
+        <!--Apartado Sección 4-->
+
+        <p class="divided">
+          <span class="divider"></span>
+        </p>
+
+        <h3 align="center">Sección 4 - Lugar de la intervanción</h3>
+        <h5 align="center">Apartado 4.1 Ubicación Geografica</h5>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea39" id="linea39" placeholder=" " />
+          <label class="form__label" for="linea39">Calle/Tramo Carretero</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea40" id="linea40" maxlength="5" size="5" placeholder=" ">
+          <label class="form__label" for="linea40">No. Exterior</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea41" id="linea41" maxlength="5" size="5" placeholder=" ">
+          <label class="form__label" for="linea41">No. Interior</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea42" id="linea42" maxlength="5" size="5" placeholder=" ">
+          <label class="form__label" for="linea42">Código Postal</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea43" id="linea43" placeholder="">
+          <label class="form__label" for="linea43">Colonia/Localidad</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea44" id="linea44" placeholder="">
+          <label class="form__label" for="linea44">Municipio/Demarcación Territorial</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea45" id="linea45" placeholder="">
+          <label class="form__label" for="linea45">Entidad Federativa</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea46" id="linea46" placeholder="">
+          <label class="form__label" for="linea46">Referencias</label>
+        </div>
+
+
+        <p class="divided">
+          <span class="divider"></span>
+        </p>
+        <pre style="font-size: xx-small; font-family: Arial;"><mark>Anote las coordenadas geograficas</mark></pre>
+
+        <div class="form__div">
+          <input class="form__input" type="float" id="linea47" name="linea47" maxlength="2" placeholder=" " size="2">
+          <label class="form__label" for="linea47">Latitud</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="float" id="linea48" name="coordenada" maxlength="2" placeholder=" " size="2">
+          <label class="form__label" for="linea48">Longitud</label>
+        </div>
+
+
+        <!--Croquis del Lugar-->
+        <p class="divided">
+          <span class="divider"></span>
+        </p>
+
+        <h6><mark>Croquis del Lugar</mark></h6>
+
+        <!--Apartado 4.2 preguntas y respectivo check box-->
+        <p class="divided">
+          <span class="divider"></span>
+        </p>
+
+        <h5 align="center">Apartado 4.2 Inspección del Lugar</h5>
+
+        <!---->
+        <!--Sección 4.2 elementos metidos en tablas-->
+        <table>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+          <tr>
+            <th>
+            <td>
+              <h6>Realizó la inspección del Lugar?</h6>
+            </td>
+            <td align="center"><label class="text" for="tb_ap">SI</label></td>
+            <td><input type="checkbox" name="ins" id="ins" onchange="seleccion(20);"></td>
+            <td align="center"><label class="text" for="tb_ap">NO</label></td>
+            <td><input type="checkbox" name="tb_ap" id="tb_ap"></td>
+            </th>
+          </tr>
+          <tr>
+            <th>
+            <td>
+              <h6>
+                Al momento de realizar la inspeccion
+                del lugar, ¿Encontró algún
+                objeto relaccionado con los hechos?
+              </h6>
+            </td>
+            <td align="center"><label class="text" for="obj">SI</label></td>
+            <td><input type="checkbox" name="obj" id="obj" onchange="seleccion(21);"></td>
+            <td align="center"><label class="text" for="tb_ap">NO</label></td>
+            <td><input type="checkbox" name="tb_ap" id="tb_ap"></td>
+            </th>
+          </tr>
+          <tr>
+            <th>
+            <td>
+              <h6>Preservó el lugar de la intervencion</h6>
+            </td>
+            <td align="center"><label class="text" for="tb_ap">SI</label></td>
+            <td><input type="checkbox" name="pre" id="pre" onchange="seleccion(22);"></td>
+            <td align="center"><label class="text" for="tb_ap">NO</label></td>
+            <td><input type="checkbox" name="tb_ap" id="tb_ap"></td>
+            </th>
+          </tr>
+          <tr>
+            <th>
+            <td>
+              <h6>Llevó a cabo la priorización en el lugar de la intervención?</h6>
+            </td>
+            <td align="center"><label class="text" for="pri">SI</label></td>
+            <td><input type="checkbox" name="pri" id="pri" onchange="seleccion(23);"></td>
+            <td align="center"><label class="text" for="tb_ap">NO</label></td>
+            <td><input type="checkbox" name="tb_ap" id="tb_ap"></td>
+            </th>
+          </tr>
+          <tr>
+            <th>
+            <td>
+              <h6>Tipo de riesgo presentado</h6>
+            </td>
+            <td align="center"><label class="text" for="soc">Sociales</label></td>
+            <td><input type="checkbox" name="soc" id="soc" onchange="seleccion(24);"></td>
+            <td align="center"><label class="text" for="nat">Naturales</label></td>
+            <td><input type="checkbox" name="nat" id="nat" onchange="seleccion(25);"></td>
+            </th>
+          </tr>
+        </table>
+
+        <label class="" class="text" for="tx_esp">Especifique:</label>
+        <input class="" type="text" name="linea49" id="linea49">
+        <!---->
+        <br>
+
+        <!--Sección 5-->
+        <h3 align="center">SECCION 5 - NARRATIVA DE LOS HECHOS</h3>
+        <h5>Descripción de los hechos y actuación de la autoridad</h5>
+
+        <p class="divided">
+          <span class="divider"></span>
+        </p>
+
+        <h6 align="justify"><mark>Relate cronol&oacutegicamente las acciones realizadas durante su intervenci&oacuten desde el
+            conocimiento del hecho hasta la puesta a disposici&oacuten. En su caso, explique las
+            circunstancias de modo, tiempo y lugar que motivaron cada uno de los niveles de contacto y la
+            detenci&oacuten. Tome como base las siguientes preguntas: ¿Qui&eacuten?
+            (personas), ¿Qu&eacute? (hechos), ¿C&oacutemo? (circunstancias), ¿Cu&aacutendo? (tiempo) y ¿D&oacutende?
+            (lugar).</mark></h6>
+
+
+        <!--Text Area seccion 5-->
+        <div class="form-group">
+          <label for="linea76"></label>
+          <!--add cols="100" rows="5"-->
+          <textarea class="form-control" name="narrativaHech" id="narrativaHech" rows="3"></textarea>
+        </div>
+
+        <!--This div closes Anexo0-->
+      </div>
+
+
+
+      <!--Anexo A detenciones-->
+      <div id="anexo1" align="center">
+        <p align="center">ANEXO A</p>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea15" id="linea15" maxlength="3" size="3" placeholder="">
+          <label class="form__label" for="linea15">Detenciones</label>
+        </div>
+
+        <h5>Llene este Anexo por cada persona detenida</h5>
+
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea51" id="linea51" maxlength="3" size="3" placeholder="">
+          <label class="form__label" for="linea51">Persona detenida</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea52" id="linea52" size="3" maxlength="3" placeholder="">
+          <label class="form__label" for="linea52">Numero de Detenciones (RDN)</label>
+        </div>
+
+
+        <!--Apartado A.1-->
+        <p class="divided">
+          <span class="divider"></span>
+        </p>
+
+        <h5>Apartado A.1 Fecha y hora de la detencion</h5>
+        <pre style="font-size: xx-small;"><mark>Indique la fecha  y hora de la detencion</mark></pre>
+
+        <table class="content-table">
+          <th></th>
+
+          <tr>
+            <th>
+            <td><label for="linea53">Fecha</label></td>
+            <td><input type="date" name="linea53" id="linea53"></td>
+            <td><label for="linea54">Hr</label></td>
+            <td><input type="time" name="linea54" id="linea54"></td>
+            <td>
+              <pre style="font-style: italic; font-size: xx-small;">(24 hrs.)</pre>
+            </td>
+            </th>
+          </tr>
+        </table>
+
+        <!--Apartado A.2-->
+        <p class="divided">
+          <span class="divider"></span>
+        </p>
+
+
+        <h5>Apartado A.2 datos generales de la persona detenida</h5>
+
+        <!--Div con 3 text box a llenar con credenciales-->
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea55" id="linea55" placeholder="">
+          <label class="form__label">Apellido Paterno</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea56" id="linea56" placeholder="">
+          <label class="form__label">Apellido Materno</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea57" id="linea57" placeholder="">
+          <label class="form__label">Nombre</label>
+        </div>
+
+
+        <!--solo un campo de texto-->
+
+        <table>
+          <th></th>
+
+          <tr>
+            <th>
+            <td><label for="linea58">Apodo o alias</label></td>
+            <td><input type="text" name="linea58" id="linea58"></td>
+            <td><label for="">No Aplica</label></td>
+            <td><input type="checkbox"></td>
+            </th>
+          </tr>
+        </table>
+
+
+        <!--tabla con check box-->
+        <table style="width:100%">
+          <th></th>
+
+          <tr>
+            <th>
+            <td>
+              <h6>Nacionalidad:</h6>
+            </td>
+            <td><label for="mex">Mexicana</label></td>
+            <td><input type="checkbox" name="mex" id="mex" onchange="seleccion(24);"></td>
+            <td><label for="">Extranjera</label></td>
+            <td><input type="checkbox" name="ext" id="ext" onchange="seleccion(25);"></td>
+            <td><label for="linea59">Cuál?</label></td>
+            <td><input type="text" name="linea59" id="linea59"></td>
+            </th>
+          </tr>
+          <tr>
+            <th>
+            <td>
+              <h6>Sexo:</h6>
+            </td>
+            <td><label for="hom">Hombre</label></td>
+            <td><input type="checkbox" name="muj" id="muj" onchange="seleccion(26);"></td>
+            <td><label for="muj">Mujer</label></td>
+            <td><input type="checkbox" name="hom" id="hom" onchange="seleccion(27);"></td>
+            </th>
+          </tr>
+        </table>
+
+        <!--div con elementos fecha nacimiento y edad-->
+        <div>
+          <label for="">Fecha de Nacimiento:</label>
+          <input type="date" name="nac" id="nac">
+          <label for="">Edad</label>
+          <input type="number" size="3" name="edad" id="edad">
+        </div>
+        <br>
+
+        <h6>¿Se identifico con algun documento?</h6>
+
+        <div class="form-group">
+          <div>
+            <label class="form-check-label" for="ine">Credencial INE</label>
+            <input type="checkbox" name="ine" id="ine" onchange="seleccion(28);">
+
+            <label class="form-check-label" for="lice">Licencia</label>
+            <input type="checkbox" name="lice" id="lice" onchange="seleccion(29);">
+
+            <label class="form-check-label" for="pas">Pasaporte</label>
+            <input type="checkbox" name="pas" id="pas" onchange="seleccion(30);">
+          </div>
+        </div>
+
+        <table>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+
+          <tr>
+            <th>
+            <td><label for="linea60">Otro</label></td>
+            <td><input type="text" name="linea60" id="linea60" maxlength="16"></td>
+            <td><label class="form-check-label" for="no">No</label></td>
+            <td><input type="checkbox" name="no" id="no" onchange="seleccion(31);"></td>
+            </th>
+          </tr>
+        </table>
+
+        <div>
+          <label for="linea61">No. de identificacion</label>
+          <input type="text" name="linea61" id="linea61" maxlength="23" size="23">
+        </div>
+        <br>
+
+        <!--Domicilio de la persona detenida-->
+
+        <h5><mark>Domicilio de la persona detenida</mark></h5><br>
+
+        <!--textbox without table-->
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea62" id="linea62" placeholder="">
+          <label class="form__label" for="linea62">Calle/Tramo carretero</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea63" id="linea63" size="5" placeholder="">
+          <label class="form__label" for="linea63">No. exterior</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea64" id="linea64" size="5" placeholder="">
+          <label class="form__label" for="linea64">No. interior</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="number" name="linea65" id="linea65" maxlength="5" size="5" placeholder="">
+          <label class="form__label" for="linea65">Codigo Postal</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea66" id="linea66" placeholder="">
+          <label class="form__label" for="linea66">Colonia/Localidad</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea67" id="linea67" placeholder="">
+          <label class="form__label" for="linea67">Municipio/Demarcaci&oacuten territorial</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea68" id="linea68" placeholder="">
+          <label class="form__label" for="linea68">Entidad federativa</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea69" id="linea69" placeholder="">
+          <label class="form__label" for="linea69">Referencias</label>
+        </div>
+
+
+        <br>
+
+        <!--4ta parte del apartadodo A2-->
+        <table>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+
+          <tr>
+            <th>
+            <td>
+              <h6>¿La persona detenida presenta lesiones visibles?</h6>
+            </td>
+            <td><label for="lesiones">SI</label></td>
+            <td><input type="checkbox" name="lesiones" id="lesiones" onchange="seleccion(32);"></td>
+            <td><label for="Nolesiones">NO</label></td>
+            <td><input type="checkbox" name="Nolesiones" id="Nolesiones" onchange="seleccion(320);"></td>
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+            <td>
+              <h6>Manifiesta tener algún padecimeinto?</h6>
+            </td>
+            <td align="center"><label for="padecimiento">SI</label></td>
+            <td><input type="checkbox" name="padecimiento" id="padecimiento" onchange="seleccion(33);"></td>
+            <td><label for="linea70">¿Cual?</label></td>
+            <td><input type="text" name="linea70" id="linea70"></td>
+            <td align="center"><label for="Nopadecimiento">NO</label></td>
+            <td><input type="checkbox" name="Nopadecimiento" id="Nopadecimiento" onchange="seleccion(330);"></td>
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+            <td>
+              <h6>¿La persona detenida se identific&oacute como miembro de alg&uacuten grupo
+                vulnerable?</h6>
+            </td>
+            <td align="right"><label for="vul">SI</label></td>
+            <td><input type="checkbox" name="vul" id="vul" onchange="seleccion(34);"></td>
+            <td><label for="linea71">¿Cual?</label></td>
+            <td><input type="text" name="linea72" id="linea72" maxlength="31"></td>
+            <td align="right"><label for="Novul">NO</label></td>
+            <td><input type="checkbox" name="vul" id="vul" onchange="seleccion(340);"></td>
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+            <td>
+              <h6>¿La persona detenida se identific&oacute como miembro de algun grupo delictivo?</h6>
+            </td>
+            <td align="right"><label for="del">SI</label></td>
+            <td><input type="checkbox" name="del" id="del" onchange="seleccion(35);"></td>
+            <td><label for="linea72">¿Cual?</label></td>
+            <td><input type="text" name="linea72" id="linea72" maxlength="31"></td>
+            <td align="right"><label for="Nodel">NO</label></td>
+            <td><input type="checkbox" name="Nodel" id="Nodel" onchange="seleccion(350);"></td>
+            </th>
+          </tr>
+        </table>
+        <br><br>
+
+
+        <h5>Apartado A.3 Datos del familiar o persona de confianza señalado por la persona detenida</h5>
+
+        <!--textbox indiv w styles-->
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea75" id="linea75" placeholder="">
+          <label class="form__label" for="linea75">Nombre</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea73" id="linea73" placeholder=" ">
+          <label class="form__label" for="linea73">Apellido Paterno</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea74" id="linea74" placeholder=" ">
+          <label class="form__label" for="linea74">Apellido Materno</label>
+        </div>
+
+
+        <div class="form__div">
+          <input class="form__input" type="tel" name="linea76" id="linea76" size="12" maxlength="10" placeholder="">
+          <label class="form__label" for="linea76">No. telefonico</label>
+          <label for="No_tel">No proporcionado</label>
+          <input type="checkbox" name="No_tel" id="No_tel" onchange="seleccion(36);">
+        </div>
+
+
+
+        <h5>Apartado A.4 Constancia de lectura de derechos de la persona detenida</h5>
+        <h6><mark>Articulo 20 apartado B de la constitucion politica de los Estados Unidos Mexicanos y articulo 152
+            del
+            Codigo Nacional de Procedimientos Penales</mark></h6>
+
+        <!--ahref tag here, law image-->
+
+        <table>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+
+          <tr>
+            <th>
+            <td>
+              <h6>¿Le informo sus derechos a la persona detenida?</h6>
+            </td>
+            <td><label for="sider">Si</label></td>
+            <td><input type="checkbox" name="sider" id="sider" onchange="seleccionar(37);"></td>
+            <td><label for="noder">No</label></td>
+            <td><input type="checkbox" name="noder" id="noder" onchange="seleccionar(38);"></td>
+            </th>
+          </tr>
+        </table>
+
+        <!--Firma y huella de persona detenida-->
+
+
+        <h5><b>Apartado A.5 Inspecci&oacuten a la persona detenida</b></h5>
+
+
+        <table style="width:100%">
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <tr>
+            <th>
+            <td colspan="1">
+              <h6>Al momento de realizar la inspeccion a la persona detenida,
+                ¿le encontro algun objeto relacionado con los hechos?</h6>
+            </td>
+            <td><label for="obj">Si</label></td>
+            <td><input type="checkbox" name="obj" id="obj" onchange="seleccion(39);"></td>
+            <td>
+              <pre style="font-style: italic; font-size: xx-small;">llene el Anexo D</pre>
+            </td>
+            <td colspan="4"><label for="objno">No</label></td>
+            <td colsapn="5"><input type="checkbox" name="objno" id="objno" onchange="seleccion(40);"></td>
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+            <td colsapn="1">
+              <h6>¿Recolect&oacute pertenencias de la persona detenida?</h6>
+            </td>
+            <td colsapn="2"><label class="form-check-label" for="tabla">Si</label></td>
+            <td colsapn="3"><input type="checkbox" name="tabla" id="tabla" onchange="seleccion(41);"></td>
+            <td>
+              <pre style="font-style: italic; font-size: xx-small;">Complete el siguiente cuadro</pre>
+            </td>
+            <td colsapn="4"><label for="pertenenciasNo">No</label></td>
+            <td colsapn="5"><input type="checkbox" name="pertenenciasNo" id="pertenenciasNo" onchange="seleccion(42);">
+            </td>
+            </th>
+          </tr>
+        </table>
+        <br><br>
+
+        <table align="center" style="width:100%">
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+
+          <tr>
+            <th>
+            <td align="center">
+              <h6>PERTENENCIA</h6>
+            </td>
+            <td align="center">
+              <h6>DESCRIPCION</h6>
+            </td>
+            <td align="center">
+              <h6>DESTINO</h6>
+            </td>
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+            <td colsapn=""><input type="text" name="linea77" id="linea77" placeholder="Pertenencia1" maxlength="20">
+            </td>
+            <td colsapn=""><input type="text" name="linea78" id="linea78" placeholder="Descripcion1" maxlength="27">
+            </td>
+            <td colsapn=""><input type="text" name="linea79" id="linea79" placeholder="Destino que se le dio1" maxlength="14"></td>
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+            <td colsapn=""><input type="text" name="linea80" id="linea80" placeholder="Pertenencia2" maxlength="20">
+            </td>
+            <td colsapn=""><input type="text" name="linea81" id="linea81" placeholder="Descripcion2" maxlength="27">
+            </td>
+            <td colsapn=""><input type="text" name="linea82" id="linea82" placeholder="Destino que se le dio2" maxlength="14"></td>
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+            <td colsapn="1"><input type="text" name="linea83" id="linea83" placeholder="Pertenencia3" maxlength="20">
+            </td>
+            <td colsapn="2"><input type="text" name="linea84" id="linea84" placeholder="Descripcion3" maxlength="27">
+            </td>
+            <td colsapn="3"><input type="text" name="linea85" id="linea85" placeholder="Destino que se le dio3" maxlength="14"></td>
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+            <td colsapn="1"><input type="text" name="linea86" id="linea86" placeholder="Pertenencia4" maxlength="20">
+            </td>
+            <td colsapn="2"><input type="text" name="linea87" id="linea87" placeholder="Descripcion4" maxlength="27">
+            </td>
+            <td colsapn="3"><input type="text" name="linea88" id="linea88" placeholder="Destino que se le dio4" maxlength="14"></td>
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+            <td colsapn="1"><input type="text" name="linea89" id="linea89" placeholder="Pertenencia5" maxlength="20">
+            </td>
+            <td colsapn="2"><input type="text" name="linea90" id="linea90" placeholder="Descripcion5" maxlength="27">
+            </td>
+            <td colsapn="3"><input type="text" name="linea91" id="linea91" placeholder="Destino que se le dio5" maxlength="14"></td>
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+            <td colsapn="1"><input type="text" name="linea92" id="linea92" placeholder="Pertenencia6" maxlength="20">
+            </td>
+            <td colsapn="2"><input type="text" name="linea93" id="linea93" placeholder="Descripcion6" maxlength="27">
+            </td>
+            <td colsapn="3"><input type="text" name="linea94" id="linea94" placeholder="Destino que se le dio6" maxlength="14"></td>
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+            <td colsapn="1"><input type="text" name="linea95" id="linea95" placeholder="Pertenencia7" maxlength="20">
+            </td>
+            <td colsapn="2"><input type="text" name="linea96" id="linea96" placeholder="Descripcion7" maxlength="27">
+            </td>
+            <td colsapn="3"><input type="text" name="linea97" id="linea97" placeholder="Destino que se le dio7" maxlength="14"></td>
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+            <td colsapn="1"><input type="text" name="linea98" id="linea98" placeholder="Pertenencia8" maxlength="20">
+            </td>
+            <td colsapn="2"><input type="text" name="linea99" id="linea99" placeholder="Descripcion8" maxlength="27">
+            </td>
+            <td colsapn="3"><input type="text" name="linea100" id="linea100" placeholder="Destino que se le dio8" maxlength="14"></td>
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+            <td colsapn="1"><input type="text" name="linea101" id="linea101" placeholder="Pertenencia9" maxlength="20">
+            </td>
+            <td colsapn="2"><input type="text" name="linea102" id="linea102" placeholder="Descripcion9" maxlength="27">
+            </td>
+            <td colsapn="3"><input type="text" name="linea103" id="linea103" placeholder="Destino que se le dio9" maxlength="14"></td>
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+            <td colsapn="1"><input type="text" name="linea104" id="linea104" placeholder="Pertenencia10" maxlength="20">
+            </td>
+            <td colsapn="2"><input type="text" name="linea105" id="linea105" placeholder="Descripcion10" maxlength="27">
+            </td>
+            <td colsapn="3"><input type="text" name="linea106" id="linea106" placeholder="Destino que se le dio10" maxlength="14"></td>
+            </th>
+          </tr>
+        </table>
+        <br><br>
+
+        <h5><mark>Apartado A.6 Datos del lugar de la detenciiones</mark></h5>
+
+
+        <div>
+          <h6>¿El lugar de la detencion es el mismo que el de la intervencion?</h6>
+          <label for="dire">SI</label>
+          <input type="checkbox" name="dire" id="dire" onchange="seleccion(43);">
+
+          <label class="form-check-label" for="direNo">NO</label>
+          <input type="checkbox" name="direNo" id="direNo" onchange="seleccion(44);">
+        </div>
+
+
+
+        <div id="anexo44">
+          <div class="form__div">
+            <input class="form__input" type="text" name="linea107" id="linea107" placeholder="">
+            <label class="form__label" for="linea107">Calle/Tramo carretero</label>
+          </div>
+
+          <div class="form__div">
+            <input class="form__input" type="text" name="linea108" id="linea108" placeholder="">
+            <label class="form__label" for="linea108">No. exterior</label>
+          </div>
+
+          <div class="form__div">
+            <input class="form__input" type="text" name="linea109" id="linea109" placeholder="">
+            <label class="form__label" for="linea109">No. interior</label>
+          </div>
+
+          <div class="form__div">
+            <input class="form__input" type="number" name="linea110" id="linea110" maxlength="5" size="5" placeholder="">
+            <label class="form__label" for="linea110">Codigo Postal</label>
+          </div>
+        </div>
+
+        <table>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+
+          <tr>
+            <th>
+            <td><label for="linea111">Colonia/Localidad</label></td>
+            <td><input type="text" name="linea111" id="linea111"></td>
+            </th>
+          </tr>
+          <tr>
+            <th>
+            <td><label for="linea112">Municipio/Demarcaci&oacuten territorial</label></td>
+            <td><input type="text" name="linea112" id="linea112"></td>
+            </th>
+          </tr>
+          <tr>
+            <th>
+            <td><label for="linea113">Entidad federativa</label></td>
+            <td><input type="text" name="linea113" id="linea113"></td>
+            </th>
+          </tr>
+          <tr>
+            <th>
+            <td><label for="linea114">Referencias</label></td>
+            <td><input type="text" name="linea114" id="linea114"></td>
+            </th>
+          </tr>
+        </table>
+
+
+
+        <h5 align="center">Apartado A.7 Datos del lugar del trasladado de la persona detenida</h5>
+
+        <table>
+          <th></th>
+
+          <tr>
+            <th>
+            <td><label for="traslado">Fiscalia/Agencia</label></td>
+            <td><input type="checkbox" name="fisAge" value="1" id="fisAge"></td>
+
+            <td><label for="">Hospital</label></td>
+            <td><input type="checkbox" name="hos" value="2" id="hos"></td>
+
+            <td><label for="">Otra Dependencia</label></td>
+            <td><input type="checkbox" name="otraDep" value="3" id="otraDep"></td>
+            </th>
+          </tr>
+        </table>
+
+        <h5 align="center">Observaciones relacionadas con la detenci&oacuten</h5>
+        <div>
+          <h6><label for="linea116"><mark>Describa brevemente la ruta y el medio de traslado desde el lugar de la
+                detenci&oacuten hasta la puesta a disposici&oacuten, asi como la razon de posibles demoras. Incluya
+                cualquier otra observaci&oacuten que considere relevante</mark></label></h6><br>
+                <!--add rows="5" cols="110"-->
+          <textarea  type="text" name="linea116" id="linea116" maxlength="590"></textarea>
+        </div>
+
+        <h5>Apartado A.8 Datos del primer respondiente que realiz&oacute la detenci&oacuten</h5>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea117" id="linea117" placeholder="" />
+          <label class="form__label" for="linea117">Primer apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea118" id="linea118" placeholder="" />
+          <label class="form__label" for="linea118">Segundo apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea119" id="linea119" placeholder="" />
+          <label class="form__label" for="linea119">Nombre</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea120" id="linea120" placeholder="" />
+          <label class="form__label" for="linea120">Adscripcion</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea121" id="linea121" placeholder="" />
+          <label class="form__label" for="linea121">Cargo/Grado</label>
+        </div>
+
+        <h6>Primer Respondiente 2</h6>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea122" id="linea122" placeholder="" />
+          <label class="form__label" for="linea122">Primer apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea123" id="linea123" placeholder="" />
+          <label class="form__label" for="linea123">Segundo apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea124" id="linea124" placeholder="" />
+          <label class="form__label" for="linea124">Nombre</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea125" id="linea125" placeholder="" />
+          <label class="form__label" for="linea125">Adscripcion</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea125" id="linea126" placeholder="" />
+          <label class="form__label" for="linea126">Cargo/Grado</label>
+        </div>
+
+        <!--Div closes AnexoA-->
+      </div><br><br>
+
+
+
+      <div id="anexo2">
+
+        <h3 align="center">ANEXO B</h3>
+
+        <h5>ANEXO B. INFORME DEL USO DE LA FUERZA</h5>
+
+        <pre style="font-size: xx-small;"><mark>Llene este Anexo s&oacutelo de lesionados y/o fallecidos con motivo del uso de la fuerza</mark></pre>
+        <h6>Informe del uso de la fuerza (¿Cuantas personas?)</h6>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea16" id="linea16" class="custom-field.one" maxlength="3" placeholder="">
+          <label class="form__label" for="linea16">001,...,010,...</label>
+        </div>
+
+
+
+
+        <h5>Apartado B.1 Niveles del uso de la fuerza</h5>
+
+        <h6>Indique cuantos</h6>
+
+
+        <table class="content-table">
+          <tr>
+            <th></th>
+          </tr>
+
+          <tr>
+            <th colspan="3">
+            <td align="center">
+              <h6>AUTORIDAD</h6>
+            </td>
+            </th>
+            <th colspan="1">
+            <td align="center">
+              <h6>PERSONA</h6>
+            </td>
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+            <td>
+              <h6>Lesionados</h6>
+            </td>
+            <td><input type="checkbox" name="lesionadosAut" id="lesionadosAut"></td>
+            <td><input type="text" name="lesAut" id="lesAut"></td>
+            <td><input type="checkbox" name="lesionadosPer" id="lesionadosPer"></td>
+            <td><input type="text" name="lesPer" id="lesPer"></td>
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+            <td>
+              <h6>Fallecidos</h6>
+            </td>
+            <td><input type="checkbox" name="fallesidosAut" id="fallesidosAut"></td>
+            <td><input type="text" name="fallAut" id="fallAut"></td>
+            <td><input type="checkbox" name="fallesidosPer" id="fallesidosPer"></td>
+            <td><input type="text" name="fallPer" id="fallPer"></td>
+            </th>
+          </tr>
+        </table>
+        <br>
+
+        <pre style="font-size: xx-small;"><mark>Seleccione con una "X" segun corresponda:</mark></pre>
+
+        <table>
+          <th></th>
+
+          <tr>
+            <th>
+            <td><label for="rfm">Reducci&oacuten f&iacutesica de movimientos</label></td>
+            <td><input type="checkbox" name="rfm" id="rfm"></td>
+            <td><label for="uaiml">Utilizaci&oacuten de armas incapacitantes menos letales</label></td>
+            <td><input type="checkbox" name="uaiml" id="uaiml"></td>
+            <td><label for="uaffl">Utilizaci&oacuten de armas de fuego o fuerza letal</label></td>
+            <td><input type="checkbox" name="uaffl" id="uaffl"></td>
+            </th>
+          </tr>
+        </table>
+
+        <div>
+          <h6><i><label for="linea127">Describa las conductas (resistencia activa y de alta peligrosidad) que
+                motivaron
+                el uso de la fuerza:</label></i></h6>
+                <!--rows="12" cols="110"-->
+          <textarea  type="text" name="linea127" id="linea127" maxlength="1420"></textarea>
+        </div>
+        <br>
+
+        <table>
+          <th></th>
+
+          <tr>
+            <th>
+            <td><label>¿Brindo o solicito asistencia medica?</label></td>
+            <td><label align="center">Si</label></td>
+            <td><input type="checkbox" name="bsamSi" id="bsamSi"></td>
+            <td><label align="center">No</label></td>
+            <td><input type="checkbox" name="bsamNo" id="bsamNo"></td>
+            </th>
+          </tr>
+        </table>
+
+        <label for="expl">Explique:</label><br>
+        <!--add rows="7" cols="110"-->
+        <textarea  type="text" name="expl" id="expl" maxlength="840"></textarea>
+        <br>
+
+        <h5>Apartado B.2 - Datos del primer respondiente que realiz&oacute el informe del uso de la fuerza, sol&oacute
+          si es diferente a quien firm&oacute la apuesta a disposici&oacuten</h5>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea128" id="linea128" placeholder="" />
+          <label class="form__label" for="linea128">Primer apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea129" id="linea129" placeholder="" />
+          <label class="form__label" for="linea129">Segundo apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea130" id="linea130" placeholder="" />
+          <label class="form__label" for="linea130">Nombre</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea131" id="linea131" placeholder="" />
+          <label class="form__label" for="linea131">Adscripcion</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea132" id="linea132" placeholder="" />
+          <label class="form__label" for="linea132">Cargo/Grado</label>
+        </div>
+
+        <h6>Primer Respondiente 2</h6><br>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea133" id="linea133" placeholder="" />
+          <label class="form__label" for="linea133">Primer apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea134" id="linea134" placeholder="" />
+          <label class="form__label" for="linea134">Segundo apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea135" id="linea135" placeholder="" />
+          <label class="form__label" for="linea135">Nombre</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea136" id="linea136" placeholder="" />
+          <label class="form__label" for="linea136">Adscripcion</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea137" id="linea137" placeholder="" />
+          <label class="form__label" for="linea137">Cargo/Grado</label>
+        </div>
+
+        <!--div closes AnexoB-->
+      </div>
+
+      <div id="anexo3">
+
+        <h2 align="center">ANEXO C</h2>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea17" id="linea17" size="3" maxlength="3" placeholder="">
+          <label class="form__label" for="linea17">Inspeccion de vehiculo</label>
+        </div>
+
+        <h5>Apartado C.1 - Fecha y hora de la inspeccion</h5>
+
+        <table style="width:100%" class="content-table">
+          <th></th>
+
+          <tr>
+            <th>
+            <td><label for="fecC1">Fecha</label></td>
+            <td><input type="date" name="fecC1" id="fecC1"></td>
+            <td><label for="horC1">Hr</label></td>
+            <td><input type="time" name="horC1" id="horC1"></td>
+            <td>
+              <pre style="font-style: italic; font-size: xx-small;">(24 hrs.)</pre>
+            </td>
+            </th>
+          </tr>
+        </table>
+
+
+        <h5>Apartado C.2 - Datos generales del veh&iacuteculo inspeccionado</h5>
+
+        <table border align="center">
+
+          <tr>
+            <td>
+              <p>Tipo:</p>
+              <label>terrestre</label>
+              <input type="checkbox" name="terrestre" id="terrestre">
+              <label for="acuatic">acuatico</label>
+              <input type="checkbox" name="acuatic" id="acuatic">
+              <label>a&eacutereo</label>
+              <input type="checkbox" name="aereo" id="aereo">
+            </td>
+            <td>
+              <p>Procedencia:</p>
+              <label>Nacional</label>
+              <input type="checkbox" name="nacional" id="nacional">
+              <label>Extranjero</label>
+              <input type="checkbox" name="extranjero" id="extranjero">
+            </td>
+          </tr>
+        </table>
+        <br>
+
+        <table>
+          <th></th>
+
+          <tr>
+            <th>
+            <td><label for="Marca">Marca</label></td>
+            <td><input type="text" name="marca" id="marca"></td>
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+            <td><label for="submarca">Submarca</label></td>
+            <td><input type="text" name="submarca" id="submarca"></td>
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+            <td><label for="modelo">Modelo</label></td>
+            <td><input type="text" name="modelo" id="modelo" maxlength="4"></td>
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+            <td><label for="color">Color</label></td>
+            <td><input type="text" name="color" id="color"></td>
+            </th>
+          </tr>
+        </table>
+
+
+        <h6>Uso</h6><br>
+
+        <table>
+          <th></th>
+
+          <tr>
+            <th>
+            <td><label for="">Particular</label></td>
+            <td><input type="checkbox" name="particular" id="particular"></td>
+            <td><label for="">Transporte Publico</label></td>
+            <td><input type="checkbox" name="tp" id="tp"></td>
+            <td><label for="">Cargo</label></td>
+            <td><input type="checkbox" name="cargo" id="cargo"></td>
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+            <td align="right"><label for="plaMa">Placa/Matricula</label></td>
+            <td><input type="text" name="plaMa" id="plaMa" maxlength="8"></td>
+            <td align="right"><label for="serie">No. de serie</label></td>
+            <td><input type="text" name="serie" id="serie" maxlength="18"></td>
+            </th>
+          </tr>
+        </table><br>
+
+        <h6>Situacion:</h6>
+
+        <table>
+          <th></th>
+
+          <tr>
+            <th>
+            <td><label for="reporteRob">Con reporte de robo</label></td>
+            <td><input type="checkbox" name="reporteRob" id="reporteRob"></td>
+            <td><label for="srr">Sin reporte de robo</label></td>
+            <td><input type="checkbox" name="srr" id="srr"></td>
+            <td><label for="nps">No es posible saberlo</label></td>
+            <td><input type="checkbox" name="nps" id="nps"></td>
+            </th>
+          </tr>
+        </table>
+        <br><br>
+
+        <table align="center">
+          <th></th>
+
+          <tr>
+            <th>
+            <td align="center"><label for="obs">Observaciones</label></td>
+            <td align="center"><label for="dqsld">Destino que se le dio</label></td>
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+              <!--add cols="30" rows="10"-->
+            <td><textarea name="obs" id="obs"  maxlength="357"></textarea></td>
+            <!--add cols="30" rows="10"-->
+            <td><textarea name="dqsld" id="dqsld"  maxlength="120"></textarea></td>
+            </th>
+          </tr>
+        </table>
+
+        <h5>Apartado C.3 - Objetos encontrados en el vehiculo inspeccionado</h5>
+
+
+        <table>
+          <th></th>
+
+          <tr>
+            <th>
+            <td>
+              <h6>¿Econtr&oacute objetos relacionados con los hechos?</h6>
+            </td>
+            <td align="right"><label for="">SI</label></td>
+            <td><input type="checkbox" name="eorclhSi" id="eorclhSi"></td>
+            <td align="right"><label for="">NO</label></td>
+            <td><input type="checkbox" name="eorclhNo" id="eorclhNo"></td>
+            </th>
+          </tr>
+        </table>
+
+        <!--Respondientees AnexoC-->
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea138" id="linea138" placeholder="" />
+          <label class="form__label" for="linea138">Primer apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea139" id="linea139" placeholder="" />
+          <label class="form__label" for="linea139">Segundo apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea140" id="linea140" placeholder="" />
+          <label class="form__label" for="linea140">Nombre</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea141" id="linea141" placeholder="" />
+          <label class="form__label" for="linea141">Adscripcion</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea142" id="linea142" placeholder="" />
+          <label class="form__label" for="linea142">Cargo/Grado</label>
+        </div>
+
+        <h6>Primer Respondiente 2</h6><br>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea143" id="linea143" placeholder="" />
+          <label class="form__label" for="linea143">Primer apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea144" id="linea144" placeholder="" />
+          <label class="form__label" for="linea144">Segundo apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea145" id="linea145" placeholder="" />
+          <label class="form__label" for="linea145">Nombre</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea146" id="linea146" placeholder="" />
+          <label class="form__label" for="linea146">Adscripcion</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea147" id="linea147" placeholder="" />
+          <label class="form__label" for="linea147">Cargo/Grado</label>
+        </div>
+
+        <!--Div closes AnexoC-->
+      </div>
+
+
+      <div id="anexo4">
+        <h2 align="center">ANEXO D</h2>
+        <h6>Llene tantas veces como sea necesario este Anexo</h6>
+        <h5>Apartado D.1 Registro de armas de fuego</h5>
+
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linea18" id="linea18" maxlength="3" placeholder="">
+          <label class="form__label" for="linea18">Arma de fuego</label>
+        </div>
+
+        <pre style="font-size: xx-small;"><mark>Seleccione con una "X" si se trata de aportacion o inspeccion, segun corresponda.</mark></pre>
+        <label for="">Aportacion</label>
+        <input type="checkbox" name="aportacion" id="aportacion">
+
+        <table>
+          <th>
+            <h6>Inspeccion:</h6>
+          </th>
+
+          <tr>
+            <th>
+            <td><label for="lugar">Lugar</label></td>
+            <td><input type="checkbox" name="lugar" id="lugar"></td>
+            <td><label for="pers">Persona</label></td>
+            <td><input type="checkbox" name="pers" id="pers"></td>
+            <td><label for="vehic">Vehiculo</label></td>
+            <td><input type="checkbox" name="vehic" id="vehic"></td>
+            <td><label for="dea">Donde encontró el arma</label></td>
+            <td><input type="text" name="dea" id="dea"></td>
+            </th>
+          </tr>
+
+        </table><br>
+
+        <table>
+          <th>
+            <h6>Tipo de arma:</h6>
+          </th>
+
+          <tr>
+            <th>
+            <td><label for="corta">Corta</label></td>
+            <td><input type="checkbox" name="corta" id="corta"></td>
+            <td><label for="larga">Larga</label></td>
+            <td><input type="checkbox" name="larga" id="larga"></td>
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+            <td><label for="calibre">Calibre:</label></td>
+            <td><input type="text" name="calibre" id="calibre"></td>
+            <td><label for="color">Color:</label></td>
+            <td><input type="text" name="color" id="color"></td>
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+            <td><label for="matricula">Matricula</label></td>
+            <td><input type="text" name="matricula" id="matricula" maxlength="7"></td>
+            <td><label for="serie">No. de serie</label></td>
+            <td><input type="text" name="serie" id="serie" maxlength="19"></td>
+            </th>
+          </tr>
+        </table>
+
+        <!--Textbox-->
+        <label for="">Observaciones (de ser el caso, señale ademas, caracteristicas, marca, cargadores y
+          cartuchos):</label><br>
+          <!--cols="30" rows="10"-->
+        <textarea name="obs" id="obs"  maxlength="220"></textarea><br>
+
+        <label>Destino que se le dio:</label><br>
+        <!--cols="30" rows="10"-->
+        <textarea name="dest" id="dest"  maxlength="194"></textarea>
+        <br><br>
+
+        <!---->
+
+        <h6>Anote el nombre y firma de la persona a la que se le asegur&oacute el arma:</h6>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead1" id="linead1" placeholder="" />
+          <label class="form__label" for="linead1">Primer apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead2" id="linead2" placeholder="" />
+          <label class="form__label" for="linead2">Segundo apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead3" id="linead3" placeholder="" />
+          <label class="form__label" for="linead3">Nombre</label>
+        </div>
+
+
+
+
+        <h6>En caso de que la persona a la que se le asegur&oacute el arma no accede a firmar, anote nombre y firma
+          de dos testigos:</h6>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead4" id="linead4" placeholder="" />
+          <label class="form__label" for="linead4">Primer apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead5" id="linead5" placeholder="" />
+          <label class="form__label" for="linead5">Segundo apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead6" id="linead6" placeholder="" />
+          <label class="form__label" for="linead6">Nombre</label>
+        </div>
+
+        <h6>Testigo 2</h6>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead7" id="linead7" placeholder="" />
+          <label class="form__label" for="linead7">Primer apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead8" id="linead8" placeholder="" />
+          <label class="form__label" for="linead8">Segundo apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead9" id="linead9" placeholder="" />
+          <label class="form__label" for="linead9">Nombre</label>
+        </div>
+
+        <div class="form-group">
+          <label for="linea18">Arma de fuego:</label>
+          <input type="text" name="linea18" id="linea18" maxlength="3">
+        </div>
+
+        <pre style="font-size: xx-small;"><mark>Seleccione con una "X" si se trata de aportaci&oacuten o inspecci&oacuten, seg&uacuten corresponda.</mark></pre>
+
+        <label>Aportacion</label>
+        <input type="checkbox" name="aportacion2" id="aportacion2">
+
+        <table>
+          <th>
+            <h6>Inspeccion:</h6>
+          </th>
+
+          <tr>
+            <th>
+            <td><label for="lugar2">Lugar</label></td>
+            <td><input type="checkbox" name="lugar2" id="lugar2"></td>
+            <td><label for="pers2">Persona</label></td>
+            <td><input type="checkbox" name="pers2" id="pers2"></td>
+            <td><label for="vehic2">Vehiculo</label></td>
+            <td><input type="checkbox" name="vehic2" id="vehic2"></td>
+            <td><label for="dea2">Donde encontro el arma</label></td>
+            <td><input type="text" name="dea2" id="dea2"></td>
+            </th>
+          </tr>
+
+        </table><br>
+
+        <table>
+          <th>
+            <h6>Tipo de arma:</h6>
+          </th>
+
+          <tr>
+            <th>
+            <td><label for="corta2">Corta</label></td>
+            <td><input type="checkbox" name="corta2" id="corta2"></td>
+            <td><label for="larga2">Larga</label></td>
+            <td><input type="checkbox" name="larga2" id="larga2"></td>
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+            <td><label for="calibre2">Calibre:</label></td>
+            <td><input type="text" name="calibre2" id="calibre2"></td>
+            <td><label for="color2">Color:</label></td>
+            <td><input type="text" name="color2" id="color2"></td>
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+            <td><label for="matricula2">Matricula</label></td>
+            <td><input type="text" name="matricula2" id="matricula2" maxlength="7"></td>
+            <td><label for="serie2">No. de serie</label></td>
+            <td><input type="text" name="serie2" id="serie2" maxlength="19"></td>
+            </th>
+          </tr>
+        </table>
+
+        <label>Observaciones (de ser el caso, señale adem&aacutes, caracteristicas, marca, cargadores y
+          cartuchos):</label><br>
+          <!--cols="30" rows="10"-->
+        <textarea name="obs2" id="obs2"  maxlength="220"></textarea><br>
+
+        <label>Destino que se le dio:</label><br>
+        <!--cols="30" rows="10"-->
+        <textarea name="dest2" id="dest2"  maxlength="194"></textarea>
+
+        <h6>Anote el nombre y firma de la persona a la que se le asegur&oacute el arma:</h6>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead10" id="linead10" placeholder="" />
+          <label class="form__label" for="linead10">Primer apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead11" id="linead11" placeholder="" />
+          <label class="form__label" for="linead11">Segundo apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead12" id="linead12" placeholder="" />
+          <label class="form__label" for="linead12
+          ">Nombre</label>
+        </div><br>
+
+        <h6>En caso de que la persona a la que se le asegur&oacute el arma no accede a firmar, anote nombre y firma
+          de dos testigos:</h6>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead13" id="linead13" placeholder="" />
+          <label class="form__label" for="linead13">Primer apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead14" id="linead14" placeholder="" />
+          <label class="form__label" for="linead14">Segundo apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead15" id="linead15" placeholder="" />
+          <label class="form__label" for="linead15">Nombre</label>
+        </div>
+
+        <h6>testigo 2</h6>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead16" id="linead16" placeholder="" />
+          <label class="form__label" for="linead16">Primer apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead17" id="linead17" placeholder="" />
+          <label class="form__label" for="linead7">Segundo apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead18" id="linead18" placeholder="" />
+          <label class="form__label" for="linead18">Nombre</label>
+        </div>
+
+        <h5 align="center">Apartado D.2 - Datos del primer respondiente que realiz&oacute la recolecci&oacuten y/o
+          aseguramiento de
+          la o las armas, s&oacutelo si es diferente a quien firm&oacute la puesta a disposici&oacuten</h5>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead19" id="linead19" placeholder="" />
+          <label class="form__label" for="linead19">Primer apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead20" id="linead20" placeholder="" />
+          <label class="form__label" for="linead20">Segundo apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead21" id="linead21" placeholder="" />
+          <label class="form__label" for="linead21">Nombre</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead22" id="linead22" placeholder="">
+          <label class="form__label">Adscripcion:</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead23" id="linead23" placeholder="">
+          <label class="form__label">Cargo/grado:</label>
+        </div>
+
+        <h5 align="center">Apartado D.3 - Registro de objetos recolectados y/0 asegurados relacionados con el echo
+          probablemente delictivo</h5>
+
+        <h6>¿Que encontro? (apariencia de):</h6>
+
+        <table>
+          <th></th>
+
+          <tr>
+            <th>
+            <td><label for="">Narcotico</label></td>
+            <td><input type="checkbox" name="narcotico" id="narcotico"></td>
+            <td><label for="">Hidrocarburo</label></td>
+            <td><input type="checkbox" name="hidrocarburo" id="hidrocarburo"></td>
+            <td><label for="">Numerario</label></td>
+            <td><input type="checkbox" name="numerario" id="numerario"></td>
+            <td><label for="">Otro</label></td>
+            <td><input type="text" name="otro" id="otro"></td>
+            </th>
+          </tr>
+        </table>
+
+        <pre style="font-size: xx-small;"><mark>Seleccione con una "X" si se trata de aportaci&oacuten o inspecci&oacuten, seg&uacuten corresponda.</mark></pre>
+
+
+        <label>Aportacion</label>
+        <input type="checkbox" name="aportacion3" id="aportacion3">
+
+        <table>
+          <th>
+            <h6>Inspeccion:</h6>
+          </th>
+
+          <tr>
+            <th>
+            <td><label for="lugar3">Lugar</label></td>
+            <td><input type="checkbox" name="lugar3" id="lugar3"></td>
+            <td><label for="pers3">Persona</label></td>
+            <td><input type="checkbox" name="pers3" id="pers3"></td>
+            <td><label for="vehic3">Vehiculo</label></td>
+            <td><input type="checkbox" name="vehic3" id="vehic3"></td>
+            <td><label for="dea3">Donde encontro el objeto</label></td>
+            <td><input type="text" name="dea3" id="dea3"></td>
+            </th>
+          </tr>
+
+        </table><br>
+
+        <!--textarea-->
+        <table border align="center">
+          <tr>
+            <td>
+              <label>Breve descripcion del objeto:</label><br>
+              <!--add cols="30" rows="10"-->
+              <textarea name="bdo" id="bdo"  maxlength="206"></textarea>
+            </td>
+            <td>
+              <label>Destino que se le dio:</label><br>
+              <!--cols="30" rows="10"-->
+              <textarea name="dd" id="dd"  maxlength="147"></textarea>
+            </td>
+          </tr>
+        </table><br>
+
+        <!--datos-->
+
+        <h6>Anote nombre y firma de la persona que se le aseguro el objeto</h6>
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead24" id="linead24" placeholder="" />
+          <label class="form__label" for="linead24">Primer apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead25" id="linead25" placeholder="" />
+          <label class="form__label" for="linead25">Segundo apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead26" id="linead26" placeholder="" />
+          <label class="form__label" for="linead26">Nombre</label>
+        </div>
+
+        <h6>En caso de que la persona a la que se le aseguró el objeto no acceda a firmar, anote
+          nombre y firma de dos testigos:</h6><br>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead27" id="linead27" placeholder="" />
+          <label class="form__label" for="linead27">Primer apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead28" id="linead28" placeholder="" />
+          <label class="form__label" for="linead28">Segundo apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead29" id="linead29" placeholder="" />
+          <label class="form__label" for="linead29">Nombre</label>
+        </div>
+
+        <h6>testigo 2</h6>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead30" id="linead30" placeholder="" />
+          <label class="form__label" for="linead30">Primer apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead31" id="linead31" placeholder="" />
+          <label class="form__label" for="linead31">Segundo apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead32" id="linead32" placeholder="" />
+          <label class="form__label" for="linead32">Nombre</label>
+        </div>
+
+        <h6>aqui debería de decir algo?</h6>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead33" id="linead33" placeholder="" />
+          <label class="form__label" for="linead33">Primer apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead34" id="linead34" placeholder="" />
+          <label class="form__label" for="linead34">Segundo apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead35" id="linead35" placeholder="" />
+          <label class="form__label" for="linead35">Nombre</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead36" id="linead36" placeholder="">
+          <label class="form__label">Adscripcion:</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="linead37" id="linead37" placeholder="">
+          <label class="form__label">Cargo/grado:</label>
+        </div>
+
+        <!--Div closes AnexoD-->
+      </div>
+
+
+      <div id="anexo5">
+        <h3 align="center">ANEXO E - ENTREVISTAS</h3>
+
+        <table>
+          <th></th>
+
+          <tr>
+            <th>
+            <td><label for="linea19">Personas entrevistadas:</label></td>
+            <td><input type="text" name="linea19" id="linea19" class="form-control" maxlength="3" size="3"></td>
+            <td>
+              <pre style="font-size: xx-small;">001,002,...010,...</pre>
+            </td>
+            </th>
+          </tr>
+        </table>
+
+        <table>
+          <th></th>
+
+          <tr>
+            <th>
+            <td>
+              <h6>¿Desea reservar sus datos?</h6>
+            </td>
+            <td><label for="reservarDatSi">SI</label></td>
+            <td><input type="checkbox" name="reservarDatSi" id="reservarDatSi"></td>
+            <td><label for="reservarDatNo">No</label></td>
+            <td><input type="checkbox" name="reservarDatNo" id="reservarDatNo"></td>
+            </th>
+          </tr>
+        </table>
+
+        <h5 align="center">Apartado E.1 - Fecha y hora del lugar de la entrevista</h5>
+
+        <h6>Indique la fecha y la hora en que se realizo la entrevista:</h6>
+
+        <table align="center" style="width:100%" class="content-table">
+          <th></th>
+
+          <tr>
+            <th>
+            <td><label for="lineae1">Fecha</label></td>
+            <td><input type="date" name="lineae1" id="lineae1" class="form-control" maxlength=15></td>
+            <td><label for="lineae2">Hora</label></td>
+            <td><input type="time" name="lineae2" id="lineae2" class="form-control"></td>
+            <td>
+              <pre style="font-style: italic; font-size: xx-small;">(24 hrs.)</pre>
+            </td>
+            </th>
+          </tr>
+        </table>
+
+        <h5 align="center">Apartado E.2 Datos generales</h5>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineae3" id="lineae3" placeholder="" />
+          <label class="form__label" for="lineae3">Primer apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineae4" id="lineae4" placeholder="" />
+          <label class="form__label" for="lineae4">Segundo apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineae5" id="lineae5" placeholder="" />
+          <label class="form__label" for="lineae5">Nombre</label>
+        </div>
+
+        <h6>Indique segun corresponda</h6>
+
+        <table style="width:100%">
+          <th>CALIDAD:</th>
+
+          <tr>
+            <th>
+            <td><label for="VicOfe">Victima u ofendido</label></td>
+            <td><input type="checkbox" name="VicOfe" id="VicOfe"></td>
+            <td><label for="denunciante">Denunciante</label></td>
+            <td><input type="checkbox" name="denunciante" id="denunciante"></td>
+            <td><label for="testigo">Testigo</label></td>
+            <td><input type="checkbox" name="testigo" id="testigo"></td>
+            </th>
+          </tr>
+        </table>
+
+        <table>
+          <th>NACIONALIDAD</th>
+
+          <tr>
+            <th>
+            <td><label for="mexicanaE">Mexicana</label></td>
+            <td><input type="checkbox" name="mexicanaE" id="mexicanaE"></td>
+            <td><label for="extranjeraE">Extranjero</label></td>
+            <td><input type="checkbox" name="extranjeraE" id="extranjeraE"></td>
+            </th>
+          </tr>
+          <tr>
+            <th colspan="3">
+            <td><label for="cualE">¿Cual?</label></td>
+            <td><input type="text" name="cualE" id="cualE"></td>
+            </th>
+          </tr>
+        </table>
+
+        <table style="width:100%">
+          <th>Sexo</th>
+
+          <tr>
+            <th>
+            <td><label for="mujerE">Mujer</label></td>
+            <td><input type="checkbox" name="mujerE" id="mujerE"></td>
+            <td><label for="hombreE">Hombre</label></td>
+            <td><input type="checkbox" name="hombreE" id="hombreE"></td>
+            </th>
+          </tr>
+          <tr>
+            <th>
+            <td><label for="lineae6">Fecha de nacimiento</label></td>
+            <td><input type="date" name="lineae6" id="lineae6"></td>
+            <td><label for="lineae7">Edad</label></td>
+            <td><input type="text" name="lineae7" id="lineae7" maxlength="2"></td>
+            </th>
+          </tr>
+        </table>
+
+        <h6>¿Se identifico con algun documento?</h6>
+
+        <table>
+          <th></th>
+
+          <tr>
+            <th>
+            <td><label>Credenciales INE</label></td>
+            <td><input type="checkbox" name="credINE" id="credINE"></td>
+            <td><label>Licencia</label></td>
+            <td><input type="checkbox" name="licenciaE" id="licenciaE"></td>
+            <td><label>Pasaporte</label></td>
+            <td><input type="checkbox" name="pasaporteE" id="pasaporteE"></td>
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+            <td><label for="otroE">Otro</label></td>
+            <td><input type="text" name="otroE" id="otroE"></td>
+            <td align="right"><label>No</label></td>
+            <td><input type="checkbox" name="noE" id="noE"></td>
+            </th>
+          </tr>
+        </table>
+        <!--more info data-->
+        <table>
+          <th></th>
+
+          <tr>
+            <th>
+            <td><label for="lineae8">No. de identificacion</label></td>
+            <td><input type="text" name="lineae8" id="lineae8" class="form-control" maxlength="23"></td>
+            <td><label for="lineae9">No. telefonico</label></td>
+            <td><input type="text" name="lineae9" id="lineae9" class="form-control" maxlength="10"></td>
+            <td><label for="correoE">Correo electronico</label></td>
+            <td><input type="text" name="correoE" id="correoE" class="form-control"></td>
+            </th>
+          </tr>
+        </table>
+
+
+        <h6>Domicilio persona Entrevistada</h6>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineae10" id="lineae10" placeholder="" />
+          <label class="form__label" for="lineae10">calle/tramo carretero</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineae11" id="lineae11" placeholder="" />
+          <label class="form__label" for="lineae11">No. Exterior</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineae12" id="lineae12" placeholder="" />
+          <label class="form__label" for="lineae12">No. Interior</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineae13" id="lineae13" placeholder="" />
+          <label class="form__label" for="lineae13">Codigo Postal</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineae14" id="lineae14" placeholder="" />
+          <label class="form__label" for="lineae14">Colonia/Localidad</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineae15" id="lineae15" placeholder="" />
+          <label class="form__label" for="lineae15">Municipio/Demarcacion Teritorial</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineae16" id="lineae16" placeholder="" />
+          <label class="form__label" for="lineae16">Entidad Federativa</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineae17" id="lineae17" placeholder="" />
+          <label class="form__label" for="lineae17">Referencias</label>
+        </div><br>
+
+        <h5 align="center">Apartado E.3 - Relato de la entrevista</h5>
+
+        <label for="relatoEnt">Relato de la entrevista</label><br>
+        <!--rows="5" cols="110"-->
+        <textarea  type="text" name="relatoEnt" id="relatoEnt" maxlength="1430"></textarea>
+
+        <h5 align="center">Apartado E.4 - Datos del lugar del traslado o canalizaci&oacuten de la persona
+          entrevistada</h5>
+
+
+
+        <table>
+          <th></th>
+
+          <tr>
+            <th>
+            <td>
+              <h6>¿Traslado o canalizo a la persona entrevistada?</h6>
+            </td>
+            <td align="center"><label for="trasladoSi">Si</label></td>
+            <td><input type="checkbox" name="trasladoSi" id="trasladoSi"></td>
+            <td align="center"><label for="trasladoNo">No</label></td>
+            <td><input type="checkbox" name="trasladoNo" id="trasladoNo"></td>
+            </th>
+          </tr>
+        </table>
+
+        <table>
+          <th>lugar de traslado o canalizaciones</th>
+
+          <tr>
+            <th>
+            <td><label for="lineae18">Fiscalia/Agencia</label></td>
+            <td><input type="checkbox" name="lineae18" id="lineae18"></td>
+            <td><label for="lineae19">Hospital</label></td>
+            <td><input type="checkbox" name="lineae19" id="lineae19"></td>
+            <td><label for="lineae20">Otra dependencia</label></td>
+            <td><input type="checkbox" name="lineae20" id="lineae20"></td>
+            <td><label for="lineae80">¿Cual?</label></td>
+            <td><input type="text" name="lineae80" id="lineae80"></td>
+            </th>
+          </tr>
+
+        </table>
+
+        <h5>Apartado E.5 - Constancia de la lectura de derechos, SOLO en caso de victima u ofendido</h5>
+        <pre style="font-family: 'Trebuchet MS'"><mark>Articulo 20 apartado C de la Constitucion Politica de los Estados Unidos Mexicanos y
+            articulos 109 del C&oacutedigo Nacional de Procedimeintos Penales y 7 de ka Ley General de Victimas</mark></pre>
+
+        <h6>Indiquie a la victima u ofendido que tiene derecho a:</h6>
+
+        <pre align="justify"><mark>
+              1. Recibir asesoría jurídica; ser informado de los derechos que en su favor establece la Constitución
+                  y, cuando lo solicite, ser informado del desarrollo del procedimiento penal.
+              2. Recibir desde la comisión del delito, atención médica y psicológica de urgencia.
+              3. Comunicarse inmediatamente después de haberse cometido el delito con un familiar, incluso con su
+                  asesor jurídico.
+              4. Ser tratado con respeto y dignidad.
+              5. Contar con un asesor jurídico gratuito en cualquier etapa del procedimiento, en los términos de la
+                  legislación aplicable.
+              6. Acceder a la justicia de manera pronta, gratuita e imparcial respecto de sus denuncias o querellas.
+              7. Recibir gratuitamente la asistencia de un intérprete o traductor.
+              8. Que se le proporcione asistencia migratoria cuando tenga otra nacionalidad.
+              9. Que se resguarde su identidad y datos personales, en los términos que establece la ley.</mark></pre>
+
+        <h5>Apartado E.6 Datos del primer respondiente que realizo la entrevista, s&oacutelo
+          si es diferente a quien firm&oacute la puesta a disposici&oacuten</h5>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineae21" id="lineae21" placeholder="" />
+          <label class="form__label" for="lineae21">Primer apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineae22" id="lineae22" placeholder="" />
+          <label class="form__label" for="lineae22">Segundo apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineae23" id="lineae23" placeholder="" />
+          <label class="form__label" for="lineae23">Nombre</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineae24" id="lineae24" placeholder="">
+          <label class="form__label" for="lineae24">Adscripcion:</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineae25" id="lineae25" placeholder="">
+          <label class="form__label" for="lineae25">Cargo/grado:</label>
+        </div>
+
+        <!--Div closes AnexoE-->
+      </div>
+
+      <div id="anexo6">
+        <h3>ANEXO F. - ENTREGA - RECEPCION DEL LUGAR DE LA INTERVENCION</h3>
+
+        <label for="linea20">Entrega - recepcion del lugar de la intervencion</label>
+        <input type="number" name="linea20" id="linea20" maxlength="3" size="3">
+
+        <h5>Apartado F.1 Preservacion del lugar de la intervencion</h5>
+
+        <label for="accionesReaF">Explique brevemente las acciones realizadas para la Preservaci&oacuten del lugar
+          de la intervenci&oacuten, (delimitacion, acordonamiento, clausura en el lugar cerrado, etc.)</label>
+          <!--add cols="110" rows="3"-->
+        <textarea name="accionesReaF" id="accionesReaF"  maxlength="360"></textarea>
+
+        <table>
+          <th></th>
+
+          <tr>
+            <th>
+            <td>
+              <h6>¿Solicit&oacute apoyo de alguna autoridad o servicios especializados en el lugar de la
+                intervenci&oacuten?</h6>
+            </td>
+            <td><label for="apoyoAutSi">Si</label></td>
+            <td><input type="checkbox" name="apoyoAutSi" id="apoyoAutSi"></td>
+            <td><label for="apoyoAutNo">No</label></td>
+            <td><input type="checkbox" name="apoyoAutNo" id="apoyoAutNo"></td>
+            </th>
+          </tr>
+        </table>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="cualF" id="cualF" maxlength="90" placeholder="">
+          <label class="form__label" for="cualF">¿Cual?</label>
+        </div>
+
+        <h5>Apartado F.2 - Acciones realizadas despues de la preservacion</h5>
+        <table>
+          <th></th>
+
+          <tr>
+            <th>
+            <td>
+              <h6>Despues de la preservacion del lugar de la intervencion, ¿Ingreso alguna
+                persona al lugar?</h6>
+            </td>
+            <td align="center"><label for="lineafSi">Si</label></td>
+            <td><input type="checkbox" name="lineafSi" id="lineafSi"></td>
+            <td align="center"><label for="lineafNo">No</label></td>
+            <td><input type="checkbox" name="lineafNo" id="lineafNo"></td>
+            </th>
+          </tr>
+        </table>
+
+        <div class="form-group">
+          <label for="lineaf1">Motivo del ingreso</label><br>
+          <!--cols="100" rows="2"-->
+          <textarea name="lineaf1" id="lineaf1"  maxlength="214"></textarea>
+        </div>
+
+        <h6>Datos del personal que ingres&oacute al lugar de la intervencion.</h6>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineaf2" id="lineaf2" placeholder="" />
+          <label class="form__label" for="lineaf2">Primer apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineaf3" id="lineaf3" placeholder="" />
+          <label class="form__label" for="lineaf3">Segundo apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineaf4" id="lineaf4" placeholder="" />
+          <label class="form__label" for="lineaf4">Nombre</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineaf5" id="lineaf5" placeholder="">
+          <label class="form__label" for="lineaf5">Cargo/Grado:</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineaf6" id="lineaf6" placeholder="">
+          <label class="form__label" for="lineaf6">Institucion:</label>
+        </div>
+
+        <h6>persona 2</h6>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineaf7" id="lineaf7" placeholder="" />
+          <label class="form__label" for="lineaf7">Primer apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineaf8" id="lineaf8" placeholder="" />
+          <label class="form__label" for="lineaf8">Segundo apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineaf9" id="lineaf9" placeholder="" />
+          <label class="form__label" for="lineaf9">Nombre</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineaf10" id="lineaf10" placeholder="">
+          <label class="form__label" for="lineaf10">Cargo/Grado:</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineaf11" id="lineaf11" placeholder="">
+          <label class="form__label" for="lineaf11">Institucion:</label>
+        </div>
+
+        <h5>Apartado F.3 Entrega . recepci&oacuten del lugar de la intervencion</h5>
+        <h6>Datos de la persona que entrega el lugar de intervencion</h6>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineaf12" id="lineaf12" placeholder="" />
+          <label class="form__label" for="lineaf12">Primer apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineaf13" id="lineaf13" placeholder="" />
+          <label class="form__label" for="lineaf13">Segundo apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineaf14" id="lineaf14" placeholder="" />
+          <label class="form__label" for="lineaf14">Nombre</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineaf15" id="lineaf15" placeholder="">
+          <label class="form__label" for="lineaf15">Adscripcion:</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineaf16" id="lineaf16" placeholder="">
+          <label class="form__label" for="lineaf16">Cargo/Grado:</label>
+        </div>
+
+
+        <h6>Datos de la persona que recibe el lugar de intervencion</h6>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineaf17" id="lineaf17" placeholder="" />
+          <label class="form__label" for="lineaf17">Primer apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineaf18" id="lineaf18" placeholder="" />
+          <label class="form__label" for="lineaf18">Segundo apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineaf19" id="lineaf19" placeholder="" />
+          <label class="form__label" for="lineaf19">Nombre</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineaf20" id="lineaf20" placeholder="">
+          <label class="form__label" for="lineaf20">Adscripcion:</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineaf21" id="lineaf21" placeholder="">
+          <label class="form__label" for="lineaf21">Cargo/Grado:</label>
+        </div>
+
+
+        <label for="observacionesF3">Observaciones:</label><br>
+        <!--add cols="100" rows="7"-->
+        <textarea name="observacionesF3" id="observacionesF3"  maxlength="840"></textarea>
+
+        <h5>Apartado F.4 - Fecha y hora de la entrega - recepcion del lugar de la intervencion</h5>
+
+        <table align="center" style="width:100%" class="content-table">
+          <th></th>
+
+          <tr>
+            <th>
+            <td><label for="fechaF4">Fecha</label></td>
+            <td><input type="date" name="fechaF4" id="fechaF4" class="form-control"></td>
+            <td><label for="horaF4">Hr</label></td>
+            <td><input type="time" name="horaF4" id="horaF4" class="form-control"></td>
+            <td>
+              <pre style="font-style: italic; font-size: xx-small;">(24 hrs.)</pre>
+            </td>
+            </th>
+          </tr>
+        </table>
+        <!--div closes AnexoF-->
+      </div>
+
+      <div id="anexo7">
+        <h3>ANEXO G. CONTINUACION DE LA NARRATIVA DE LOS HECHOS Y/O ENTREVISTA</h3>
+
+        <table>
+          <th></th>
+
+          <tr>
+            <th>
+            <td><label for="linea21">Continaucion de la narrativa de los hechos y/o entrevista</label></td>
+            <td><input type="text" name="linea21" id="linea21" maxlength="3"></td>
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+            <td><label for="paginaG">Pagina</label< /td>
+            <td><input type="text" name="paginaG" id="paginaG" maxlength=3></td>
+            <td><label for="deG">De</label></td>
+            <td><input type="text" name="deG" id="deG" maxlength=3></td>
+            </th>
+          </tr>
+        </table>
+
+        <table>
+          <th>Continuacion de la narrativa de:</th>
+
+          <tr>
+            <th>
+            <td><label for="lineag1">Hechos</label></td>
+            <td><input type="checkbox" name="lineag1" id="lineag1"></td>
+            <td><label for="lineag2">Entrevista</label></td>
+            <td><input type="checkbox" name="lineag2" id="lineag2"></td>
+            </th>
+          </tr>
+        </table>
+
+        <!--add cols="100" rows="25"-->
+        <textarea name="continuacionNarrativa" id="continuacionNarrativa"  maxlength="2974"></textarea>
+        <h6>Datos del primer respondiente que realizo la narracion de los hechos y/o entrevista,
+          s si es diferente a quien firm&oacute la puesta a disposicion</h6>
+
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineag3" id="lineag3" placeholder="" />
+          <label class="form__label" for="lineag3">Primer apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineag4" id="lineag4" placeholder="" />
+          <label class="form__label" for="lineag4">Segundo apellido</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineag5" id="lineag5" placeholder="" />
+          <label class="form__label" for="lineag5">Nombre</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineag6" id="lineag6" placeholder="">
+          <label class="form__label" for="lineag6">Adscripcion:</label>
+        </div>
+
+        <div class="form__div">
+          <input class="form__input" type="text" name="lineag7" id="lineag7" placeholder="">
+          <label class="form__label" for="lineag7">Cargo/Grado:</label>
+        </div>
+
+
+        <!--div closes AnexoG-->
+      </div>
+
+
+
+      <!--boton submit-->
+
+      <input type="submit" class="form__button" value="submit">
+    </form>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS, then Ajax -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+    </script>-->
+
+
+  <script>
+    $(document).ready(function() {
+      seleccion(0);
+      seleccion(1);
+      seleccion(2);
+      seleccion(3);
+      seleccion(4);
+      seleccion(5);
+      seleccion(6);
+      seleccion(7);
+      seleccion(8);
+      seleccion(9);
+      seleccion(10);
+      seleccion(11);
+      seleccion(12);
+      seleccion(13);
+      seleccion(14);
+      seleccion(15);
+      seleccion(16);
+      seleccion(17);
+      seleccion(18);
+      seleccion(19);
+      seleccion(20);
+      seleccion(21);
+      seleccion(22);
+      seleccion(23);
+      seleccion(24);
+      seleccion(25);
+      seleccion(26);
+      seleccion(27);
+      seleccion(28);
+      seleccion(29);
+      seleccion(30);
+      seleccion(31);
+      seleccion(32);
+      seleccion(33);
+      seleccion(34);
+      seleccion(35);
+      seleccion(36);
+      seleccion(37);
+      seleccion(38);
+      seleccion(39);
+      seleccion(40);
+      seleccion(41);
+      seleccion(42);
+      seleccion(43);
+      seleccion(44);
+      seleccion(45);
+      seleccion(46);
+      seleccion(47);
+      seleccion(48);
+      seleccion(49);
+      seleccion(50);
+      seleccion();
+      seleccion();
+      seleccion();
+      seleccion();
+      seleccion();
+      seleccion();
+      seleccion();
+      seleccion();
+      seleccion();
+      seleccion();
+      seleccion();
+      seleccion();
+      seleccion();
+      seleccion();
+      seleccion();
+      seleccion();
+      seleccion();
+      seleccion();
+      seleccion();
+      seleccion();
+      seleccion();
+      seleccion();
+      seleccion();
+      seleccion();
+      seleccion();
+      seleccion();
+      seleccion();
+      seleccion();
+
+    })
+
+    function seleccion(numero, valor) {
+      switch (numero) {
+        case 0:
+          if (!$("#anexoIPH").is(':checked')) {
+            $("#anexo0").hide()
+          } else {
+            $("#anexo0").show()
+          }
+          break;
+
+        case 1:
+          if (!$("#anexoA").is(':checked')) {
+            $("#anexo1").hide()
+          } else {
+            $("#anexo1").show()
+          }
+          break;
+        case 2:
+          if (!$("#anexoB").is(':checked')) {
+            $("#anexo2").hide()
+          } else {
+            $("#anexo2").show()
+          }
+          break;
+        case 3:
+          if (!$("#anexoC").is(':checked')) {
+            $("#anexo3").hide()
+          } else {
+            $("#anexo3").show()
+          }
+          break;
+        case 4:
+          if (!$("#anexoD").is(':checked')) {
+            $("#anexo4").hide()
+          } else {
+            $("#anexo4").show()
+          }
+          break;
+        case 5:
+          if (!$("#anexoE").is(':checked')) {
+            $("#anexo5").hide()
+          } else {
+            $("#anexo5").show()
+          }
+          break;
+        case 6:
+          if (!$("#anexoF").is(':checked')) {
+            $("#anexo6").hide()
+          } else {
+            $("#anexo6").show()
+          }
+          break;
+        case 7:
+          if (!$("#anexoG").is(':checked')) {
+            $("#anexo7").hide()
+          } else {
+            $("#anexo7").show()
+          }
+          break;
+
+        case 8:
+          if (!$("#anexoH").is(':checked')) {
+            $("#anexo8").hide()
+          } else {
+            $("#anexo8").show()
+          }
+          break;
+
+        case 15:
+          if (!$("#anexoI").is(':checked')) {
+            $("#anexo15").hide()
+          } else {
+            $("#anexo15").show()
+          }
+          break;
+
+        case 33:
+          if (!$("#padecimiento").is(':checked')) {
+            $("#anexo33").hide()
+          } else {
+            $("#anexo33").show()
+          }
+          break;
+
+        case 34:
+          if (!$("#vul").is(':checked')) {
+            $("#anexo34").hide()
+          } else {
+            $("#anexo34").show()
+          }
+          break;
+
+        case 35:
+          if (!$("#del").is(':checked')) {
+            $("#anexo35").hide()
+          } else {
+            $("#anexo35").show()
+          }
+          break;
+
+        case 41:
+          if (!$("#tabla").is(':checked')) {
+            $("#anexo41").hide()
+          } else {
+            $("#anexo41").show()
+          }
+          break;
+
+        case 44:
+          if (!$("#direNo").is(':checked')) {
+            $("#anexo44").hide()
+          } else {
+            $("#anexo44").show()
+          }
+          break;
+
+
+      }
+
+    }
+  </script>
+</body>
+
+</html>
