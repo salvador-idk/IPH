@@ -3,17 +3,21 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width" , initial-scale="1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
 
 
   <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
 
 
-  <!--===== CSS =====-->
+  
   <link rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
   <link rel="shortcut icon" type="image" href="/home/salvador/Pictures/SSP-logo.png">
-  <style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  
+  <!--===== CSS =====-->
+  <style media="screen">
+  
     /*===== GOOGLE FONTS =====*/
     @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
     @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
@@ -22,13 +26,17 @@
     :root {
       /*===== Colores =====*/
       --first-color: #000000;
-      --input-color: #80868B;
-      --border-color: #DADCE0;
+      --input-color: #2b2b2b;
+      --border-color: #351830;
 
       /*===== Fuente y tipografia =====*/
       --body-font: 'Roboto', sans-serif;
       --normal-font-size: 1rem;
       --small-font-size: .75rem;
+    }
+    /*=====WATERMARK=====*/
+    img[src="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"]{
+        display:none;
     }
 
     /*===== BASE =====*/
@@ -45,7 +53,7 @@
       font-size: var(--normal-font-size);
       width: 100%;
       height: 100%;
-      background-color: white;
+      background-image: linear-gradient(white, #d68b0a);
     }
 
     h1 {
@@ -53,13 +61,29 @@
     }
 
     /*===== FORM =====*/
+    
+    /*.l-form{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
 
-    form {
+    }
+    .form{
+      width: 100%;
+      padding: 4rem 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 25px rgba(92,99,105,.2);
+      background-color: white;
+    }*/
+
+    .form {
       width: 100%;
       height: 100%;
       padding: 4rem 2rem;
       border-radius: 1rem;
       display: inline-block;
+      box-shadow: 0 10px 25px rgba(92,99,105,.2);
 
     }
 
@@ -83,7 +107,7 @@
       display: inline-block;
       top: 0;
       left: 0;
-      width: 25%;
+      width: 210px;
       height: 100%;
       font-size: var(--normal-font-size);
       border: 1px solid var(--border-color);
@@ -101,11 +125,12 @@
       position: absolute;
       left: 1rem;
       top: 1rem;
-      padding: 0 .25rem;
-      background-color: #fff;
+      padding: 0 .20rem;
+      background-color: /*#fff;*/transparent;
       color: var(--input-color);
       font-size: var(--normal-font-size);
-      transition: .3s;
+      transition: .1s;
+      
     }
 
     /*button styles*/
@@ -117,7 +142,7 @@
       outline: none;
       border: none;
       background-color: var(--first-color);
-      color: #fff;
+      color: #ffffff;
       font-size: var(--normal-font-size);
       border-radius: .5rem;
       cursor: pointer;
@@ -132,7 +157,7 @@
     .form__input:focus+.form__label {
       top: -.5rem;
       left: .8rem;
-      color: var(--first-color);
+      color: var(--border-color);
       font-size: var(--small-font-size);
       font-weight: 500;
       z-index: 10;
@@ -157,25 +182,31 @@
     .container {
 
       border-radius: 4px;
-      background-image: linear-gradient(white, #53316d);
+      background-color:white;
       /*background-color: transparent !important;*/
-      opacity: .75;
+      opacity: .85;
       /*tambien transparenta elementos dentro del container*/
-      padding: 20px;
+      padding:0;
       width: 100%;
       height: 100%;
+      overflow:auto;
+      table-layout: auto;
+      
     }
 
     /*====HEADER====*/
     .header {
       width: 100%;
-      height: 150px;
+      height: 200px;
       padding: 60px 0;
       border-bottom: solid 1px rgba(16, 16, 16, 0.1);
       text-align: center;
-      background-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(0, 0, 0));
+      background-image: url("https://guardian.ng/wp-content/uploads/2019/09/Cybercrime.jpg"), linear-gradient(to bottom, rgb(255, 255, 255), rgb(0, 0, 0));
+      background-repeat: no-repeat;
+      background-size: cover;
       background-blend-mode: multiply;
       color: rgb(255, 255, 255);
+      
     }
 
     header .inner {
@@ -243,12 +274,23 @@
 
 
 
-    /*input styles*/
+    /*====INPUT====*/
 
-    /*input {
-      border: 1px solid black;
-      border-radius: 3px;
-    }*/
+    input [type="text"]{
+      position: absolute;
+      display: inline-block;
+      top: 0;
+      left: 0;
+      width: 210px;
+      height: 100%;
+      font-size: var(--normal-font-size);
+      border: 1px solid var(--border-color);
+      border-radius: .5rem;
+      outline: none;
+      padding: 1rem;
+      background: none;
+      z-index: 1;
+    }
 
     /*Label styles*/
     label {
@@ -258,8 +300,17 @@
     textarea {
       resize: both;
     }
+    
+    /*=====RADIOBUTTON-CUSTOM=====*/
+    input[type="radio"]{
+      background-color: #d5d5d5;
+      cursor: pointer;
+      display:flex;
+      border-radius:5px;
+      
+    }
 
-    /*checkbox styles*/
+    /*=====CHECKBOX-STYLE=====*/
     input[type="checkbox"] {
       appearance: none;
       -webkit-appearance: none;
@@ -363,17 +414,27 @@
       -webkit-box-shadow: none;
       -moz-box-shadow: none;
     }
-
+    
+    /*=====MARK-TAG=====*/
+        mark {
+      background-color: black;
+      color: white;
+    
+        }
+    
     /*=====TABLE=====*/
+    
+    
 
     .content-table {
       border-collapse: collapse;
-      margin: 1px 0;
-      font-size: 0.9em;
-      min-width: 300px;
+      margin: 0px 0;
+      font-size: 0.7em;
+      max-width: 0px;
       border-radius: 5px 5px 0 0;
-      overflow: hidden;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      table-layout: fixed;
+      padding:auto;
     }
 
     .content-table thead tr {
@@ -385,8 +446,8 @@
 
     .content-table th,
     .content-table td {
-      padding: 1px 5px;
-      overflow-x:auto;
+      padding: 0%;
+      overflow:hidden;  
     }
 
     .content-table tbody tr {
@@ -405,6 +466,261 @@
       font-weight: bold;
       color: #009879;
     }
+    
+    /*====RADIOBUTTON====*/
+    .wrapper{
+      width: 350px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 5px 5px 30px rgba(0,0,0,0.2);
+    }
+    .wrapper .title{
+      color: #fff;
+      line-height: 65px;
+      text-align: center;
+      background: #333;
+      font-size: 25px;
+      font-weight: 500;
+      border-radius: 10px 10px 0 0;
+    }
+    .wrapper .box{
+      padding: 20px 30px;
+      background: #fff;
+      border-radius: 10px;
+    }
+    .wrapper .box label{
+      display: flex;
+      height: 53px;
+      width: 100%;
+      align-items: center;
+      border: 1px solid lightgrey;
+      border-radius: 50px;
+      margin: 10px 0;
+      padding-left: 20px;
+      cursor: default;
+      transition: all 0.3s ease;
+    }
+    #option-1:checked ~ .option-1,
+    #option-2:checked ~ .option-2,
+    #option-3:checked ~ .option-3,
+    #option-4:checked ~ .option-4,
+    #option-5:checked ~ .option-5,
+    #option-6:checked ~ .option-6,
+    #option-7:checked ~ .option-7{
+      background: #333;
+      border-color: #333;
+    }
+    .wrapper .box label .dot{
+      height: 20px;
+      width: 20px;
+      background: #d9d9d9;
+      border-radius: 50%;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    #option-1:checked ~ .option-1 .dot,
+    #option-2:checked ~ .option-2 .dot,
+    #option-3:checked ~ .option-3 .dot,
+    #option-4:checked ~ .option-4 .dot,
+    #option-5:checked ~ .option-5 .dot,
+    #option-6:checked ~ .option-6 .dot,
+    #option-7:checked ~ .option-7 .dot{
+      background: #fff;
+    }
+    .box label .dot::before{
+      position: absolute;
+      content: "";
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(2);
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+    #option-1:checked ~ .option-1 .dot::before,
+    #option-2:checked ~ .option-2 .dot::before,
+    #option-3:checked ~ .option-3 .dot::before,
+    #option-4:checked ~ .option-4 .dot::before,
+    #option-5:checked ~ .option-5 .dot::before,
+    #option-6:checked ~ .option-6 .dot::before,
+    #option-7:checked ~ .option-7 .dot::before{
+      background: #333;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    .wrapper .box label .text{
+      color: #333;
+      font-size: 18px;
+      font-weight: 400;
+      padding-left: 10px;
+      transition: color 0.3s ease;
+    }
+    #option-1:checked ~ .option-1 .text,
+    #option-2:checked ~ .option-2 .text,
+    #option-3:checked ~ .option-3 .text,
+    #option-4:checked ~ .option-4 .text,
+    #option-5:checked ~ .option-5 .text,
+    #option-6:checked ~ .option-6 .text,
+    #option-7:checked ~ .option-7 .text{
+      color: #fff;
+    }
+    
+    .wrapper .box input[type="radio"]{
+  display: none;
+}
+
+/*====PRE-TAG====*/
+    pre {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      text-align: justify;
+    }
+    
+    /*=====HAMBURGER-MENU=====*/
+    
+    #menuToggle
+{
+  display: block;
+  position: relative;
+  top: 0px;
+  left: 20px;
+
+  z-index: 1;
+
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle a
+{
+  text-decoration: none;
+  color: #232323;
+
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover
+{
+  color: tomato;
+}
+
+
+#menuToggle input
+{
+  display: block;
+  width: 30px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+
+  cursor: pointer;
+
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span
+{
+  display: block;
+  width: 30px;
+  height: 4px;
+  margin-bottom: 4px;
+  position: relative;
+
+  background: #232323;
+  border-radius: 3px;
+
+  z-index: 1;
+
+  transform-origin: 4px 0px;
+
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+/*
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu
+{
+  position: absolute;
+  width: 250px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 75px;
+
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+    /* padding with 'x'*/
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+/*
+ * And let's slide it in from the left
+ */
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+}
+    
   </style>
 
 
@@ -414,13 +730,8 @@
 
 <!--header w titles-->
 <section class="header">
-  <h1 style="font-family: 'Bebas Neue', cursive;">INFORME POLICIAL HOMOLOGADO (IPH)</h1>
-  <pre style="font-family: 'Bebas Neue', cursive;">HECHO PROBABLEMENTE DELICTIVO.</pre>
-</section>
-
-<body>
-
-  <header>
+    <header>
+        
     <div class="inner">
       <div class="logo">
         <div>
@@ -429,6 +740,23 @@
 
         </div>
       </div>
+      </div>
+      </header>
+  <h1 style="font-family: 'Bebas Neue', cursive;">INFORME POLICIAL HOMOLOGADO (IPH)</h1>
+  <h2 style="font-family: 'Bebas Neue', cursive;" align="center">HECHO PROBABLEMENTE DELICTIVO.</h2>
+</section>
+
+<body>
+
+  <!--<header>
+    <div class="inner">
+      <div class="logo">
+        <div>
+          <!-- The below line can be an image or a h1, either will work -->
+          <!--<img src="./PCE.png" alt="PCE logo">
+
+        </div>
+      </div>-->
 
       <!--nav section, I dont need it for the momment-->
 
@@ -437,38 +765,91 @@
                 <span> will be the part that centers the content inside it
                 <a> is the actual clickable part -->
       <!--<nav>
-        <li><span><a href="">About</a></span></li>
-        <li><span><a href="">Work</a></span></li>
-        <li><span><a href="">History</a></span></li>
-        <li><span><a href="" class="button">Contact</a></span></li>-->
-      <!-- On the line above, remove the class="button" if you don't want the final
-                  element to be a button
-      </nav>-->
+        <li><span><a href="https://iphdigital.netlify.app/index.html" class="button">BUSCADOR</a></span>
+        <li><span><a href="buscador.html" class="button">IPH DIGITAL</a></span></li>-->
+      <!--</nav>
 
     </div>
-  </header>
+  </header>-->
 
   <div class="container" align="left">
     <form action="generarPDF.php" class="form" method="POST">
-      <div class="" align="right">
-        <a href="buscador.html">Buscar</a>
+        
+        <nav role="navigation" align="rigth">
+    <div id="menuToggle">
+      <!--
+    A fake / hidden checkbox is used as click reciever,
+    so you can use the :checked selector on it.
+    -->
+      <input type="checkbox" />
+
+      <!--
+    Some spans to act as a hamburger.
+
+    They are acting like a real hamburger,
+    not that McDonalds stuff.
+    -->
+      <span></span>
+      <span></span>
+      <span></span>
+
+      <!--
+    Too bad the menu has to be inside of the button
+    but hey, it's pure CSS magic.
+    -->
+      <ul id="menu">
+        <a href="">
+          <li></li>
+        </a>
+        <a href="https://iphdigital.netlify.app/index.html">
+          <li>IPH DIGITAL</li>
+        </a>
+        <a href="buscador.html">
+          <li>BUSCADOR</li>
+        </a>
+
+      </ul>
+    </div>
+  </nav><br><br><br>
+        
+        <!--<header>
+    <div class="inner">
+      <div class="logo">
+        <div>-->
+          <!-- The below line can be an image or a h1, either will work -->
+          <!--<img src="./PCE.png" alt="PCE logo">
+
+        </div>
       </div>
+      </div>
+      </header>-->
+      
+      
+        <!--buttons for IPH BUSCADOR-->
+      <!--<div class="" align="right">
+        <button type="button" name="button" class="form__button"><a href="https://iphdigital.netlify.app/index.html">IPH DIGITAL</a></button>
+      </div><br>
+      
+      <div class="" align="right">
+        <button type="button" name="button" class="form__button"><a href="buscador.html">Buscar IPH</a></button>
+      </div>-->
 
       <!--<h1 align="center">INFORME POLICIAL HOMOLOGADO (IPH)</h1>
       <h2 align="center"><mark>HECHO PROBABLEMENTE DELICTIVO</mark></h2>-->
 
       <!--Insertar campos de formulario-->
+      
+      
       <h3 align="center">SECCIÓN 1 - PUESTA A DISPOSICIÓN</h3>
       <h5>Apartado 1.1 Fecha y hora de la puesta a disposicion</h5>
 
       <div class="form__div">
-        <input type="text" class="form__input" name="linea3" id="3" placeholder=" " maxlength="15">
+        <input type="text" class="form__input" name="linea3" id="3" placeholder=" " maxlength="15" required>
         <label for="linea3" class="form__label">No. Expediente</label>
       </div>
 
       <table class="content-table">
-        <th></th>
-
+        
         <tr>
           <th>
           <td><label for="">Fecha</label></td>
@@ -476,14 +857,14 @@
           <td><label for="">Hr</label></td>
           <td><input type="time" name="linea2" id="linea2"></td>
           <td>
-            <pre style="font-style: italic; font-size: xx-small;">formato 24 horas</pre>
+            <pre style="font-style: italic; font-size: xx-small;">(24 horas)</pre>
           </td>
           </th>
         </tr>
       </table><br>
 
-      <pre style="font-style: italic; font-size: xx-small;"><mark>señale con una "x" el o los Anexos entregados e indique la cantidad
-      de cada uno de ellos (solo entrege los Anexos utilizados.)</mark></pre>
+      <pre style="font-style: italic; font-size: small;">
+    <mark>señale con una "x" el o los Anexos entregados e indique la cantidad de cada uno de ellos (solo entrege los Anexos utilizados.)</mark></pre>
 
       <!-- anexos check box -->
       <!--check box averiuar despuescomo acomodarlos al igual que el formato-->
@@ -492,52 +873,117 @@
 
         <tr>
           <th>
-          <td align="center"><label class="form-check-label" for="anexoIPH">Incluir IPH</label></td>
+          <td align="right"><label class="form-check-label" for="anexoIPH">Incluir IPH</label></td>
           <td><input type="checkbox" name="anexoIPH" id="anexoIPH" class="form-check-input" onchange="seleccion(0);"></td>
           </th>
         </tr>
 
         <tr>
           <th>
-          <td align="center"><label class="form-check-label" for="anexoA">Incluir anexo A</label></td>
+          <td align="right"><label class="form-check-label" for="anexoA">ANEXO A. Detenci&oacuten(es)</label></td>
           <td><input type="checkbox" name="anexoA" id="anexoA" onchange="seleccion(1);"></td>
-          <td align="center"><label class="form-check-label" for="anexoB">Incluir anexo B</label></td>
+          <td align="right"><label class="form-check-label" for="anexoB">ANEXO B. Informe del uso de la fuerza</label></td>
           <td><input type="checkbox" name="anexoB" id="anexoB" onchange="seleccion(2);"></td>
-          <td align="center"><label class="form-check-label" for="anexoC">Incluir anexo C</label></td>
-          <td><input type="checkbox" name="anexoC" id="anexoC" onchange="seleccion(3);"></td>
-          <td align="center"><label class="form-check-label" for="anexoD">Incluir anexo D</label></td>
-          <td><input type="checkbox" name="anexoD" id="anexoD" onchange="seleccion(4);"></td>
+          
+          
           </th>
+        </tr>
+        
+        <tr>
+            <th>
+                <td align="right"><label class="form-check-label" for="anexoC">ANEXO C. Inspecci&acutenon de veh&iacutenculo</label></td>
+                <td><input type="checkbox" name="anexoC" id="anexoC" onchange="seleccion(3);"></td>
+          <td align="right"><label class="form-check-label" for="anexoD">ANEXO D. Inventario de armas y objetos</label></td>
+          <td><input type="checkbox" name="anexoD" id="anexoD" onchange="seleccion(4);"></td>
+            <th>
         </tr>
 
         <tr>
           <th>
-          <td align="center"><label class="form-check-label" for="anexoE">Incluir anexo E</label></td>
+          <td align="right"><label class="form-check-label" for="anexoE">ANEXO E. Entrevistas</label></td>
           <td><input type="checkbox" name="anexoE" id="anexoE" onchange="seleccion(5);"></td>
-          <td align="center"><label class="form-check-label" for="anexoF">Incluir anexo F</label></td>
+          <td align="right"><label class="form-check-label" for="anexoF">ANEXO F. Entrega-Recepcion del lugar de la intervencion</label></td>
           <td><input type="checkbox" name="anexoF" id="anexoF" onchange="seleccion(6);"></td>
-          <td align="center"><label class="form-check-label" for="anexoG">Incluir anexo G</label></td>
-          <td><input type="checkbox" name="anexoG" id="anexoG" onchange="seleccion(7);"></td>
+          
           </th>
+        </tr>
+        
+        <tr>
+            <th>
+                <td align="right"><label class="form-check-label" for="anexoG">ANEXO G. Continuacion de la narrativa de los hechos y/o entrevista</label></td>
+          <td><input type="checkbox" name="anexoG" id="anexoG" onchange="seleccion(7);"></td>
+            </th>
         </tr>
 
       </table><br>
 
-      <table>
+      
+
+      <!--Campos de Textos-->
+      <!-- datos de quien realiza la puesta a dispocición linea-->
+      <!--hide Doc and sections 2-5-->
+
+      <div id="anexo0">
+          
+          <table align="center">
         <th></th>
 
         <tr>
           <th>
-          <td align="center"><label class="form-check-label" for="anexoH">Anexar Documentacion</label></td>
+          <td align="right"><label class="form-check-label" for="anexoH">Anexar Documentacion</label></td>
           <td><input type="checkbox" name="anexoH" id="anexoH" onchange="seleccion(8);"></td>
           </th>
         </tr>
       </table><br>
 
-      <!--Campos de Textos-->
-      <!-- datos de quien realiza la puesta a dispocición linea-->
+        <div class="" id="anexo8">
+          <h5 align="center">DOCUMENTACION</h5>
 
-      <h5>Datos de quien realiza la puesta a disposicion </h5>
+
+          <pre style="font-style: italic; font-size: x-small;"><mark>Señale con una "x" el tipo de documentacion</mark></pre>
+
+          <table>
+            <th></th>
+
+            <tr>
+              <th>
+              <td><label class="form-check-label" for="anexoFO">Fotografias</label></td>
+              <td><input type="checkbox" name="anexoFO" id="anexoFO" value="1"></td>
+              <td><label class="form-check-label" for="anexoAU">Audio</label></td>
+              <td><input type="checkbox" name="anexoAU" id="anexoAU" value="2"></td>
+              <td><label class="form-check-label" for="anexoVI">Videos</label></td>
+              <td><input type="checkbox" name="anexoVI" id="anexoVI" value="3"></td>
+              </th>
+            </tr>
+            
+            <tr>
+                <th>
+                    <td><label class="form-check-label" for="anexoCM">Certificado Medico</label></td>
+              <td><input type="checkbox" name="anexoCM" id="anexoCM" value="4"></td>
+                </th>
+            </tr>
+            
+            <tr>
+              <th>
+              <td><label class="form-check-label" for="anexoH">Otros</label></td>
+              <td><input type="checkbox" name="anexoH" id="anexoH" value="5"></td>
+              </th>
+            </tr>
+          </table><br>
+
+          <div class="form__div">
+            <input type="text" class="form__input" name="linea22" id="linea22" maxlength="20" placeholder=" ">
+            <label for="linea22" class="form__label">¿Cuál?</label>
+          </div>
+
+          <!--closes docu div-->
+        </div><br>
+
+        <p class="divided">
+          <span class="divider"></span>
+        </p>
+
+<h5>Datos de quien realiza la puesta a disposicion </h5>
 
 
       <div class="form__div">
@@ -594,52 +1040,7 @@
       </div>
       <br>
 
-      <!--hide Doc and sections 2-5-->
 
-      <div id="anexo0">
-
-
-
-        <div class="" id="anexo8">
-          <h5 align="center">DOCUMENTACION</h5>
-
-          <pre style="font-style: italic; font-size: xx-small;"><mark>Señale con una "x" el tipo de documentacion</mark></pre>
-
-          <table style="width:100%">
-            <th></th>
-
-            <tr>
-              <th>
-              <td><label class="form-check-label" for="anexoFO">Fotografias</label></td>
-              <td><input type="checkbox" name="anexoFO" id="anexoFO" value="1"></td>
-              <td><label class="form-check-label" for="anexoAU">Audio</label></td>
-              <td><input type="checkbox" name="anexoAU" id="anexoAU" value="2"></td>
-              <td><label class="form-check-label" for="anexoVI">Videos</label></td>
-              <td><input type="checkbox" name="anexoVI" id="anexoVI" value="3"></td>
-              <td><label class="form-check-label" for="anexoCM">Certificado Medico</label></td>
-              <td><input type="checkbox" name="anexoCM" id="anexoCM" value="4"></td>
-              </th>
-            </tr>
-
-            <tr>
-              <th>
-              <td><label class="form-check-label" for="anexoH">Otros</label></td>
-              <td><input type="checkbox" name="anexoH" id="anexoH" value="5"></td>
-              </th>
-            </tr>
-          </table><br>
-
-          <div class="form__div">
-            <input type="text" class="form__input" name="linea22" id="linea22" maxlength="20" placeholder=" ">
-            <label for="linea22" class="form__label">¿Cuál?</label>
-          </div>
-
-          <!--closes docu div-->
-        </div><br>
-
-        <p class="divided">
-          <span class="divider"></span>
-        </p>
 
         <h3 style="font-family: Helvetica;" align="center">SECCIÓN 2 - PRIMER RESPONDIENTE </h3>
         <h5 align="center">Apartado 2.1 - Datos de identificación</h5>
@@ -673,59 +1074,73 @@
         <!--meter campos dentro de una tabla, para que actue responsivamente junto a la pagina
       acomodar los campos lo mas parecido al formato-->
 
-        <table style="width:100%">
+       <table class="content-table">
           <tr>
-            <th>INSTITUCIÓN</th>
             <th></th>
+            <th>FEDERALES</th>
             <th></th>
-            <th align="right">INSTITUCIÓN</th>
+            <th>OTRA/COMENTARIOS</th>
+          </tr>
+          <tr>
             <th></th>
-            <th align="left">ENTIDAD/MUNICIPIO</th>
           </tr>
           <tr>
-            <td align="center"><label class="form-check-label" for="anexoGN">Guardia Nacional</label></td>
-            <td><input type="checkbox" name="anexoGN" id="anexoGN" value="1" onchange="seleccion(9);"></td>
-
-
-            <td colspan="2" align="right"><label class="form-check-label" for="anexoPM">Policia Ministerial</label></td>
-            <td><input type="checkbox" name="anexoPM" id="anexoPM" value="3" onchange="seleccion(11);"></td>
-            <td><input type="text" name="linea25" id="linea25" maxlength="50"></td>
-
-          </tr>
-          <tr>
-            <td align="center"><label class="form-check-label" for="anexoPFM">Policía Federal Ministerial</label></td>
-            <td><input type="checkbox" name="anexoPFM" id="anexoPFM" value="2" onchange="seleccion(10);"></td>
-
-
-            <td colspan="2" align="right"><label class="form-check-label" for="anexoPMU">Mando Único</label></td>
-            <td><input type="checkbox" name="anexoPMU" id="anexoPMU" value="4" onchange="seleccion(12);"></td>
-            <td><input type="text" name="linea27" id="linea27" maxlength="50"></td>
-
-          </tr>
-
-          <tr>
-            <th colspan="3">
-            <td align="right"><label class="form-check-label" for="anexoPE">Mando Estatal</label></td>
-            <td><input type="checkbox" name="anexoPE" id="anexoPE" onchange="seleccion(13);"></td>
-            <td><input type="text" name="linea28" id="linea28" maxlength="50"></td>
+            <th>
+              <td align="center"><label class="form-check-label" for="anexoGN">Guardia Nacional</label></td>
+              <td><input type="radio" name="rad_fed" id="anexoGN" value="1" onchange="seleccion(9);"></td>
             </th>
-          </tr>
 
-          <tr>
-            <th colspan="3">
-            <td align="right"><label class="form-check-label" for="anexoPMUN">Policia Municipal</label></td>
-            <td><input type="checkbox" name="anexoPMUN" id="anexoPMUN" onchange="seleccion(14);"></td>
-            <td><input type="text" name="linea29" id="linea29" maxlength="50"></td>
-            </th>
-          </tr>
+            <tr>
+              <th>
+                <td align="center"><label class="form-check-label" for="anexoPFM">Policía Federal Ministerial</label></td>
+                <td><input type="radio" name="rad_fed" id="anexoPFM" value="2" onchange="seleccion(10);"></td>
+              </th>
+            </tr>
 
-          <tr>
-            <th colspan="3">
-            <td align="right"><label for="linea32">Otra Autoridad</label></td>
-            <td><input type="checkbox" hidden></td>
-            <td><input type="text" name="linea32" id="linea32"></td>
-            </th>
-          </tr>
+            <th align="center">ESTATALES</th>
+
+            <tr>
+              <th>
+                <td align="center"><label class="form-check-label" for="anexoPM">Policia Ministerial</label></td>
+                <td><input colsapn="2" type="radio" name="rad_est" id="anexoPM" value="3" onchange="seleccion(11);"></td>
+                <!--<td><input type="text" name="linea25" id="linea25" maxlength="50"></td>-->
+              </th>
+            </tr>
+
+            <tr>
+              <th>
+                <td align="center"><label class="form-check-label" for="anexoPMU">Mando Único</label></td>
+                <td><input type="radio" name="rad_est" id="anexoPMU" value="4" onchange="seleccion(12);"></td>
+
+              </th>
+            </tr>
+
+            <tr>
+              <th>
+                <td align="center"><label class="form-check-label" for="anexoPE">Mando Estatal</label></td>
+                <td><input type="radio" name="rad_est" id="anexoPE" onchange="seleccion(13);"></td>
+
+              </th>
+            </tr>
+
+            <tr>
+              <th>
+                <td align="center"><label class="form-check-label" for="anexoPMUN">Policia Municipal</label></td>
+                <td><input type="radio" name="rad_est" id="anexoPMUN" onchange="seleccion(14);"></td>
+
+              </th>
+            </tr>
+
+            <tr>
+              <th>
+                <td align="center"><label for="linea32">Otra Autoridad</label></td>
+                <td><input type="checkbox" hidden></td>
+                <td><input type="text" name="linea32" id="linea32"></td>
+              </th>
+            </tr>
+
+
+
 
         </table>
 
@@ -765,9 +1180,9 @@
             <td><label class="form-check-label" for="anexoI">¿Arribó mas de un elemento al lugar de la
                 intervencion?</label></td>
             <td align="center"><label class="text" for="anexoI" style="font-size: small;">SI</label></td>
-            <td><input type="checkbox" name="anexoI" id="anexoI" onchange="seleccion(15);"></td>
+            <td><input type="radio" name="rad_s221" id="anexoI" onchange="seleccion(15);"></td>
             <td align="center"><label class="text" for="cb_No" style="font-size: small;">No</label></td>
-            <td><input type="checkbox" name="cb_No" id="cb_No" value="10"></td>
+            <td><input type="radio" name="rad_s221" id="cb_No" value="10"></td>
             </th>
           </tr>
         </table>
@@ -791,31 +1206,88 @@
         <h6 style="font-size: small; font-family: Arial;"><mark>Cómo se enteró del hecho?</mark></h6>
 
         <!--check box apartado 3.1-->
-
-        <table style="width:100%">
+        
+        <!--<div class="wrapper">
+        <div class="title">Seleccione como se enteró del hecho</div>
+        <div class="box">
+          <input type="radio" name="select" id="den" onchange="seleccion(16);">
+          <input type="radio" name="select" id="flaG" onchange="seleccion(17);">
+          <input type="radio" name="select" id="loc" onchange="seleccion(18);">
+          <input type="radio" name="select" id="manJ" onchange="seleccion(19);">
+          <input type="radio" name="select" id="LlamadaEM" onchange="seleccion(20);">
+          <input type="radio" name="select" id="des" onchange="seleccion(21);">
+          <input type="radio" name="select" id="apo" onchange="seleccion(22);">
+          <label for="den" class="option-1">
+            <div class="dot"></div>
+            <div class="text">DENUNCIA</div>
+          </label>
+          <label for="flaG" class="option-2">
+            <div class="dot"></div>
+            <div class="text">Flagrancia</div>
+          </label>
+          <label for="loc" class="option-3">
+            <div class="dot"></div>
+            <div class="text">Localización</div>
+          </label>
+          <label for="manJ" class="option-4">
+            <div class="dot"></div>
+            <div class="text">Mandamiento Judicial</div>
+          </label>
+          <label for="LlamadaEM" class="option-5">
+            <div class="dot"></div>
+            <div class="text">Llamada de Emergencia</div>
+          </label>
+          <label for="des" class="option-6">
+            <div class="dot"></div>
+            <div class="text">Descubrimiento</div>
+          </label>
+          <label for="apo" class="option-7">
+            <div class="dot"></div>
+            <div class="text">Aportación</div>
+          </label>
+    </div>
+  </div>-->
+  
+  
+      
+        <table>
           <th></th>
-
+          
           <tr>
-            <th>
-            <td><label class="text" for="den">Denuncia</label></td>
-            <td><input type="checkbox" name="den" id="den" onchange="seleccion(16);"></td>
-            <td><label class="text" for="flaG">Flagrancia</label></td>
-            <td><input type="checkbox" name="flaG" id="flaG" onchange="seleccion(17);"></td>
-            <td><label class="text" for="loc">Localización</label></td>
-            <td><input type="checkbox" name="loc" id="loc" onchange="seleccion(18);"></td>
-            <td><label class="text" for="manJ">Mandamiento Judicial</label></td>
-            <td><input type="checkbox" name="manJ" id="manJ" onchange="seleccion(19);"></td>
-            </th>
+              <th>
+                  
+                  <td><label class="text" for="den">Denuncia</label></td>
+            <td><input type="radio" name="rad_s3" id="den" onchange="seleccion(16);"></td>
+              </th>
           </tr>
 
           <tr>
             <th>
+            
+            <td><label class="text" for="flaG">Flagrancia</label></td>
+            <td><input type="radio" name="rad_s3" id="flaG" onchange="seleccion(17);"></td>
+            <td><label class="text" for="loc">Localización</label></td>
+            <td><input type="radio" name="rad_s3" id="loc" onchange="seleccion(18);"></td>
+            
+            </th>
+          </tr>
+          
+          <tr>
+              <th>
+                  <td><label class="text" for="manJ">Mandamiento Judicial</label></td>
+            <td><input type="radio" name="rad_s3" id="manJ" onchange="seleccion(19);"></td>
             <td><label class="text" for="LlamadaEM">Llamada de Emergencia</label> </td>
-            <td><input type="checkbox" name="LlamadaEM" id="LlamadaEM" onchange="seleccion(20);"></td>
+            <td><input type="radio" name="rad_s3" id="LlamadaEM" onchange="seleccion(20);"></td>
+              </th>
+          </tr>
+
+          <tr>
+            <th>
+            
             <td><label class="text" for="des">Descubrimiento</label></td>
-            <td><input type="checkbox" name="des" id="des" onchange="seleccion(21);"></td>
+            <td><input type="radio" name="rad_s3" id="des" onchange="seleccion(21);"></td>
             <td><label class="text" for="apo">Aportación</label></td>
-            <td><input type="checkbox" name="apo" id="apo" onchange="seleccion(22);"></td>
+            <td><input type="radio" name="rad_s3" id="apo" onchange="seleccion(22);"></td>
             </th>
           </tr>
 
@@ -928,15 +1400,15 @@
         <p class="divided">
           <span class="divider"></span>
         </p>
-        <pre style="font-size: xx-small; font-family: Arial;"><mark>Anote las coordenadas geograficas</mark></pre>
+        <pre style="font-size: small; font-family: Arial;"><mark>Anote las coordenadas geograficas</mark></pre>
 
         <div class="form__div">
-          <input class="form__input" type="float" id="linea47" name="linea47" maxlength="2" placeholder=" " size="2">
+          <input class="form__input" type="float" id="linea47" name="linea47" maxlength="9" placeholder=" " size="2">
           <label class="form__label" for="linea47">Latitud</label>
         </div>
 
         <div class="form__div">
-          <input class="form__input" type="float" id="linea48" name="coordenada" maxlength="2" placeholder=" " size="2">
+          <input class="form__input" type="float" id="linea48" name="linea48" maxlength="10" placeholder=" " size="2">
           <label class="form__label" for="linea48">Longitud</label>
         </div>
 
@@ -970,10 +1442,10 @@
             <td>
               <h6>Realizó la inspección del Lugar?</h6>
             </td>
-            <td align="center"><label class="text" for="tb_ap">SI</label></td>
-            <td><input type="checkbox" name="ins" id="ins" onchange="seleccion(20);"></td>
-            <td align="center"><label class="text" for="tb_ap">NO</label></td>
-            <td><input type="checkbox" name="tb_ap" id="tb_ap"></td>
+            <td align="center"><label class="text" for="ins">SI</label></td>
+            <td><input type="radio" name="rad_ap42p1" id="ins" onchange="seleccion(20);"></td>
+            <td align="center"><label class="text" for="insno">NO</label></td>
+            <td><input type="radio" name="rad_ap42p1" id="insno"></td>
             </th>
           </tr>
           <tr>
@@ -986,9 +1458,9 @@
               </h6>
             </td>
             <td align="center"><label class="text" for="obj">SI</label></td>
-            <td><input type="checkbox" name="obj" id="obj" onchange="seleccion(21);"></td>
-            <td align="center"><label class="text" for="tb_ap">NO</label></td>
-            <td><input type="checkbox" name="tb_ap" id="tb_ap"></td>
+            <td><input type="radio" name="rad_ap42p2" id="obj" onchange="seleccion(21);"></td>
+            <td align="center"><label class="text" for="objno">NO</label></td>
+            <td><input type="radio" name="rad_ap42p2" id="objno"></td>
             </th>
           </tr>
           <tr>
@@ -996,10 +1468,10 @@
             <td>
               <h6>Preservó el lugar de la intervencion</h6>
             </td>
-            <td align="center"><label class="text" for="tb_ap">SI</label></td>
-            <td><input type="checkbox" name="pre" id="pre" onchange="seleccion(22);"></td>
-            <td align="center"><label class="text" for="tb_ap">NO</label></td>
-            <td><input type="checkbox" name="tb_ap" id="tb_ap"></td>
+            <td align="center"><label class="text" for="pre">SI</label></td>
+            <td><input type="radio" name="rad_ap42p3" id="pre" onchange="seleccion(22);"></td>
+            <td align="center"><label class="text" for="preno">NO</label></td>
+            <td><input type="radio" name="rad_ap42p3" id="preno"></td>
             </th>
           </tr>
           <tr>
@@ -1008,9 +1480,9 @@
               <h6>Llevó a cabo la priorización en el lugar de la intervención?</h6>
             </td>
             <td align="center"><label class="text" for="pri">SI</label></td>
-            <td><input type="checkbox" name="pri" id="pri" onchange="seleccion(23);"></td>
-            <td align="center"><label class="text" for="tb_ap">NO</label></td>
-            <td><input type="checkbox" name="tb_ap" id="tb_ap"></td>
+            <td><input type="radio" name="rad_ap42p4" id="pri" onchange="seleccion(23);"></td>
+            <td align="center"><label class="text" for="prino">NO</label></td>
+            <td><input type="radio" name="rad_ap42p4" id="prino"></td>
             </th>
           </tr>
           <tr>
@@ -1019,9 +1491,9 @@
               <h6>Tipo de riesgo presentado</h6>
             </td>
             <td align="center"><label class="text" for="soc">Sociales</label></td>
-            <td><input type="checkbox" name="soc" id="soc" onchange="seleccion(24);"></td>
+            <td><input type="radio" name="rad_ap42tipo_r" id="soc" onchange="seleccion(24);"></td>
             <td align="center"><label class="text" for="nat">Naturales</label></td>
-            <td><input type="checkbox" name="nat" id="nat" onchange="seleccion(25);"></td>
+            <td><input type="radio" name="rad_ap42tipo_r" id="nat" onchange="seleccion(25);"></td>
             </th>
           </tr>
         </table>
@@ -1048,10 +1520,10 @@
 
 
         <!--Text Area seccion 5-->
-        <div class="form-group">
+        <div class="form-group" align="center">
           <label for="linea76"></label>
           <!--add cols="100" rows="5"-->
-          <textarea class="form-control" name="narrativaHech" id="narrativaHech" rows="3"></textarea>
+          <textarea class="form-control" name="narrativaHech" id="narrativaHech" cols="40" rows="6" maxlenght="2000"></textarea>
         </div>
 
         <!--This div closes Anexo0-->
@@ -1145,11 +1617,11 @@
             <td><input type="checkbox"></td>
             </th>
           </tr>
-        </table>
+        </table><br>
 
 
         <!--tabla con check box-->
-        <table style="width:100%">
+        <table>
           <th></th>
 
           <tr>
@@ -1158,25 +1630,38 @@
               <h6>Nacionalidad:</h6>
             </td>
             <td><label for="mex">Mexicana</label></td>
-            <td><input type="checkbox" name="mex" id="mex" onchange="seleccion(24);"></td>
-            <td><label for="">Extranjera</label></td>
-            <td><input type="checkbox" name="ext" id="ext" onchange="seleccion(25);"></td>
-            <td><label for="linea59">Cuál?</label></td>
-            <td><input type="text" name="linea59" id="linea59"></td>
+            <td><input type="radio" name="rad_nacA2" id="mex" onchange="seleccion(24);"></td>
+            <td><label for="ext">Extranjera</label></td>
+            <td><input type="radio" name="rad_nacA2" id="ext" onchange="seleccion(25);"></td>
+            
             </th>
           </tr>
-          <tr>
+          </table><br>
+          
+          <table>
+              <tr>
+              <th>
+                  <td><label for="linea59">Cuál?</label></td>
+            <td><input type="text" name="linea59" id="linea59"></td>
+              </th>
+          </tr>
+          </table><br>
+          
+          <table>
+              <tr>
             <th>
             <td>
               <h6>Sexo:</h6>
             </td>
             <td><label for="hom">Hombre</label></td>
-            <td><input type="checkbox" name="muj" id="muj" onchange="seleccion(26);"></td>
+            <td><input type="radio" name="rad_sexA2" id="hom" onchange="seleccion(26);"></td>
             <td><label for="muj">Mujer</label></td>
-            <td><input type="checkbox" name="hom" id="hom" onchange="seleccion(27);"></td>
+            <td><input type="radio" name="rad_sexA2" id="muj" onchange="seleccion(27);"></td>
             </th>
           </tr>
-        </table>
+          </table><br>
+          
+        
 
         <!--div con elementos fecha nacimiento y edad-->
         <div>
@@ -1289,9 +1774,9 @@
               <h6>¿La persona detenida presenta lesiones visibles?</h6>
             </td>
             <td><label for="lesiones">SI</label></td>
-            <td><input type="checkbox" name="lesiones" id="lesiones" onchange="seleccion(32);"></td>
+            <td><input type="radio" name="rad_4pA2p1" id="lesiones" onchange="seleccion(32);"></td>
             <td><label for="Nolesiones">NO</label></td>
-            <td><input type="checkbox" name="Nolesiones" id="Nolesiones" onchange="seleccion(320);"></td>
+            <td><input type="radio" name="rad_4pA2p1" id="Nolesiones" onchange="seleccion(320);"></td>
             </th>
           </tr>
 
@@ -1301,11 +1786,11 @@
               <h6>Manifiesta tener algún padecimeinto?</h6>
             </td>
             <td align="center"><label for="padecimiento">SI</label></td>
-            <td><input type="checkbox" name="padecimiento" id="padecimiento" onchange="seleccion(33);"></td>
+            <td><input type="radio" name="rad_4pA2p2" id="padecimiento" onchange="seleccion(33);"></td>
             <td><label for="linea70">¿Cual?</label></td>
             <td><input type="text" name="linea70" id="linea70"></td>
             <td align="center"><label for="Nopadecimiento">NO</label></td>
-            <td><input type="checkbox" name="Nopadecimiento" id="Nopadecimiento" onchange="seleccion(330);"></td>
+            <td><input type="radio" name="rad_4pA2p2" id="Nopadecimiento" onchange="seleccion(330);"></td>
             </th>
           </tr>
 
@@ -1316,11 +1801,11 @@
                 vulnerable?</h6>
             </td>
             <td align="right"><label for="vul">SI</label></td>
-            <td><input type="checkbox" name="vul" id="vul" onchange="seleccion(34);"></td>
+            <td><input type="radio" name="rad_4pA2p3" id="vul" onchange="seleccion(34);"></td>
             <td><label for="linea71">¿Cual?</label></td>
             <td><input type="text" name="linea72" id="linea72" maxlength="31"></td>
             <td align="right"><label for="Novul">NO</label></td>
-            <td><input type="checkbox" name="vul" id="vul" onchange="seleccion(340);"></td>
+            <td><input type="radio" name="rad_4pA2p3" id="vul" onchange="seleccion(340);"></td>
             </th>
           </tr>
 
@@ -1330,11 +1815,11 @@
               <h6>¿La persona detenida se identific&oacute como miembro de algun grupo delictivo?</h6>
             </td>
             <td align="right"><label for="del">SI</label></td>
-            <td><input type="checkbox" name="del" id="del" onchange="seleccion(35);"></td>
+            <td><input type="radio" name="rad_4pA2p4" id="del" onchange="seleccion(35);"></td>
             <td><label for="linea72">¿Cual?</label></td>
             <td><input type="text" name="linea72" id="linea72" maxlength="31"></td>
             <td align="right"><label for="Nodel">NO</label></td>
-            <td><input type="checkbox" name="Nodel" id="Nodel" onchange="seleccion(350);"></td>
+            <td><input type="radio" name="rad_4pA2p4" id="Nodel" onchange="seleccion(350);"></td>
             </th>
           </tr>
         </table>
@@ -1362,10 +1847,10 @@
 
         <div class="form__div">
           <input class="form__input" type="tel" name="linea76" id="linea76" size="12" maxlength="10" placeholder="">
-          <label class="form__label" for="linea76">No. telefonico</label>
+          <label class="form__label" for="linea76">No. telefonico</label><br><br>
           <label for="No_tel">No proporcionado</label>
           <input type="checkbox" name="No_tel" id="No_tel" onchange="seleccion(36);">
-        </div>
+        </div><br><br>
 
 
 
@@ -1389,9 +1874,9 @@
               <h6>¿Le informo sus derechos a la persona detenida?</h6>
             </td>
             <td><label for="sider">Si</label></td>
-            <td><input type="checkbox" name="sider" id="sider" onchange="seleccionar(37);"></td>
+            <td><input type="radio" name="rad_Aa4" id="sider" onchange="seleccionar(37);"></td>
             <td><label for="noder">No</label></td>
-            <td><input type="checkbox" name="noder" id="noder" onchange="seleccionar(38);"></td>
+            <td><input type="radio" name="rad_Aa4" id="noder" onchange="seleccionar(38);"></td>
             </th>
           </tr>
         </table>
@@ -1415,12 +1900,12 @@
                 ¿le encontro algun objeto relacionado con los hechos?</h6>
             </td>
             <td><label for="obj">Si</label></td>
-            <td><input type="checkbox" name="obj" id="obj" onchange="seleccion(39);"></td>
+            <td><input type="radio" name="rad_Aa5p1" id="obj" onchange="seleccion(39);"></td>
             <td>
               <pre style="font-style: italic; font-size: xx-small;">llene el Anexo D</pre>
             </td>
             <td colspan="4"><label for="objno">No</label></td>
-            <td colsapn="5"><input type="checkbox" name="objno" id="objno" onchange="seleccion(40);"></td>
+            <td colsapn="5"><input type="radio" name="rad_Aa5p1" id="objno" onchange="seleccion(40);"></td>
             </th>
           </tr>
 
@@ -1430,19 +1915,19 @@
               <h6>¿Recolect&oacute pertenencias de la persona detenida?</h6>
             </td>
             <td colsapn="2"><label class="form-check-label" for="tabla">Si</label></td>
-            <td colsapn="3"><input type="checkbox" name="tabla" id="tabla" onchange="seleccion(41);"></td>
+            <td colsapn="3"><input type="radio" name="rad_Aa5" id="tabla" onchange="seleccion(41);"></td>
             <td>
               <pre style="font-style: italic; font-size: xx-small;">Complete el siguiente cuadro</pre>
             </td>
             <td colsapn="4"><label for="pertenenciasNo">No</label></td>
-            <td colsapn="5"><input type="checkbox" name="pertenenciasNo" id="pertenenciasNo" onchange="seleccion(42);">
+            <td colsapn="5"><input type="radio" name="rad_Aa5" id="pertenenciasNo" onchange="seleccion(42);">
             </td>
             </th>
           </tr>
         </table>
         <br><br>
 
-        <table align="center" style="width:100%">
+        <table class="content-table">
           <th></th>
           <th></th>
           <th></th>
@@ -1570,10 +2055,10 @@
         <div>
           <h6>¿El lugar de la detencion es el mismo que el de la intervencion?</h6>
           <label for="dire">SI</label>
-          <input type="checkbox" name="dire" id="dire" onchange="seleccion(43);">
+          <input type="radio" name="rad_Aa6" id="dire" onchange="seleccion(43);">
 
           <label class="form-check-label" for="direNo">NO</label>
-          <input type="checkbox" name="direNo" id="direNo" onchange="seleccion(44);">
+          <input type="radio" name="rad_Aa6" id="direNo" onchange="seleccion(44);">
         </div>
 
 
@@ -1599,39 +2084,26 @@
             <label class="form__label" for="linea110">Codigo Postal</label>
           </div>
         </div>
-
-        <table>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-
-          <tr>
-            <th>
-            <td><label for="linea111">Colonia/Localidad</label></td>
-            <td><input type="text" name="linea111" id="linea111"></td>
-            </th>
-          </tr>
-          <tr>
-            <th>
-            <td><label for="linea112">Municipio/Demarcaci&oacuten territorial</label></td>
-            <td><input type="text" name="linea112" id="linea112"></td>
-            </th>
-          </tr>
-          <tr>
-            <th>
-            <td><label for="linea113">Entidad federativa</label></td>
-            <td><input type="text" name="linea113" id="linea113"></td>
-            </th>
-          </tr>
-          <tr>
-            <th>
-            <td><label for="linea114">Referencias</label></td>
-            <td><input type="text" name="linea114" id="linea114"></td>
-            </th>
-          </tr>
-        </table>
-
+        
+        <div class="form__div">
+            <input class="form__input" type="text" name="linea111" id="linea111" maxlength="5" size="5" placeholder="">
+            <label class="form__label" for="linea111">Colonia/Localidad</label>
+          </div>
+          
+          <div class="form__div">
+            <input class="form__input" type="text" name="linea112" id="linea112" maxlength="5" size="5" placeholder="">
+            <label class="form__label" for="linea112">Municipio/Demarcacion Territorial</label>
+          </div>
+          
+          <div class="form__div">
+            <input class="form__input" type="text" name="linea113" id="linea113" maxlength="5" size="5" placeholder="">
+            <label class="form__label" for="linea113">Entidad Federativa</label>
+          </div>
+          
+          <div class="form__div">
+            <input class="form__input" type="text" name="linea114" id="linea114" maxlength="5" size="5" placeholder="">
+            <label class="form__label" for="linea114">Referencias</label>
+          </div>
 
 
         <h5 align="center">Apartado A.7 Datos del lugar del trasladado de la persona detenida</h5>
@@ -1641,17 +2113,30 @@
 
           <tr>
             <th>
-            <td><label for="traslado">Fiscalia/Agencia</label></td>
-            <td><input type="checkbox" name="fisAge" value="1" id="fisAge"></td>
-
-            <td><label for="">Hospital</label></td>
-            <td><input type="checkbox" name="hos" value="2" id="hos"></td>
-
-            <td><label for="">Otra Dependencia</label></td>
-            <td><input type="checkbox" name="otraDep" value="3" id="otraDep"></td>
+            <td><label for="fisAge">Fiscalia/Agencia</label></td>
+            <td><input type="radio" name="rad_Aa7" value="1" id="fisAge"></td>
             </th>
           </tr>
+          
+          <tr>
+              <th>
+                  <td><label for="hos">Hospital</label></td>
+            <td><input type="radio" name="rad_Aa7" value="2" id="hos"></td>
+              </th>
+          </tr>
+          
+          <tr>
+              <th>
+                  <td><label for="otraDep">Otra Dependencia</label></td>
+            <td><input type="radio" name="rad_Aa7" value="3" id="otraDep"></td>
+              </th>
+          </tr>
+          
         </table>
+        <div class="form__div">
+          <input type="text" name="" id="" class="form__input" placeholder=" ">
+          <label for="" class="form__label">¿Cual?</label>
+        </div>
 
         <h5 align="center">Observaciones relacionadas con la detenci&oacuten</h5>
         <div>
@@ -1659,7 +2144,7 @@
                 detenci&oacuten hasta la puesta a disposici&oacuten, asi como la razon de posibles demoras. Incluya
                 cualquier otra observaci&oacuten que considere relevante</mark></label></h6><br>
                 <!--add rows="5" cols="110"-->
-          <textarea  type="text" name="linea116" id="linea116" maxlength="590"></textarea>
+          <textarea  type="text" name="linea116" id="linea116" maxlength="590" cols="40" rows=7""></textarea>
         </div>
 
         <h5>Apartado A.8 Datos del primer respondiente que realiz&oacute la detenci&oacuten</h5>
@@ -1727,12 +2212,12 @@
 
         <h5>ANEXO B. INFORME DEL USO DE LA FUERZA</h5>
 
-        <pre style="font-size: xx-small;"><mark>Llene este Anexo s&oacutelo de lesionados y/o fallecidos con motivo del uso de la fuerza</mark></pre>
-        <h6>Informe del uso de la fuerza (¿Cuantas personas?)</h6>
+        <pre style="font-size: small;"><mark>Llene este Anexo s&oacutelo de lesionados y/o fallecidos con motivo del uso de la fuerza</mark></pre>
+        <h6>Informe del uso de la fuerza (¿Cuantas personas?)<pre style="font-size: x-small;"><mark>usar formato (001,002,...010...)</mark></pre></h6>
 
         <div class="form__div">
           <input class="form__input" type="text" name="linea16" id="linea16" class="custom-field.one" maxlength="3" placeholder="">
-          <label class="form__label" for="linea16">001,...,010,...</label>
+          <label class="form__label" for="linea16">¿Cuántas personas?</label>
         </div>
 
 
@@ -1791,16 +2276,27 @@
 
         <table>
           <th></th>
+          
+          <tr>
+              <th>
+                  <td><label for="rfm">Reducci&oacuten f&iacutesica de movimientos</label></td>
+            <td><input type="checkbox" name="rfm" id="rfm"></td>
+              </th>
+          </tr>
 
           <tr>
             <th>
-            <td><label for="rfm">Reducci&oacuten f&iacutesica de movimientos</label></td>
-            <td><input type="checkbox" name="rfm" id="rfm"></td>
             <td><label for="uaiml">Utilizaci&oacuten de armas incapacitantes menos letales</label></td>
             <td><input type="checkbox" name="uaiml" id="uaiml"></td>
-            <td><label for="uaffl">Utilizaci&oacuten de armas de fuego o fuerza letal</label></td>
-            <td><input type="checkbox" name="uaffl" id="uaffl"></td>
+            
             </th>
+          </tr>
+          
+          <tr>
+              <th>
+                  <td><label for="uaffl">Utilizaci&oacuten de armas de fuego o fuerza letal</label></td>
+            <td><input type="checkbox" name="uaffl" id="uaffl"></td>
+              </th>
           </tr>
         </table>
 
@@ -1809,7 +2305,7 @@
                 motivaron
                 el uso de la fuerza:</label></i></h6>
                 <!--rows="12" cols="110"-->
-          <textarea  type="text" name="linea127" id="linea127" maxlength="1420"></textarea>
+          <textarea  type="text" name="linea127" id="linea127" maxlength="1420" cols="40" rows="10"></textarea>
         </div>
         <br>
 
@@ -1820,16 +2316,16 @@
             <th>
             <td><label>¿Brindo o solicito asistencia medica?</label></td>
             <td><label align="center">Si</label></td>
-            <td><input type="checkbox" name="bsamSi" id="bsamSi"></td>
+            <td><input type="radio" name="rad_B1" id="bsamSi"></td>
             <td><label align="center">No</label></td>
-            <td><input type="checkbox" name="bsamNo" id="bsamNo"></td>
+            <td><input type="radio" name="rad_B1" id="bsamNo"></td>
             </th>
           </tr>
         </table>
 
         <label for="expl">Explique:</label><br>
         <!--add rows="7" cols="110"-->
-        <textarea  type="text" name="expl" id="expl" maxlength="840"></textarea>
+        <textarea  type="text" name="expl" id="expl" cols="40" rows="10" maxlength="840"></textarea>
         <br>
 
         <h5>Apartado B.2 - Datos del primer respondiente que realiz&oacute el informe del uso de la fuerza, sol&oacute
@@ -1920,25 +2416,29 @@
 
         <h5>Apartado C.2 - Datos generales del veh&iacuteculo inspeccionado</h5>
 
-        <table border align="center">
+        <table class="content-table">
+          <th>TIPO</th>
 
           <tr>
-            <td>
-              <p>Tipo:</p>
-              <label>terrestre</label>
-              <input type="checkbox" name="terrestre" id="terrestre">
-              <label for="acuatic">acuatico</label>
-              <input type="checkbox" name="acuatic" id="acuatic">
-              <label>a&eacutereo</label>
-              <input type="checkbox" name="aereo" id="aereo">
-            </td>
-            <td>
-              <p>Procedencia:</p>
-              <label>Nacional</label>
-              <input type="checkbox" name="nacional" id="nacional">
-              <label>Extranjero</label>
-              <input type="checkbox" name="extranjero" id="extranjero">
-            </td>
+            <th>
+              <td><h6>Terrestre</h6></td>
+              <td><input type="radio" name="rad_C2tipo" id="terrestre"></td>
+              <td><h6>Acuatico</h6></td>
+              <td><input type="radio" name="rad_C2tipo" id="acuatic"></td>
+              <td><h6>Aereo</h6></td>
+              <td><input type="radio" name="rad_C2tipo" id="aereo"></td>
+            </th>
+          </tr>
+
+          <th>PROCEDENCIA</th>
+
+          <tr>
+            <th>
+              <td><h6>Nacional</h6></td>
+              <td><input type="radio" name="rad_C2proc" id="nacional"></td>
+              <td><h6>Extranjero</h6></td>
+              <td><input type="radio" name="rad_C2proc" id="extranjero"></td>
+            </th>
           </tr>
         </table>
         <br>
@@ -1976,19 +2476,17 @@
         </table>
 
 
-        <h6>Uso</h6><br>
-
-        <table>
-          <th></th>
+        <table class="content-table">
+          <th>Uso</th>
 
           <tr>
             <th>
-            <td><label for="">Particular</label></td>
-            <td><input type="checkbox" name="particular" id="particular"></td>
-            <td><label for="">Transporte Publico</label></td>
-            <td><input type="checkbox" name="tp" id="tp"></td>
-            <td><label for="">Cargo</label></td>
-            <td><input type="checkbox" name="cargo" id="cargo"></td>
+            <td><label for="particular">Particular</label></td>
+            <td><input type="radio" name="rad_Ac2" id="particular"></td>
+            <td><label for="tp">Transporte Publico</label></td>
+            <td><input type="radio" name="rad_Ac2" id="tp"></td>
+            <td><label for="cargo">Cargo</label></td>
+            <td><input type="radio" name="rad_Ac2" id="cargo"></td>
             </th>
           </tr>
 
@@ -2006,36 +2504,58 @@
 
         <table>
           <th></th>
+          
+          <tr>
+              <th>
+                  <td><label for="reporteRob">Con reporte de robo</label></td>
+            <td><input type="radio" name="rad_c2sit" id="reporteRob"></td>
+              </th>
+          </tr>
 
           <tr>
             <th>
-            <td><label for="reporteRob">Con reporte de robo</label></td>
-            <td><input type="checkbox" name="reporteRob" id="reporteRob"></td>
+            
             <td><label for="srr">Sin reporte de robo</label></td>
-            <td><input type="checkbox" name="srr" id="srr"></td>
-            <td><label for="nps">No es posible saberlo</label></td>
-            <td><input type="checkbox" name="nps" id="nps"></td>
+            <td><input type="radio" name="rad_c2sit" id="srr"></td>
+            
             </th>
+          </tr>
+          
+          <tr>
+              <th>
+                  <td><label for="nps">No es posible saberlo</label></td>
+            <td><input type="radio" name="rad_c2sit" id="nps"></td>
+              </th>
           </tr>
         </table>
         <br><br>
 
         <table align="center">
           <th></th>
-
+          
           <tr>
-            <th>
-            <td align="center"><label for="obs">Observaciones</label></td>
-            <td align="center"><label for="dqsld">Destino que se le dio</label></td>
-            </th>
+              <th>
+                  <td align="center"><h6>OBSERVACIONES</h6></td>
+              </th>
           </tr>
 
           <tr>
             <th>
-              <!--add cols="30" rows="10"-->
-            <td><textarea name="obs" id="obs"  maxlength="357"></textarea></td>
             <!--add cols="30" rows="10"-->
-            <td><textarea name="dqsld" id="dqsld"  maxlength="120"></textarea></td>
+            <td><textarea name="obs" id="obs"  maxlength="357" cols="40"rows="7"></textarea></td>
+            </th>
+          </tr>
+          
+          <tr>
+              <th>
+                  <td align="center"><h6>DESTINO QUE SE LE DIO</h6></td>
+              </th>
+          </tr>
+
+          <tr>
+            <th>
+            <!--add cols="30" rows="10"-->
+            <td><textarea name="dqsld" id="dqsld" cols="40" rows="7"  maxlength="120"></textarea></td>
             </th>
           </tr>
         </table>
@@ -2052,9 +2572,9 @@
               <h6>¿Econtr&oacute objetos relacionados con los hechos?</h6>
             </td>
             <td align="right"><label for="">SI</label></td>
-            <td><input type="checkbox" name="eorclhSi" id="eorclhSi"></td>
+            <td><input type="radio" name="Aca3" id="eorclhSi"></td>
             <td align="right"><label for="">NO</label></td>
-            <td><input type="checkbox" name="eorclhNo" id="eorclhNo"></td>
+            <td><input type="radio" name="Aca3" id="eorclhNo"></td>
             </th>
           </tr>
         </table>
@@ -2128,10 +2648,16 @@
         </div>
 
         <pre style="font-size: xx-small;"><mark>Seleccione con una "X" si se trata de aportacion o inspeccion, segun corresponda.</mark></pre>
-        <label for="">Aportacion</label>
+        
+        <div>
+            <label for="">Aportacion</label>
         <input type="checkbox" name="aportacion" id="aportacion">
+        </div>
+        <br>
+        
+        
 
-        <table>
+        <table class="content-table">
           <th>
             <h6>Inspeccion:</h6>
           </th>
@@ -2139,19 +2665,24 @@
           <tr>
             <th>
             <td><label for="lugar">Lugar</label></td>
-            <td><input type="checkbox" name="lugar" id="lugar"></td>
+            <td><input type="radio" name="rad_Ada1" id="lugar"></td>
             <td><label for="pers">Persona</label></td>
-            <td><input type="checkbox" name="pers" id="pers"></td>
+            <td><input type="radio" name="rad_Ada1" id="pers"></td>
             <td><label for="vehic">Vehiculo</label></td>
-            <td><input type="checkbox" name="vehic" id="vehic"></td>
-            <td><label for="dea">Donde encontró el arma</label></td>
-            <td><input type="text" name="dea" id="dea"></td>
+            <td><input type="radio" name="rad_Ada1" id="vehic"></td>
             </th>
+          </tr>
+          
+          <tr>
+              <th>
+                  <td><label for="dea">Donde encontró el arma</label></td>
+            <td><input type="text" name="dea" id="dea"></td>
+              </th>
           </tr>
 
         </table><br>
 
-        <table>
+        <table class="content-table">
           <th>
             <h6>Tipo de arma:</h6>
           </th>
@@ -2159,9 +2690,9 @@
           <tr>
             <th>
             <td><label for="corta">Corta</label></td>
-            <td><input type="checkbox" name="corta" id="corta"></td>
+            <td><input type="radio" name="rad_Ada1t2" id="corta"></td>
             <td><label for="larga">Larga</label></td>
-            <td><input type="checkbox" name="larga" id="larga"></td>
+            <td><input type="radio" name="rad_Ada1t2" id="larga"></td>
             </th>
           </tr>
 
@@ -2188,11 +2719,11 @@
         <label for="">Observaciones (de ser el caso, señale ademas, caracteristicas, marca, cargadores y
           cartuchos):</label><br>
           <!--cols="30" rows="10"-->
-        <textarea name="obs" id="obs"  maxlength="220"></textarea><br>
+        <textarea name="obs" id="obs"  maxlength="220" cols="40" rows="5"></textarea><br>
 
         <label>Destino que se le dio:</label><br>
         <!--cols="30" rows="10"-->
-        <textarea name="dest" id="dest"  maxlength="194"></textarea>
+        <textarea name="dest" id="dest"  maxlength="194" cols="40" rows="5"></textarea>
         <br><br>
 
         <!---->
@@ -2252,17 +2783,17 @@
           <label class="form__label" for="linead9">Nombre</label>
         </div>
 
-        <div class="form-group">
-          <label for="linea18">Arma de fuego:</label>
-          <input type="text" name="linea18" id="linea18" maxlength="3">
+        <div class="form_div">
+        <input class="form_input" type="text" name="linea18" id="linea18" maxlength="3" placeholder="" />
+          <label class="form_label" for="linea18">Arma de fuego:</label>
         </div>
 
         <pre style="font-size: xx-small;"><mark>Seleccione con una "X" si se trata de aportaci&oacuten o inspecci&oacuten, seg&uacuten corresponda.</mark></pre>
 
         <label>Aportacion</label>
-        <input type="checkbox" name="aportacion2" id="aportacion2">
+        <input type="checkbox" name="aportacion2" id="aportacion2"><br>
 
-        <table>
+        <table class="content-table">
           <th>
             <h6>Inspeccion:</h6>
           </th>
@@ -2270,11 +2801,11 @@
           <tr>
             <th>
             <td><label for="lugar2">Lugar</label></td>
-            <td><input type="checkbox" name="lugar2" id="lugar2"></td>
+            <td><input type="radio" name="rad_Sd1t1" id="lugar2"></td>
             <td><label for="pers2">Persona</label></td>
-            <td><input type="checkbox" name="pers2" id="pers2"></td>
+            <td><input type="radio" name="rad_Sd1t1" id="pers2"></td>
             <td><label for="vehic2">Vehiculo</label></td>
-            <td><input type="checkbox" name="vehic2" id="vehic2"></td>
+            <td><input type="radio" name="rad_Sd1t1" id="vehic2"></td>
             <td><label for="dea2">Donde encontro el arma</label></td>
             <td><input type="text" name="dea2" id="dea2"></td>
             </th>
@@ -2282,7 +2813,7 @@
 
         </table><br>
 
-        <table>
+        <table class="content-table">
           <th>
             <h6>Tipo de arma:</h6>
           </th>
@@ -2290,9 +2821,9 @@
           <tr>
             <th>
             <td><label for="corta2">Corta</label></td>
-            <td><input type="checkbox" name="corta2" id="corta2"></td>
+            <td><input type="radio" name="rad_Sd1t2" id="corta2"></td>
             <td><label for="larga2">Larga</label></td>
-            <td><input type="checkbox" name="larga2" id="larga2"></td>
+            <td><input type="radio" name="rad_Sd1t2" id="larga2"></td>
             </th>
           </tr>
 
@@ -2318,11 +2849,11 @@
         <label>Observaciones (de ser el caso, señale adem&aacutes, caracteristicas, marca, cargadores y
           cartuchos):</label><br>
           <!--cols="30" rows="10"-->
-        <textarea name="obs2" id="obs2"  maxlength="220"></textarea><br>
+        <textarea name="obs2" id="obs2"  maxlength="220" cols="40" rows="7"></textarea><br>
 
         <label>Destino que se le dio:</label><br>
         <!--cols="30" rows="10"-->
-        <textarea name="dest2" id="dest2"  maxlength="194"></textarea>
+        <textarea name="dest2" id="dest2"  maxlength="194" cols="40" rows="7"></textarea>
 
         <h6>Anote el nombre y firma de la persona a la que se le asegur&oacute el arma:</h6>
 
@@ -2413,18 +2944,33 @@
 
         <table>
           <th></th>
+          
+          <tr>
+              <th>
+                  <td><label for="Adad3l1">Narcotico</label></td>
+            <td><input type="radio" name="Adad3" id="narcotico"></td>
+              </th>
+          </tr>
+          
+          <tr>
+              <th>
+                  <td><label for="Adad3l2">Hidrocarburo</label></td>
+            <td><input type="radio" name="Adad3" id="hidrocarburo"></td>
+              </th>
+          </tr>
 
           <tr>
             <th>
-            <td><label for="">Narcotico</label></td>
-            <td><input type="checkbox" name="narcotico" id="narcotico"></td>
-            <td><label for="">Hidrocarburo</label></td>
-            <td><input type="checkbox" name="hidrocarburo" id="hidrocarburo"></td>
-            <td><label for="">Numerario</label></td>
-            <td><input type="checkbox" name="numerario" id="numerario"></td>
-            <td><label for="">Otro</label></td>
-            <td><input type="text" name="otro" id="otro"></td>
+            <td><label for="Adad3l3">Numerario</label></td>
+            <td><input type="radio" name="Adad3" id="numerario"></td>
             </th>
+          </tr>
+          
+          <tr>
+              <th>
+                  <td><label for="">Otro</label></td>
+            <td><input type="text" name="otro" id="otro"></td>
+              </th>
           </tr>
         </table>
 
@@ -2432,9 +2978,9 @@
 
 
         <label>Aportacion</label>
-        <input type="checkbox" name="aportacion3" id="aportacion3">
+        <input type="checkbox" name="aportacion3" id="aportacion3"><br>
 
-        <table>
+        <table class="content-table">
           <th>
             <h6>Inspeccion:</h6>
           </th>
@@ -2460,13 +3006,18 @@
             <td>
               <label>Breve descripcion del objeto:</label><br>
               <!--add cols="30" rows="10"-->
-              <textarea name="bdo" id="bdo"  maxlength="206"></textarea>
+              <textarea name="bdo" id="bdo" maxlength="206" cols="40" rows="5"></textarea>
             </td>
+            
+          </tr>
+          
+          <tr>
             <td>
               <label>Destino que se le dio:</label><br>
               <!--cols="30" rows="10"-->
-              <textarea name="dd" id="dd"  maxlength="147"></textarea>
+              <textarea name="dd" id="dd" maxlength="147" cols="40" rows="5"></textarea>
             </td>
+              
           </tr>
         </table><br>
 
@@ -2563,7 +3114,7 @@
           <tr>
             <th>
             <td><label for="linea19">Personas entrevistadas:</label></td>
-            <td><input type="text" name="linea19" id="linea19" class="form-control" maxlength="3" size="3"></td>
+            <td><input type="text" name="linea19" id="linea19" class="form-control" maxlength="3" size="4"></td>
             <td>
               <pre style="font-size: xx-small;">001,002,...010,...</pre>
             </td>
@@ -2580,9 +3131,9 @@
               <h6>¿Desea reservar sus datos?</h6>
             </td>
             <td><label for="reservarDatSi">SI</label></td>
-            <td><input type="checkbox" name="reservarDatSi" id="reservarDatSi"></td>
+            <td><input type="radio" name="rad_reservarData" id="reservarDatSi"></td>
             <td><label for="reservarDatNo">No</label></td>
-            <td><input type="checkbox" name="reservarDatNo" id="reservarDatNo"></td>
+            <td><input type="radio" name="rad_reservarData" id="reservarDatNo"></td>
             </th>
           </tr>
         </table>
@@ -2626,30 +3177,30 @@
 
         <h6>Indique segun corresponda</h6>
 
-        <table style="width:100%">
+        <table class="content-table">
           <th>CALIDAD:</th>
 
           <tr>
             <th>
             <td><label for="VicOfe">Victima u ofendido</label></td>
-            <td><input type="checkbox" name="VicOfe" id="VicOfe"></td>
+            <td><input type="radio" name="rad_Aea2tabc" id="VicOfe"></td>
             <td><label for="denunciante">Denunciante</label></td>
-            <td><input type="checkbox" name="denunciante" id="denunciante"></td>
+            <td><input type="radio" name="rad_Aea2tabc" id="denunciante"></td>
             <td><label for="testigo">Testigo</label></td>
-            <td><input type="checkbox" name="testigo" id="testigo"></td>
+            <td><input type="radio" name="rad_Aea2tabc" id="testigo"></td>
             </th>
           </tr>
         </table>
 
-        <table>
+        <table class="content-table">
           <th>NACIONALIDAD</th>
 
           <tr>
             <th>
             <td><label for="mexicanaE">Mexicana</label></td>
-            <td><input type="checkbox" name="mexicanaE" id="mexicanaE"></td>
+            <td><input type="radio" name="rad_Aea2tabn" id="mexicanaE"></td>
             <td><label for="extranjeraE">Extranjero</label></td>
-            <td><input type="checkbox" name="extranjeraE" id="extranjeraE"></td>
+            <td><input type="radio" name="rad_Aea2tabn" id="extranjeraE"></td>
             </th>
           </tr>
           <tr>
@@ -2660,15 +3211,15 @@
           </tr>
         </table>
 
-        <table style="width:100%">
+        <table class="content-table">
           <th>Sexo</th>
 
           <tr>
             <th>
             <td><label for="mujerE">Mujer</label></td>
-            <td><input type="checkbox" name="mujerE" id="mujerE"></td>
+            <td><input type="radio" name="rad_Aea2tabs" id="mujerE"></td>
             <td><label for="hombreE">Hombre</label></td>
-            <td><input type="checkbox" name="hombreE" id="hombreE"></td>
+            <td><input type="radio" name="rad_Aea2tabs" id="hombreE"></td>
             </th>
           </tr>
           <tr>
@@ -2689,11 +3240,11 @@
           <tr>
             <th>
             <td><label>Credenciales INE</label></td>
-            <td><input type="checkbox" name="credINE" id="credINE"></td>
+            <td><input type="radio" name="rad_Aea2docid" id="credINE"></td>
             <td><label>Licencia</label></td>
-            <td><input type="checkbox" name="licenciaE" id="licenciaE"></td>
+            <td><input type="radio" name="rad_Aea2docid" id="licenciaE"></td>
             <td><label>Pasaporte</label></td>
-            <td><input type="checkbox" name="pasaporteE" id="pasaporteE"></td>
+            <td><input type="radio" name="rad_Aea2docid" id="pasaporteE"></td>
             </th>
           </tr>
 
@@ -2769,7 +3320,7 @@
 
         <label for="relatoEnt">Relato de la entrevista</label><br>
         <!--rows="5" cols="110"-->
-        <textarea  type="text" name="relatoEnt" id="relatoEnt" maxlength="1430"></textarea>
+        <textarea  type="text" name="relatoEnt" id="relatoEnt" maxlength="1430" cols="40" rows="7"></textarea>
 
         <h5 align="center">Apartado E.4 - Datos del lugar del traslado o canalizaci&oacuten de la persona
           entrevistada</h5>
@@ -2785,9 +3336,9 @@
               <h6>¿Traslado o canalizo a la persona entrevistada?</h6>
             </td>
             <td align="center"><label for="trasladoSi">Si</label></td>
-            <td><input type="checkbox" name="trasladoSi" id="trasladoSi"></td>
+            <td><input type="radio" name="rad_traslado" id="trasladoSi"></td>
             <td align="center"><label for="trasladoNo">No</label></td>
-            <td><input type="checkbox" name="trasladoNo" id="trasladoNo"></td>
+            <td><input type="radio" name="rad_traslado" id="trasladoNo"></td>
             </th>
           </tr>
         </table>
@@ -2798,11 +3349,11 @@
           <tr>
             <th>
             <td><label for="lineae18">Fiscalia/Agencia</label></td>
-            <td><input type="checkbox" name="lineae18" id="lineae18"></td>
+            <td><input type="radio" name="rad_Aea4" id="lineae18"></td>
             <td><label for="lineae19">Hospital</label></td>
-            <td><input type="checkbox" name="lineae19" id="lineae19"></td>
+            <td><input type="radio" name="rad_Aea4" id="lineae19"></td>
             <td><label for="lineae20">Otra dependencia</label></td>
-            <td><input type="checkbox" name="lineae20" id="lineae20"></td>
+            <td><input type="radio" name="rad_Aea4" id="lineae20"></td>
             <td><label for="lineae80">¿Cual?</label></td>
             <td><input type="text" name="lineae80" id="lineae80"></td>
             </th>
@@ -2865,14 +3416,14 @@
         <h3>ANEXO F. - ENTREGA - RECEPCION DEL LUGAR DE LA INTERVENCION</h3>
 
         <label for="linea20">Entrega - recepcion del lugar de la intervencion</label>
-        <input type="number" name="linea20" id="linea20" maxlength="3" size="3">
+        <input type="number" name="linea20" id="linea20" maxlength="3" size="4">
 
         <h5>Apartado F.1 Preservacion del lugar de la intervencion</h5>
 
         <label for="accionesReaF">Explique brevemente las acciones realizadas para la Preservaci&oacuten del lugar
           de la intervenci&oacuten, (delimitacion, acordonamiento, clausura en el lugar cerrado, etc.)</label>
           <!--add cols="110" rows="3"-->
-        <textarea name="accionesReaF" id="accionesReaF"  maxlength="360"></textarea>
+        <textarea name="accionesReaF" id="accionesReaF"  maxlength="360" cols="40" rows="7"></textarea>
 
         <table>
           <th></th>
@@ -2884,9 +3435,9 @@
                 intervenci&oacuten?</h6>
             </td>
             <td><label for="apoyoAutSi">Si</label></td>
-            <td><input type="checkbox" name="apoyoAutSi" id="apoyoAutSi"></td>
+            <td><input type="radio" name="rad_Aff1" id="apoyoAutSi"></td>
             <td><label for="apoyoAutNo">No</label></td>
-            <td><input type="checkbox" name="apoyoAutNo" id="apoyoAutNo"></td>
+            <td><input type="radio" name="rad_Aff1" id="apoyoAutNo"></td>
             </th>
           </tr>
         </table>
@@ -2907,9 +3458,9 @@
                 persona al lugar?</h6>
             </td>
             <td align="center"><label for="lineafSi">Si</label></td>
-            <td><input type="checkbox" name="lineafSi" id="lineafSi"></td>
+            <td><input type="radio" name="rad_Aff2" id="lineafSi"></td>
             <td align="center"><label for="lineafNo">No</label></td>
-            <td><input type="checkbox" name="lineafNo" id="lineafNo"></td>
+            <td><input type="radio" name="rad_Aff2" id="lineafNo"></td>
             </th>
           </tr>
         </table>
@@ -2917,7 +3468,7 @@
         <div class="form-group">
           <label for="lineaf1">Motivo del ingreso</label><br>
           <!--cols="100" rows="2"-->
-          <textarea name="lineaf1" id="lineaf1"  maxlength="214"></textarea>
+          <textarea name="lineaf1" id="lineaf1"  maxlength="214" cols="40" rows="7"></textarea>
         </div>
 
         <h6>Datos del personal que ingres&oacute al lugar de la intervencion.</h6>
@@ -3033,7 +3584,7 @@
 
         <label for="observacionesF3">Observaciones:</label><br>
         <!--add cols="100" rows="7"-->
-        <textarea name="observacionesF3" id="observacionesF3"  maxlength="840"></textarea>
+        <textarea name="observacionesF3" id="observacionesF3"  maxlength="840" cols="40" rows="7"></textarea>
 
         <h5>Apartado F.4 - Fecha y hora de la entrega - recepcion del lugar de la intervencion</h5>
 
@@ -3084,15 +3635,15 @@
           <tr>
             <th>
             <td><label for="lineag1">Hechos</label></td>
-            <td><input type="checkbox" name="lineag1" id="lineag1"></td>
+            <td><input type="radio" name="rad_Ag" id="lineag1"></td>
             <td><label for="lineag2">Entrevista</label></td>
-            <td><input type="checkbox" name="lineag2" id="lineag2"></td>
+            <td><input type="radio" name="rad_Ag" id="lineag2"></td>
             </th>
           </tr>
         </table>
 
         <!--add cols="100" rows="25"-->
-        <textarea name="continuacionNarrativa" id="continuacionNarrativa"  maxlength="2974"></textarea>
+        <textarea name="continuacionNarrativa" id="continuacionNarrativa"  maxlength="2974" cols="40" rows="7"></textarea>
         <h6>Datos del primer respondiente que realizo la narracion de los hechos y/o entrevista,
           s si es diferente a quien firm&oacute la puesta a disposicion</h6>
 
@@ -3130,7 +3681,7 @@
 
       <!--boton submit-->
 
-      <input type="submit" class="form__button" value="submit">
+      <input type="submit" class="form__button" value="Generar IPH">
     </form>
   </div>
 
