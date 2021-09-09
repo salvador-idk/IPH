@@ -6,6 +6,8 @@
 
   <!--/*RESPONISVE*/-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+  <!---->
+  <script src="https://cdn.jsdelivr.net/npm/zl-fetch"></script>
   <!--/*=====CSS=====*/-->
   <style media="screen">
     /*===== GOOGLE FONTS =====*/
@@ -152,7 +154,7 @@
       <!--closes div header-->
     </div>
     <!--form-TAG-->
-    <form id="form" class="form">
+    <form id="form" class="form" method="POST">
       <!--USERNAME-->
       <div class="form-control">
         <label for="username">Usuario</label>
@@ -239,6 +241,82 @@
     function setSuccessFor(input) {
       const formControl = input.parentElement;
       formControl.className = 'form-control success';
+    }
+
+    /*SUBMIT*/
+    async function basiclogin(username, password) {
+      const response = await zlFetch.post(loginEndpoint, {
+        auth: {
+          username: username,
+          password: password
+        },
+        body: {
+          /*...*/
+        }
+      })
+    }
+
+    async function basiclogin(username, password) {
+      const response = await zlFetch.post( /*...*/ )
+      const {
+        token
+      } = response.body
+
+      localStorage.setItem('token', token)
+    }
+
+    async function isLoggedIn() {
+      const token = store.get('token')
+      if (!token) return false
+    }
+
+    async function autoRedirect() {
+      const validLogin = await isLoggedIn()
+      if (!validLogin && location.pathname !== '/login/') redirect('/login')
+      if (validLogin && location.pathname === '/login/') redirect('/')
+    }
+
+    async function isLoggedIn() {
+      // ...
+      // Checks validity of token
+      const response = await zlFetch.post(loginEndpoint, {
+        auth: token,
+        body: {
+          course: 'learn-javascript'
+        }
+      })
+    }
+
+    async function isLoggedIn() {
+      // ...
+      // Saves token into localStorage again
+      const {
+        token
+      } = response.body
+      localStorage.setItem('token', token)
+
+      return true
+    }
+
+    function basiclogin(username, password) {
+      const response = await zlFetch.post( /*...*/ )
+      const {
+        token,
+        user
+      } = response.body
+      // ...
+
+      // user contains accessLevel
+      localStorage.setItem('user', user)
+    }
+
+    function isLoggedIn() {
+      // ...
+      const {
+        token,
+        user
+      } = response.body
+      localStorage.setItem('user', user)
     }
   </script>
 </body>
