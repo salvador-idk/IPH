@@ -156,7 +156,7 @@
       <!--USERNAME-->
       <div class="form-control">
         <label for="username">Usuario</label>
-        <input type="text" placeholder="Usuario" id="username" required />
+        <input type="text" placeholder="Usuario" id="username" />
         <!--IconTag Check-->
         <i class="fas fa-check-circle"></i>
         <!--IconTag Exclamation-->
@@ -167,7 +167,7 @@
 
       <!--PASSWORD-->
       <div class="form-control">
-        <label for="username">Contraseña</label>
+        <label for="password">Contraseña</label>
         <input type="password" placeholder="Contraseña" id="password" />
         <i class="fas fa-check-circle"></i>
         <i class="fas fa-exclamation-circle"></i>
@@ -176,7 +176,7 @@
 
       <!--VERIFY-PASS-->
       <div class="form-control">
-        <label for="username">Verifique Contraseña</label>
+        <label for="password2">Verifique Contraseña</label>
         <input type="password" placeholder="Verificar Contraseña" id="password2" />
         <i class="fas fa-check-circle"></i>
         <i class="fas fa-exclamation-circle"></i>
@@ -223,7 +223,7 @@
       if (password2Value === '') {
         setErrorFor(password2, 'Este campo no puede estar vacio');
       } else if (passwordValue !== password2Value) {
-        setErrorFor(password2, 'Passwords does not match');
+        setErrorFor(password2, 'NO coinciden las Contraseñas');
       } else {
         setSuccessFor(password2);
       }
