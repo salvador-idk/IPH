@@ -319,6 +319,50 @@
       } = response.body
       localStorage.setItem('user', user)
     }
+    
+    /*=====BACKEND II=====*/
+
+    // Database API key can be found in Settings tab in Database
+    var databaseId = "database_id";//need one of those
+    var username = request.get("username");
+    var password = request.get("password");
+
+    // create user
+    var userLoginInfo = DatabaseUser.signUp(databaseId, {
+      "username": username,
+      "password": password
+    });
+
+    // create UserProfile
+    var userProfileInfo = Collection.createObject(databaseId, "UserProfile", {
+      "username": username
+    });
+
+    // link
+    DatabaseUser.update(databaseId, userLoginInfo._id, {
+      "to_userProfile": {
+        "collName": "UserProfile",
+        "_id": userProfileInfo._id
+      }
+    }, userLoginInfo.sessionToken);
+
+    var user = {
+      "username": username
+    };
+
+    response.success(user, "application/json");
+
+    //script to register new username
+    // Database API key can be found in Settings tab in Database
+    var databaseId = "database_id";
+    var username = request.get("username");
+    var password = request.get("password");
+
+    var userLoginInfo = DatabaseUser.login(databaseId, username, password);
+
+    var user = DatabaseUser.retrieve(databaseId, userLoginInfo._id, "to_userProfile", userLoginInfo.sessionToken);
+
+    response.success(user, "application/json");
   </script>
 </body>
 
