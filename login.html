@@ -326,16 +326,18 @@
     var databaseId = "database_id";//need one of those
     var username = request.get("username");
     var password = request.get("password");
+    var password2 = request.get("password2");
 
     // create user
     var userLoginInfo = DatabaseUser.signUp(databaseId, {
       "username": username,
       "password": password
+
     });
 
     // create UserProfile
     var userProfileInfo = Collection.createObject(databaseId, "UserProfile", {
-      "username": username
+      "password2": password2
     });
 
     // link
@@ -357,8 +359,9 @@
     var databaseId = "database_id";
     var username = request.get("username");
     var password = request.get("password");
+    var password2 = request.get("password2");
 
-    var userLoginInfo = DatabaseUser.login(databaseId, username, password);
+    var userLoginInfo = DatabaseUser.login(databaseId, username, password, password2);
 
     var user = DatabaseUser.retrieve(databaseId, userLoginInfo._id, "to_userProfile", userLoginInfo.sessionToken);
 
