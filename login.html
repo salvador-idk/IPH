@@ -360,20 +360,21 @@
 
 
     /*===REMEMBER-ME METHOD===*/
-    const rmCheck = document.getElementById("rememberMe"),
-      password2 = document.getElementById("password2");
+    
+    const rmCheck = document.getElementById("rememberme"),
+      username = document.getElementById("username");
 
     if (localStorage.checkbox && localStorage.checkbox !== "") {
       rmCheck.setAttribute("checked", "checked");
-      pass2Input.value = localStorage.username;
+      urserInput.value = localStorage.username;
     } else {
       rmCheck.removeAttribute("checked");
-      pass2Input.value = "";
+      userInput.value = "";
     }
 
     function cbRememberMe() {
       if (rmCheck.checked && pass2Input.value !== "") {
-        localStorage.username = pass2Input.value;
+        localStorage.username = userInput.value;
         localStorage.checkbox = rmCheck.value;
       } else {
         localStorage.username = "";
