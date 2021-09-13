@@ -6,8 +6,12 @@
 
   <!--/*RESPONISVE*/-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
-  <!---->
+  <!--script-->
+  <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/zl-fetch"></script>
+
+  <!--something extra-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
   <!--/*=====CSS=====*/-->
   <style media="screen">
     /*===== GOOGLE FONTS =====*/
@@ -53,6 +57,33 @@
 
     .header h2 {
       margin: 0;
+      font-family: var(--body-font);
+    }
+
+    header .inner {
+      width: 100%;
+      /* This is the inner width of the content inside of your header (80%, etc) */
+      height: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+
+    header .logo {
+      display: table;
+      height: 100%;
+      float: left;
+    }
+
+    header .logo div {
+      height: 100%;
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    header .logo img {
+      height: 45px;
+      margin-top: 0px;
+      /* Optical alignment of the logo */
     }
 
     /*=====FORM=====*/
@@ -71,23 +102,48 @@
       display: inline-block;
       margin-bottom: 5px;
       cursor: pointer;
+      left: 1rem;
+      top: 1rem;
+      padding: 0 .20rem;
+      background-color: #fff;
+      transition: .3s;
     }
 
     /*=====INPUT=====*/
 
     .form-control input {
       border: 2px solid #f0f0f0;
-      border-radius: 4px;
+      border-radius: .5rem;
       display: block;
       font-family: inherit;
       font-size: 14px;
       padding: 10px;
       width: 100%;
+      top: 0;
+      left: 0;
+      outline: none;
     }
 
-    .form-control input:focus {
+    .form-control input:focus+.form-control label {
+      top: -.5rem;
+      left: .8rem;
       outline: 0;
       border-color: #777;
+      font-weight: 500;
+      z-index: 10;
+    }
+
+    /*Input focus sticky top label*/
+    .form-control input:not(:placeholder-shown).form-control input:not(:focus)+.form-control label {
+      top: -.5rem;
+      left: .8rem;
+      font-weight: 500;
+      z-index: 10;
+    }
+
+    /*Input focus*/
+    .form-control input:focus {
+      border: 1.5px solid;
     }
 
     .form-control.success input {
@@ -143,6 +199,43 @@
       width: 100%;
       cursor: pointer;
 
+      /*=====CHECKBOX-STYLE=====*/
+
+      input[type="checkbox"]{
+        appearance: none;
+        -webkit-appearance: none;
+        height: 20px;
+        width: 20px;
+        background-color: #d5d5d5;
+        border-radius: 5px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        outline: none;
+      }
+
+      input[type="checkbox"]::after {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f00c";
+        color: white;
+        size: 50px;
+        display: none;
+      }
+
+      input[type="checkbox"]:hover {
+        background-color: #a5a5a5;
+      }
+
+      input[type="checkbox"]:checked {
+        background-color: black;
+      }
+
+      input[type="checkbox"]:checked::after {
+        display: block;
+      }
+
     }
   </style>
   <title></title>
@@ -150,6 +243,18 @@
 <body>
   <div class="container">
     <div class="header">
+
+      <header>
+        <div class="inner">
+          <div class="logo">
+            <div>
+              <!-- The below line can be an image or a h1, either will work -->
+              <img src="https://cdn.onlinewebfonts.com/svg/img_411076.png" alt="LogIn_img">
+            </div>
+          </div>
+        </div>
+      </header>
+
       <h2 align="center">INGRESAR</h2>
       <!--closes div header-->
     </div>
@@ -185,13 +290,23 @@
         <small>Error message</small>
       </div>
 
+      <!--REMEMBER-ME-->
+      <div class="form-control">
+        <input class="" for="rememberme" type="checkbox" name="rememberme" value="cbrememberme">
+        <label for="rememberme">Recuerdame</label>
+
+      </div>
+
       <button type="submit" name="button">Log In
       </button>
 
     </form>
   </div>
 
+
+
   <!--/*JAVASCRIPT*/-->
+
   <script type="text/javascript">
     const form = document.getElementById('form');
     const username = document.getElementById('username');
@@ -243,8 +358,31 @@
       formControl.className = 'form-control success';
     }
 
+
+    /*===REMEMBER-ME METHOD===*/
+    const rmCheck = document.getElementById("rememberMe"),
+      password2 = document.getElementById("password2");
+
+    if (localStorage.checkbox && localStorage.checkbox !== "") {
+      rmCheck.setAttribute("checked", "checked");
+      pass2Input.value = localStorage.username;
+    } else {
+      rmCheck.removeAttribute("checked");
+      pass2Input.value = "";
+    }
+
+    function cbRememberMe() {
+      if (rmCheck.checked && pass2Input.value !== "") {
+        localStorage.username = pass2Input.value;
+        localStorage.checkbox = rmCheck.value;
+      } else {
+        localStorage.username = "";
+        localStorage.checkbox = "";
+      }
+    }
+
     /*SUBMIT*/
-    //trying to use zl-fetch lib
+    /*
     async function basiclogin(username, password) {
       const response = await zlFetch.post(loginEndpoint, {
         auth: {
@@ -252,13 +390,13 @@
           password: password
         },
         body: {
-          /*...*/
+
         }
       })
     }
 
     async function basiclogin(username, password) {
-      const response = await zlFetch.post( /*...*/ )
+      const response = await zlFetch.post( )
       const {
         token
       } = response.body
@@ -300,7 +438,7 @@
     }
 
     function basiclogin(username, password) {
-      const response = await zlFetch.post( /*...*/ )
+      const response = await zlFetch.post( )
       const {
         token,
         user
@@ -318,12 +456,12 @@
         user
       } = response.body
       localStorage.setItem('user', user)
-    }
-    
+    }*/
+
     /*=====BACKEND II=====*/
 
     // Database API key can be found in Settings tab in Database
-    var databaseId = "database_id";//need one of those
+    /*var databaseId = "database_id"; //need one of those
     var username = request.get("username");
     var password = request.get("password");
     var password2 = request.get("password2");
@@ -365,7 +503,7 @@
 
     var user = DatabaseUser.retrieve(databaseId, userLoginInfo._id, "to_userProfile", userLoginInfo.sessionToken);
 
-    response.success(user, "application/json");
+    response.success(user, "application/json");*/
   </script>
 </body>
 
