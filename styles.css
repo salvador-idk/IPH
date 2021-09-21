@@ -1,669 +1,703 @@
-< !--=====CSS=====-->
-<style media="screen">
-/*===== GOOGLE FONTS =====*/
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-
-/*===== VARIABLES CSS =====*/
-:root {
-  /*===== Colores =====*/
-  --first-color: #000000;
-  --input-color: #2b2b2b;
-  --border-color: #351830;
-  /*===== Fuente y tipografia =====*/
-  --body-font: 'Roboto', sans-serif;
-  --normal-font-size: 1rem;
-  --small-font-size: .75rem;
-}
-
-/*=====WATERMARK=====*/
-img[src="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"] {
-  display: none;
-}
-
-/*===== BASE =====*/
-*,
-::before,
-::after {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: var(--body-font);
-  font-size: var(--normal-font-size);
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(white, #d68b0a);
-}
-
-h1 {
-  margin: 10px;
-}
-
-/*===== FORM =====*/
-/*.l-form{
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     height: 100vh;
-
-   }
-   .form{
-     width: 100%;
-     padding: 4rem 2rem;
-     border-radius: 1rem;
-     box-shadow: 0 10px 25px rgba(92,99,105,.2);
-     background-color: white;
-   }*/
-.form {
-  width: 100%;
-  height: 100%;
-  padding: 4rem 2rem;
-  border-radius: 1rem;
-  display: inline-block;
-  box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
-}
-
-.form__title {
-  font-weight: 400;
-  margin-bottom: 3rem;
-}
-
-.form__div {
-  position: relative;
-  height: 48px;
-  margin-bottom: 1.5rem;
-}
-
-/*input styles*/
-.form__input {
-  position: absolute;
-  display: inline-block;
-  top: 0;
-  left: 0;
-  width: 210px;
-  height: 100%;
-  font-size: var(--normal-font-size);
-  border: 1px solid var(--border-color);
-  border-radius: .5rem;
-  outline: none;
-  padding: 1rem;
-  background: none;
-  z-index: 1;
-}
-
-/*label styles*/
-.form__label {
-  /*position label elements*/
-  position: absolute;
-  left: 1rem;
-  top: 1rem;
-  padding: 0 .20rem;
-  background-color:
-    /*#fff;*/
-    transparent;
-  color: var(--input-color);
-  font-size: var(--normal-font-size);
-  transition: .1s;
-}
-
-/*button styles*/
-.form__button {
-  display: block;
-  margin-left: auto;
-  padding: .75rem 2rem;
-  outline: none;
-  border: none;
-  background-color: var(--first-color);
-  color: #ffffff;
-  font-size: var(--normal-font-size);
-  border-radius: .5rem;
-  cursor: pointer;
-  transition: .3s;
-}
-
-.form__button:hover {
-  box-shadow: 0 10px 36px rgba(0, 0, 0, .15);
-}
-
-/*Input focus move up label*/
-.form__input:focus+.form__label {
-  top: -.5rem;
-  left: .8rem;
-  color: var(--border-color);
-  font-size: var(--small-font-size);
-  font-weight: 500;
-  z-index: 10;
-}
-
-/*Input focus sticky top label*/
-.form__input:not(:placeholder-shown).form__input:not(:focus)+.form__label {
-  top: -.5rem;
-  left: .8rem;
-  font-size: var(--small-font-size);
-  font-weight: 500;
-  z-index: 10;
-}
-
-/*Input focus*/
-.form__input:focus {
-  border: 1.5px solid var(--first-color);
-}
-
-/*=====CONTAINER=====*/
-/*poner los elementos dentro de contairner*/
-.container {
-  border-radius: 4px;
-  background-color: white;
-  /*background-color: transparent !important;*/
-  opacity: .85;
-  /*tambien transparenta elementos dentro del container*/
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  table-layout: auto;
-}
-
-/*====HEADER====*/
-.header {
-  width: 100%;
-  height: 200px;
-  padding: 60px 0;
-  border-bottom: solid 1px rgba(16, 16, 16, 0.1);
-  text-align: center;
-  background-image: url("https://guardian.ng/wp-content/uploads/2019/09/Cybercrime.jpg"), linear-gradient(to bottom, rgb(255, 255, 255), rgb(0, 0, 0));
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-blend-mode: multiply;
-  color: rgb(255, 255, 255);
-}
-
-header .inner {
-  width: 100%;
-  /* This is the inner width of the content inside of your header (80%, etc) */
-  height: 100%;
-  display: block;
-  margin: 0 auto;
-}
-
-header .logo {
-  display: table;
-  height: 100%;
-  float: left;
-}
-
-header .logo div {
-  height: 100%;
-  display: table-cell;
-  vertical-align: middle;
-}
-
-header .logo img {
-  height: 100px;
-  margin-top: 5px;
-  /* Optical alignment of the logo */
-}
-
-header nav {
-  float: center;
-  height: 100%;
-}
-
-header nav li {
-  display: table;
-  height: 100%;
-  float: left;
-  margin-right: 30px;
-}
-
-header nav li:last-of-type {
-  margin-right: 0;
-}
-
-header nav span {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-header nav a {
-  color: #101010;
-}
-
-header nav .button {
-  background-color: #000000;
-  /* This HEX is the color of the button */
-  color: #FFF;
-  padding: 10px 20px;
-  border-radius: 4px;
-}
-
-header nav .button:hover {
-  filter: brightness(1.05);
-}
-
-/*====INPUT====*/
-input [type="text"] {
-  position: absolute;
-  display: inline-block;
-  top: 0;
-  left: 0;
-  width: 210px;
-  height: 100%;
-  font-size: var(--normal-font-size);
-  border: 1px solid var(--border-color);
-  border-radius: .5rem;
-  outline: none;
-  padding: 1rem;
-  background: none;
-  z-index: 1;
-}
-
-/*Label styles*/
-label {
-  cursor: pointer;
-}
-
-textarea {
-  resize: both;
-}
-
-/*=====RADIOBUTTON-CUSTOM=====*/
-input[type="radio"] {
-  background-color: #d5d5d5;
-  cursor: pointer;
-  display: flex;
-  border-radius: 5px;
-}
-
-/*=====CHECKBOX-STYLE=====*/
-input[type="checkbox"] {
-  appearance: none;
-  -webkit-appearance: none;
-  height: 20px;
-  width: 20px;
-  background-color: #d5d5d5;
-  border-radius: 5px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  outline: none;
-}
-
-input[type="checkbox"]::after {
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  content: "\f00d";
-  /*content: "\f00c";*/
-  color: white;
-  size: 50px;
-  display: none;
-}
-
-input[type="checkbox"]:hover {
-  background-color: #a5a5a5;
-}
-
-input[type="checkbox"]:checked {
-  background-color: black;
-}
-
-input[type="checkbox"]:checked::after {
-  display: block;
-}
-
-/*====Time====*/
-/* A few custom styles for time inputs */
-input[type="time"] {
-  appearance: none;
-  -webkit-appearance: none;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  color: #95a5a6;
-  font-size: 15px;
-  border: 1px solid #ecf0f1;
-  background: #ecf0f1;
-  padding: 5px;
-  display: inline-block !important;
-  visibility: visible !important;
-}
-
-input[type="time"],
-focus {
-  color: #95a5a6;
-  box-shadow: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-}
-
-/*====DATE====*/
-/* Removes the clear button from date inputs */
-input[type="date"]::-webkit-clear-button {
-  display: none;
-}
-
-/* Removes the spin button */
-input[type="date"]::-webkit-inner-spin-button {
-  display: none;
-}
-
-/* Always display the drop down caret */
-input[type="date"]::-webkit-calendar-picker-indicator {
-  color: #2c3e50;
-}
-
-/* A few custom styles for date inputs */
-input[type="date"] {
-  appearance: none;
-  -webkit-appearance: none;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  color: #95a5a6;
-  font-size: 15px;
-  border: 1px solid #ecf0f1;
-  background: #ecf0f1;
-  padding: 5px;
-  display: inline-block !important;
-  visibility: visible !important;
-}
-
-input[type="date"],
-focus {
-  color: #95a5a6;
-  box-shadow: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-}
-
-/*=====MARK-TAG=====*/
-mark {
-  background-color: black;
-  color: white;
-}
-
-/*=====TABLE=====*/
-.content-table {
-  border-collapse: collapse;
-  margin: 0px 0;
-  font-size: 0.7em;
-  max-width: 0px;
-  border-radius: 5px 5px 0 0;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  table-layout: fixed;
-  padding: auto;
-}
-
-.content-table thead tr {
-  background-color: #009879;
-  color: #ffffff;
-  text-align: left;
-  font-weight: bold;
-}
-
-.content-table th,
-.content-table td {
-  padding: 0%;
-  overflow: hidden;
-}
-
-.content-table tbody tr {
-  border-bottom: 1px solid #dddddd;
-}
-
-.content-table tbody tr:nth-of-type(even) {
-  background-color: #f3f3f3;
-}
-
-.content-table tbody tr:last-of-type {
-  border-bottom: 2px solid #009879;
-}
-
-.content-table tbody tr.active-row {
-  font-weight: bold;
-  color: #009879;
-}
-
-/*====RADIOBUTTON====*/
-.wrapper {
-  width: 350px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
-}
-
-.wrapper .title {
-  color: #fff;
-  line-height: 65px;
-  text-align: center;
-  background: #333;
-  font-size: 25px;
-  font-weight: 500;
-  border-radius: 10px 10px 0 0;
-}
-
-.wrapper .box {
-  padding: 20px 30px;
-  background: #fff;
-  border-radius: 10px;
-}
-
-.wrapper .box label {
-  display: flex;
-  height: 53px;
-  width: 100%;
-  align-items: center;
-  border: 1px solid lightgrey;
-  border-radius: 50px;
-  margin: 10px 0;
-  padding-left: 20px;
-  cursor: default;
-  transition: all 0.3s ease;
-}
-
-#option-1:checked~.option-1,
-#option-2:checked~.option-2,
-#option-3:checked~.option-3,
-#option-4:checked~.option-4,
-#option-5:checked~.option-5,
-#option-6:checked~.option-6,
-#option-7:checked~.option-7 {
-  background: #333;
-  border-color: #333;
-}
-
-.wrapper .box label .dot {
-  height: 20px;
-  width: 20px;
-  background: #d9d9d9;
-  border-radius: 50%;
-  position: relative;
-  transition: all 0.3s ease;
-}
-
-#option-1:checked~.option-1 .dot,
-#option-2:checked~.option-2 .dot,
-#option-3:checked~.option-3 .dot,
-#option-4:checked~.option-4 .dot,
-#option-5:checked~.option-5 .dot,
-#option-6:checked~.option-6 .dot,
-#option-7:checked~.option-7 .dot {
-  background: #fff;
-}
-
-.box label .dot::before {
-  position: absolute;
-  content: "";
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(2);
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  transition: all 0.3s ease;
-}
-
-#option-1:checked~.option-1 .dot::before,
-#option-2:checked~.option-2 .dot::before,
-#option-3:checked~.option-3 .dot::before,
-#option-4:checked~.option-4 .dot::before,
-#option-5:checked~.option-5 .dot::before,
-#option-6:checked~.option-6 .dot::before,
-#option-7:checked~.option-7 .dot::before {
-  background: #333;
-  transform: translate(-50%, -50%) scale(1);
-}
-
-.wrapper .box label .text {
-  color: #333;
-  font-size: 18px;
-  font-weight: 400;
-  padding-left: 10px;
-  transition: color 0.3s ease;
-}
-
-#option-1:checked~.option-1 .text,
-#option-2:checked~.option-2 .text,
-#option-3:checked~.option-3 .text,
-#option-4:checked~.option-4 .text,
-#option-5:checked~.option-5 .text,
-#option-6:checked~.option-6 .text,
-#option-7:checked~.option-7 .text {
-  color: #fff;
-}
-
-.wrapper .box input[type="radio"] {
+ /*===== GOOGLE FONTS =====*/
+    @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+    /*===== VARIABLES CSS =====*/
+    :root {
+      /*===== Colores =====*/
+      --first-color: #000000;
+      --input-color: #2b2b2b;
+      --border-color: #351830;
+
+      /*===== Fuente y tipografia =====*/
+      --body-font: 'Roboto', sans-serif;
+      --normal-font-size: 1rem;
+      --small-font-size: .75rem;
+    }
+    /*=====WATERMARK=====*/
+    img[src="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"]{
+        display:none;
+    }
+
+    /*===== BASE =====*/
+    *,
+    ::before,
+    ::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--body-font);
+      font-size: var(--normal-font-size);
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(white, #d68b0a);
+    }
+
+    h1 {
+      margin: 10px;
+    }
+
+    /*===== FORM =====*/
+    
+    /*.l-form{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+
+    }
+    .form{
+      width: 100%;
+      padding: 4rem 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 25px rgba(92,99,105,.2);
+      background-color: white;
+    }*/
+
+    .form {
+      width: 100%;
+      height: 100%;
+      padding: 4rem 2rem;
+      border-radius: 1rem;
+      display: inline-block;
+      box-shadow: 0 10px 25px rgba(92,99,105,.2);
+
+    }
+
+    .form__title {
+      font-weight: 400;
+      margin-bottom: 3rem;
+    }
+
+    .form__div {
+
+      position: relative;
+      height: 48px;
+      margin-bottom: 1.5rem;
+    }
+
+    /*input styles*/
+
+    .form__input {
+
+      position: absolute;
+      display: inline-block;
+      top: 0;
+      left: 0;
+      width: 210px;
+      height: 100%;
+      font-size: var(--normal-font-size);
+      border: 1px solid var(--border-color);
+      border-radius: .5rem;
+      outline: none;
+      padding: 1rem;
+      background: none;
+      z-index: 1;
+    }
+
+    /*label styles*/
+
+    .form__label {
+      /*position label elements*/
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      padding: 0 .20rem;
+      background-color: /*#fff;*/transparent;
+      color: var(--input-color);
+      font-size: var(--normal-font-size);
+      transition: .1s;
+      
+    }
+
+    /*button styles*/
+
+    .form__button {
+      display: block;
+      margin-left: auto;
+      padding: .75rem 2rem;
+      outline: none;
+      border: none;
+      background-color: var(--first-color);
+      color: #ffffff;
+      font-size: var(--normal-font-size);
+      border-radius: .5rem;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    .form__button:hover {
+      box-shadow: 0 10px 36px rgba(0, 0, 0, .15);
+    }
+
+    /*Input focus move up label*/
+    .form__input:focus+.form__label {
+      top: -.5rem;
+      left: .8rem;
+      color: var(--border-color);
+      font-size: var(--small-font-size);
+      font-weight: 500;
+      z-index: 10;
+    }
+
+    /*Input focus sticky top label*/
+    .form__input:not(:placeholder-shown).form__input:not(:focus)+.form__label {
+      top: -.5rem;
+      left: .8rem;
+      font-size: var(--small-font-size);
+      font-weight: 500;
+      z-index: 10;
+    }
+
+    /*Input focus*/
+    .form__input:focus {
+      border: 1.5px solid var(--first-color);
+    }
+
+    /*=====CONTAINER=====*/
+    /*poner los elementos dentro de contairner*/
+    .container {
+
+      border-radius: 4px;
+      background-color:white;
+      /*background-color: transparent !important;*/
+      opacity: .85;
+      /*tambien transparenta elementos dentro del container*/
+      padding:0;
+      width: 100%;
+      height: 100%;
+      overflow:auto;
+      table-layout: scroll;
+      
+    }
+
+    /*====HEADER====*/
+    .header {
+      width: 100%;
+      height: 200px;
+      padding: 60px 0;
+      border-bottom: solid 1px rgba(16, 16, 16, 0.1);
+      text-align: center;
+      background-image: url("https://guardian.ng/wp-content/uploads/2019/09/Cybercrime.jpg"), linear-gradient(to bottom, rgb(255, 255, 255), rgb(0, 0, 0));
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-blend-mode: multiply;
+      color: rgb(255, 255, 255);
+      
+    }
+
+    header .inner {
+      width: 100%;
+      /* This is the inner width of the content inside of your header (80%, etc) */
+      height: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+
+    header .logo {
+      display: table;
+      height: 100%;
+      float: left;
+    }
+
+    header .logo div {
+      height: 100%;
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    header .logo img {
+      height: 100px;
+      margin-top: 5px;
+      /* Optical alignment of the logo */
+    }
+
+    header nav {
+      float: center;
+      height: 100%;
+    }
+
+    header nav li {
+      display: table;
+      height: 100%;
+      float: left;
+      margin-right: 30px;
+    }
+
+    header nav li:last-of-type {
+      margin-right: 0;
+    }
+
+    header nav span {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    header nav a {
+      color: #101010;
+    }
+
+    header nav .button {
+      background-color: #000000;
+      /* This HEX is the color of the button */
+      color: #FFF;
+      padding: 10px 20px;
+      border-radius: 4px;
+    }
+
+    header nav .button:hover {
+      filter: brightness(1.05);
+    }
+
+
+
+    /*====INPUT====*/
+
+    input [type="text"]{
+      position: absolute;
+      display: inline-block;
+      top: 0;
+      left: 0;
+      width: 210px;
+      height: 100%;
+      font-size: var(--normal-font-size);
+      border: 1px solid var(--border-color);
+      border-radius: .5rem;
+      outline: none;
+      padding: 1rem;
+      background: none;
+      z-index: 1;
+    }
+
+    /*Label styles*/
+    label {
+      cursor: pointer;
+    }
+
+    textarea {
+      resize: both;
+    }
+    
+    /*=====RADIOBUTTON-CUSTOM=====*/
+    input[type="radio"]{
+      background-color: #d5d5d5;
+      cursor: pointer;
+      display:flex;
+      border-radius:5px;
+      
+    }
+
+    /*=====CHECKBOX-STYLE=====*/
+    input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      height: 20px;
+      width: 20px;
+      background-color: #d5d5d5;
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      outline: none;
+    }
+
+    input[type="checkbox"]::after {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      content: "\f00d";
+      /*content: "\f00c";*/
+      color: white;
+      size: 50px;
+      display: none;
+    }
+
+    input[type="checkbox"]:hover {
+      background-color: #a5a5a5;
+    }
+
+    input[type="checkbox"]:checked {
+      background-color: black;
+    }
+
+    input[type="checkbox"]:checked::after {
+      display: block;
+    }
+
+    /*====Time====*/
+
+    /* A few custom styles for time inputs */
+
+    input[type="time"] {
+      appearance: none;
+      -webkit-appearance: none;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      color: #95a5a6;
+      font-size: 15px;
+      border: 1px solid #ecf0f1;
+      background: #ecf0f1;
+      padding: 5px;
+      display: inline-block !important;
+      visibility: visible !important;
+    }
+
+    input[type="time"],
+    focus {
+      color: #95a5a6;
+      box-shadow: none;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+    }
+
+    /*====DATE====*/
+
+    /* Removes the clear button from date inputs */
+    input[type="date"]::-webkit-clear-button {
+      display: none;
+    }
+
+    /* Removes the spin button */
+    input[type="date"]::-webkit-inner-spin-button {
+      display: none;
+    }
+
+    /* Always display the drop down caret */
+    input[type="date"]::-webkit-calendar-picker-indicator {
+      color: #2c3e50;
+    }
+
+    /* A few custom styles for date inputs */
+    input[type="date"] {
+      appearance: none;
+      -webkit-appearance: none;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      color: #95a5a6;
+      font-size: 15px;
+      border: 1px solid #ecf0f1;
+      background: #ecf0f1;
+      padding: 5px;
+      display: inline-block !important;
+      visibility: visible !important;
+    }
+
+    input[type="date"],
+    focus {
+      color: #95a5a6;
+      box-shadow: none;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+    }
+    
+    /*=====MARK-TAG=====*/
+        mark {
+      background-color: black;
+      color: white;
+    
+        }
+    
+    /*=====TABLE=====*/
+    
+    
+
+    .content-table {
+      border-collapse: collapse;
+      margin: 0px 0;
+      font-size: 0.7em;
+      max-width: 0px;
+      border-radius: 5px 5px 0 0;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      table-layout: auto;
+      overflow: scroll;
+      padding:auto;
+    }
+
+    .content-table thead tr {
+      background-color: #009879;
+      color: #ffffff;
+      text-align: left;
+      font-weight: bold;
+    }
+
+    .content-table th,
+    .content-table td {
+      padding: 0%;
+      overflow:auto;  
+    }
+
+    .content-table tbody tr {
+      border-bottom: 1px solid #dddddd;
+    }
+
+    .content-table tbody tr:nth-of-type(even) {
+      background-color: #f3f3f3;
+    }
+
+    .content-table tbody tr:last-of-type {
+      border-bottom: 2px solid #009879;
+    }
+
+    .content-table tbody tr.active-row {
+      font-weight: bold;
+      color: #009879;
+    }
+    
+    /*====RADIOBUTTON====*/
+    .wrapper{
+      width: 350px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 5px 5px 30px rgba(0,0,0,0.2);
+    }
+    .wrapper .title{
+      color: #fff;
+      line-height: 65px;
+      text-align: center;
+      background: #333;
+      font-size: 25px;
+      font-weight: 500;
+      border-radius: 10px 10px 0 0;
+    }
+    .wrapper .box{
+      padding: 20px 30px;
+      background: #fff;
+      border-radius: 10px;
+    }
+    .wrapper .box label{
+      display: flex;
+      height: 53px;
+      width: 100%;
+      align-items: center;
+      border: 1px solid lightgrey;
+      border-radius: 50px;
+      margin: 10px 0;
+      padding-left: 20px;
+      cursor: default;
+      transition: all 0.3s ease;
+    }
+    #option-1:checked ~ .option-1,
+    #option-2:checked ~ .option-2,
+    #option-3:checked ~ .option-3,
+    #option-4:checked ~ .option-4,
+    #option-5:checked ~ .option-5,
+    #option-6:checked ~ .option-6,
+    #option-7:checked ~ .option-7{
+      background: #333;
+      border-color: #333;
+    }
+    .wrapper .box label .dot{
+      height: 20px;
+      width: 20px;
+      background: #d9d9d9;
+      border-radius: 50%;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    #option-1:checked ~ .option-1 .dot,
+    #option-2:checked ~ .option-2 .dot,
+    #option-3:checked ~ .option-3 .dot,
+    #option-4:checked ~ .option-4 .dot,
+    #option-5:checked ~ .option-5 .dot,
+    #option-6:checked ~ .option-6 .dot,
+    #option-7:checked ~ .option-7 .dot{
+      background: #fff;
+    }
+    .box label .dot::before{
+      position: absolute;
+      content: "";
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(2);
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+    #option-1:checked ~ .option-1 .dot::before,
+    #option-2:checked ~ .option-2 .dot::before,
+    #option-3:checked ~ .option-3 .dot::before,
+    #option-4:checked ~ .option-4 .dot::before,
+    #option-5:checked ~ .option-5 .dot::before,
+    #option-6:checked ~ .option-6 .dot::before,
+    #option-7:checked ~ .option-7 .dot::before{
+      background: #333;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    .wrapper .box label .text{
+      color: #333;
+      font-size: 18px;
+      font-weight: 400;
+      padding-left: 10px;
+      transition: color 0.3s ease;
+    }
+    #option-1:checked ~ .option-1 .text,
+    #option-2:checked ~ .option-2 .text,
+    #option-3:checked ~ .option-3 .text,
+    #option-4:checked ~ .option-4 .text,
+    #option-5:checked ~ .option-5 .text,
+    #option-6:checked ~ .option-6 .text,
+    #option-7:checked ~ .option-7 .text{
+      color: #fff;
+    }
+    
+    .wrapper .box input[type="radio"]{
   display: none;
 }
 
 /*====PRE-TAG====*/
-pre {
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  text-align: justify;
-}
-
-/*=====HAMBURGER-MENU=====*/
-#menuToggle {
+    pre {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      text-align: justify;
+    }
+    
+    /*=====HAMBURGER-MENU=====*/
+    
+    #menuToggle
+{
   display: block;
   position: relative;
   top: 0px;
   left: 20px;
+
   z-index: 1;
+
   -webkit-user-select: none;
   user-select: none;
 }
 
-#menuToggle a {
+#menuToggle a
+{
   text-decoration: none;
   color: #232323;
+
   transition: color 0.3s ease;
 }
 
-#menuToggle a:hover {
+#menuToggle a:hover
+{
   color: tomato;
 }
 
-#menuToggle input {
+
+#menuToggle input
+{
   display: block;
   width: 30px;
   height: 32px;
   position: absolute;
   top: -7px;
   left: -5px;
+
   cursor: pointer;
-  opacity: 0;
-  /* hide this */
-  z-index: 2;
-  /* and place it over the hamburger */
+
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+
   -webkit-touch-callout: none;
 }
 
 /*
-* Just a quick hamburger
-*/
-#menuToggle span {
+ * Just a quick hamburger
+ */
+#menuToggle span
+{
   display: block;
   width: 30px;
   height: 4px;
   margin-bottom: 4px;
   position: relative;
+
   background: #232323;
   border-radius: 3px;
+
   z-index: 1;
+
   transform-origin: 4px 0px;
-  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
-    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
-    opacity 0.55s ease;
+
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
 }
 
-#menuToggle span:first-child {
+#menuToggle span:first-child
+{
   transform-origin: 0% 0%;
 }
 
-#menuToggle span:nth-last-child(2) {
+#menuToggle span:nth-last-child(2)
+{
   transform-origin: 0% 100%;
 }
 
 /*
-* Transform all the slices of hamburger
-* into a crossmark.
-*/
-#menuToggle input:checked~span {
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span
+{
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
   background: #232323;
 }
 
 /*
-* But let's hide the middle one.
-*/
-#menuToggle input:checked~span:nth-last-child(3) {
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
   opacity: 0;
   transform: rotate(0deg) scale(0.2, 0.2);
 }
 
 /*
-* Ohyeah and the last one should go the other direction
-*/
-#menuToggle input:checked~span:nth-last-child(2) {
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
   transform: rotate(-45deg) translate(0, -1px);
 }
 
 /*
-* Make this absolute positioned
-* at the top left of the screen
-*/
-#menu {
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu
+{
   position: absolute;
   width: 250px;
   margin: -100px 0 0 -50px;
   padding: 50px;
   padding-top: 75px;
+
   background: #ededed;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */
+
   transform-origin: 0% 0%;
   transform: translate(-100%, 0);
-  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }
 
-#menu li {
-  /* padding with 'x'*/
+#menu li
+{
+    /* padding with 'x'*/
   padding: 10px 0;
   font-size: 22px;
 }
 
 /*
-* And let's slide it in from the left
-*/
-#menuToggle input:checked~ul {
+ * And let's slide it in from the left
+ */
+#menuToggle input:checked ~ ul
+{
   transform: none;
 }
-
-</style>
