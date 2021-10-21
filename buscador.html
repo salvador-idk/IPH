@@ -24,6 +24,11 @@
     --normal-font-size: 1rem;
     --small-font-size: .75rem;
   }
+  
+  /*=====WATERMARK=====*/
+  img[src="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"]{
+      display:none;
+  }
 
   /*===== BASE =====*/
   *,
@@ -33,35 +38,47 @@
   }
 
   body {
-    margin: 10px;
-    padding: 10px;
+    margin: 0;
+    padding: 0;
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
-    width: 400px;
+    width: 100%;
+    background-image: linear-gradient(white, #38d5f4);
     text-align: center;
   }
+  
+  /*===== FORM =====*/
+    .l-form{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-  form {
+  .form {
     align-content: center;
     display: inline-block;
-    width: 100%;
-    padding: 10rem 5rem;
+    width: 360px;
+    padding: 4rem 2rem;
     border-radius: 1rem;
-    background-image: linear-gradient(#53316d, white );
+    box-shadow: 0 10px 25px rgba(92,99,105,.2);
+    background-color:white;
+    
 
   }
 
   /*=====INPUT=====*/
   input {
-    border: 1px solid black;
+    border: 2px solid black;
     border-radius: 3px;
     cursor: pointer;
   }
+  
 
   /*====BUTTON====*/
 
   .form__button {
-    display:inline;
+    display:inline-block;
     margin-left: auto;
     padding: .35rem 2rem;
     outline: none;
@@ -110,6 +127,9 @@
     margin: 10px;
     display: inline-block !important;
     visibility: visible !important;
+    border: 1px solid black;
+    border-radius: 3px;
+    cursor: pointer;
   }
 
   input[type="date"],
@@ -135,22 +155,25 @@
 </head>
 
 <body>
-
-
-
-    <div class="" align="right">
-    <button type="button" name="button"><a href="index.html">Formulario IPH</a></button>
-    </div>
-
-
-    <div class="form__div">
-      <label for="fecha" class="form__label">Fecha a buscar</label><br>
+    
+    <div class="l-form">
+  <form action="buscador.php" class="form" method="POST">
+      
+      
+    <div class="form__div" align="center">
+      <label for="fecha" class="form__label"><h2>Fecha a Buscar</h2></label><br>
       <input type="date" name="fecha" id="fecha" class="form__input">
-    </div>
-
-    <button type="submit" class="form__button">
+    </div><br>
+    
+    <div class="form_div" align="right">
+        <button type="submit" class="form__button">
       Buscar
     </button>
+    
+    <button type="button" name="button" class="form__button"><a href="index.html">Formulario IPH</a></button>
+    </div>
+    
+    </div>
 
   </form>
 
